@@ -1,4 +1,4 @@
-import { } from "react-loader-spinner";
+import { Bars } from "react-loader-spinner";
 
 export const BarsLoader = () => {
   const overlay: Record<string, string> = {
