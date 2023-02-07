@@ -52,7 +52,7 @@ class ErrorBoundary extends Component<Props, State> {
                   {errorInfo && errorInfo.componentStack ? (
                     <div>
                       <pre style={{ color: "red" }}>
-                        <code>{errorInfo && errorInfo.componentStack}</code>
+                        <code>{errorInfo && errorInfo?.componentStack}</code>
                       </pre>
                     </div>
                   ) : null}
