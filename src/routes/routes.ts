@@ -10,15 +10,17 @@ const routes = [
     path: "",
     element: lazy(() => import("../pages/home")),
     exact: true,
-  },{
+  },
+  {
     path: "*",
     element: lazy(() => import("../pages/pageNotFound/pageNotFound")),
     exact: true,
-  },{
-    path: "/productInfo",
+  },
+  {
+    path: "/ProductInfo/:productId",
     element: lazy(() => import("../pages/productInfo")),
     exact: true,
-  }
+  },
 ];
 
 export default routes;
