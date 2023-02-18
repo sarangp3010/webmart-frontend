@@ -15,11 +15,6 @@ const routes = [
     element: lazy(() => import("../pages/pageNotFound/pageNotFound")),
     exact: true,
   },
-  // {
-  //   path: "home1",
-  //   element: lazy(() => import("../pages/home_page")),
-  //   exact: true,
-  // },
 ];
 
 export default routes;
