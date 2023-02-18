@@ -4,6 +4,8 @@ const Dashboard = () => {
   
   return (<>
 
+<script src="home_scroll.tsx"></script>
+
         <header className="hero-section">
           <div className="content">
               <img src="img/light-logo.png" className="logo" alt=""/>
@@ -13,7 +15,7 @@ const Dashboard = () => {
  
   <section className="product">
   <h2 className="product-category">Hot Deals</h2>
-  <button className="pre-btn"><img src="img/arrow.png" alt=""/></button>
+  <button className="pre-btn"><img src="img/arrow.png" alt="" /></button>
   <button className="nxt-btn"><img src="img/arrow.png" alt=""/></button>
   <div className="product-container">
      <div className="product-card">
@@ -322,6 +324,8 @@ const Dashboard = () => {
      </div>
    </div>
 </section>
+
+
 </>)
 
 
