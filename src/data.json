@@ -1,0 +1,86 @@
+[
+    {
+        "name": "Product 1",
+        "price": 100,
+        "rating": 3,
+        "img": "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-math-90946.jpg&fm=jpg",
+        "Used_type": "New"
+    },
+    {
+        "name": "Product 2",
+        "price": 200,
+        "rating": 4,
+        "img": "https://petapixel.com/assets/uploads/2017/03/product1.jpeg",
+        "Used_type": "Old"
+    },
+    {
+        "name": "Product 3",
+        "price": 300,
+        "rating": 5,
+        "img": "https://images.pexels.com/photos/335257/pexels-photo-335257.jpeg?cs=srgb&dl=pexels-eprism-studio-335257.jpg&fm=jpg",
+        "Used_type": "New"
+    },
+    {
+        "name": "Product 1",
+        "price": 100,
+        "rating": 3,
+        "img": "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-math-90946.jpg&fm=jpg",
+        "Used_type": "New"
+    },
+    {
+        "name": "Product 2",
+        "price": 200,
+        "rating": 4,
+        "img": "https://petapixel.com/assets/uploads/2017/03/product1.jpeg",
+        "Used_type": "Old"
+    },
+    {
+        "name": "Product 3",
+        "price": 300,
+        "rating": 5,
+        "img": "https://images.pexels.com/photos/335257/pexels-photo-335257.jpeg?cs=srgb&dl=pexels-eprism-studio-335257.jpg&fm=jpg",
+        "Used_type": "New"
+    },
+    {
+        "name": "Product 1",
+        "price": 100,
+        "rating": 3,
+        "img": "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-math-90946.jpg&fm=jpg",
+        "Used_type": "New"
+    },
+    {
+        "name": "Product 2",
+        "price": 200,
+        "rating": 4,
+        "img": "https://petapixel.com/assets/uploads/2017/03/product1.jpeg",
+        "Used_type": "Old"
+    },
+    {
+        "name": "Product 3",
+        "price": 300,
+        "rating": 5,
+        "img": "https://images.pexels.com/photos/335257/pexels-photo-335257.jpeg?cs=srgb&dl=pexels-eprism-studio-335257.jpg&fm=jpg",
+        "Used_type": "New"
+    },
+    {
+        "name": "Product 1",
+        "price": 100,
+        "rating": 3,
+        "img": "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-math-90946.jpg&fm=jpg",
+        "Used_type": "New"
+    },
+    {
+        "name": "Product 2",
+        "price": 200,
+        "rating": 4,
+        "img": "https://petapixel.com/assets/uploads/2017/03/product1.jpeg",
+        "Used_type": "Old"
+    },
+    {
+        "name": "Product 3",
+        "price": 300,
+        "rating": 5,
+        "img": "https://images.pexels.com/photos/335257/pexels-photo-335257.jpeg?cs=srgb&dl=pexels-eprism-studio-335257.jpg&fm=jpg",
+        "Used_type": "New"
+    }
+]
