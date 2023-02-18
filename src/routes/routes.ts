@@ -10,7 +10,8 @@ const routes = [
     path: "",
     element: lazy(() => import("../pages/home")),
     exact: true,
-  },{
+  },
+  {
     path: "*",
     element: lazy(() => import("../pages/pageNotFound/pageNotFound")),
     exact: true,
