@@ -3,13 +3,14 @@ import logo from '../../Assets/Images/Free_Sample_By_Wix.jpg';
 import logo1 from '../../Assets/Images/images.png';
 import logo2 from '../../Assets/Images/download.png';
 import { Row } from 'react-bootstrap';
+import "../../stylesheets/_header.scss";
 
 const StatusBar: React.FC<any> = () => {
   return (
     <header>
       <div className="status-bar">
     
-        <div className="logo ml-2px">
+        <div className="logo">
           <img src={logo} alt="Logo" />
         </div>
         <div className="name">
