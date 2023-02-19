@@ -1,4 +1,4 @@
-import "../../stylesheets/pages/_products.scss";
+import { Link } from "react-router-dom";
 
 const Product = (props: any) => {
   const productRating: number = props.data.rating;
@@ -16,7 +16,7 @@ const Product = (props: any) => {
   const temp: Array<any> = [];
   temp.push(<span className="fa fa-star checked"></span>);
   temp.push(<span className="fa fa-star checked"></span>);
-  console.log("Done!!");
+  const productInfoRoute = `/productInfo/${props.data.product_Id}`;
 
   return (
     <div className="main-product-list">
@@ -31,13 +31,15 @@ const Product = (props: any) => {
                 <span className="tag tag-teal">{props.data.used_type}</span>
                 <div className="text-end ms-5 d-inline">{starRating}</div>
               </div>
-              <a href="/productInfo/2" className="card-text mt-3">
-                {props.data.name}
-              </a>
+              {props.data.name}
               <p className="card-text">Price: {props.data.price}</p>
-              <a href="" className="btn btn-primary">
+              <Link
+                to={productInfoRoute}
+                className="btn btn-primary"
+                style={{ textDecoration: "none" }}
+              >
                 Buy
-              </a>
+              </Link>
             </div>
           </div>
         </div>
