@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from '../../Assets/Images/Free_Sample_By_Wix.jpg';
-import logo1 from '../../Assets/Images/images.png';
-import logo2 from '../../Assets/Images/download.png';
+import logo from '../../assets/Images/Free_Sample_By_Wix.jpg';
+import logo1 from '../../assets/Images/images.png';
+import logo2 from '../../assets/Images/download.png';
 
 const StatusBar: React.FC<any> = () => {
   return (
