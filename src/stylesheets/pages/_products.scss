@@ -11,11 +11,7 @@ body {
   font-family: "Roboto", sans-serif;
   color: #10182f;
 }
-<<<<<<< HEAD
-.container {
-=======
 .main-product-container {
->>>>>>> master
   display: flex;
   width: 100%;
   justify-content: space-evenly;
@@ -35,18 +31,10 @@ body {
   object-fit: cover;
 }
 .card-body {
-<<<<<<< HEAD
-  font-size: 25px;
-=======
->>>>>>> master
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-<<<<<<< HEAD
-  font-weight: bold;
-=======
->>>>>>> master
   padding: 20px;
   min-height: 50px;
 }
@@ -73,11 +61,7 @@ body {
 
 .card-body p {
   font-size: 13px;
-<<<<<<< HEAD
-  margin: 0 0 15px;
-=======
   margin: 0 0 5px;
->>>>>>> master
 }
 .user {
   display: flex;
@@ -96,9 +80,6 @@ body {
 .user-info small {
   color: #545d7a;
 }
-<<<<<<< HEAD
-=======
 .checked {
   color: orange;
 }
->>>>>>> master
