@@ -1,10 +1,6 @@
 import "../stylesheets/pages/_products.scss";
-import home from "../Assets/Images/home.png";
-import user from "../Assets/Images/user.png";
-import cart from "../Assets/Images/cart.png";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -13,59 +9,6 @@ import Image from "react-bootstrap/Image";
 const productInfoPage = (props: any) => {
   return (
     <>
-      <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container-fluid">
-          <h1 className="navbar-brand my-auto">WebMart</h1>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <button className="btn btn-outline-dark" type="submit">
-                  <Image
-                    src={home}
-                    width={30}
-                    height={30}
-                    rounded
-                    fluid
-                    className=""
-                    alt=""
-                  />
-                </button>
-              </li>
-            </ul>
-            <Form>
-              <Form.Control
-                className=""
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              ></Form.Control>
-            </Form>
-            <button className="btn btn-outline-dark" type="submit">
-              <Image
-                src={user}
-                width={40}
-                height={40}
-                rounded
-                fluid
-                className="mx-1"
-                alt=""
-              />
-            </button>
-            <button className="btn btn-outline-dark" type="submit">
-              <Image
-                src={cart}
-                width={40}
-                height={40}
-                rounded
-                fluid
-                className="mx-1"
-                alt=""
-              />
-            </button>
-          </div>
-        </div>
-      </Navbar>
-
       <Container>
         <Row className="mt-5">
           <Col>

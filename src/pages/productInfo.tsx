@@ -1,6 +1,7 @@
 import "../stylesheets/pages/_products.scss";
 import ProductInfoPage from "../components/ProductInfoPage";
 import data from "../data.json";
+import PageNotFound from "./pageNotFound/pageNotFound";
 import { useParams } from "react-router-dom";
 
 const ProductInfo = () => {
@@ -15,7 +16,7 @@ const ProductInfo = () => {
 
   return (
     <div>
-        <ProductInfoPage product={product} />
+      <ProductInfoPage product={product} />
     </div>
   );
 };
