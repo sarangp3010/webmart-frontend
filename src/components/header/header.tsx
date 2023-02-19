@@ -1,16 +1,9 @@
 import React from 'react';
-import logo from '../../Assets/Images/Free_Sample_By_Wix.jpg'
-interface StatusBarProps {
-  logo: string;
-  name: string;
-  profileImage: string;
-  cartItems: number;
-}
+import logo from '../../assets/Images/Free_Sample_By_Wix.jpg';
 
-const StatusBar: React.FC<StatusBarProps> = ({ logo, name, profileImage, cartItems }) => {
+const StatusBar: React.FC<any> = () => {
   return (
     <div className="status-bar">
-      
       <div className="logo">
         <img src={logo} alt="Logo" />
       </div>
@@ -22,11 +15,11 @@ const StatusBar: React.FC<StatusBarProps> = ({ logo, name, profileImage, cartIte
         <button>Search</button>
       </div>
       <div className="profile">
-        <img src={profileImage} alt="Profile" />
+        <img src={logo} alt="Profile" />
       </div>
       <div className="cart">
         <i className="fas fa-shopping-cart"></i>
-        <span>{cartItems}</span>
+        <span>{5}</span>
       </div>
     </div>
   );
