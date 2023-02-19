@@ -1,5 +1,7 @@
 import React from 'react';
-import logo from '../../assets/Images/Free_Sample_By_Wix.jpg';
+import logo from '../../Assets/Images/Free_Sample_By_Wix.jpg';
+import logo1 from '../../Assets/Images/images.png';
+import logo2 from '../../Assets/Images/download.png';
 
 const StatusBar: React.FC<any> = () => {
   return (
@@ -15,11 +17,10 @@ const StatusBar: React.FC<any> = () => {
         <button>Search</button>
       </div>
       <div className="profile">
-        <img src={logo} alt="Profile" />
+        <img src={logo1} alt="Profile" />
       </div>
       <div className="cart">
-        <i className="fas fa-shopping-cart"></i>
-        <span>{5}</span>
+        <img src={logo2} alt="Logo" />
       </div>
     </div>
   );

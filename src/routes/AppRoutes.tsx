@@ -7,7 +7,7 @@ import PublicRoute from "../components/routing/PublicRoute";
 const LoginPage = lazy(() => import("../pages/Login/Login"));
 const ForgetPassword = lazy(() => import("../pages/forgetPassword"));
 
-const withoutHeader = ["/login", "/signup", ,"/forget-password"];
+const withoutHeader = ["/login", "/signup", "/forget-password"];
 const isHeaderAvailable = (path: any) => {
   return withoutHeader.includes(path);
 }
