@@ -1,4 +1,3 @@
-import "../stylesheets/pages/_products.scss";
 import ProductInfoPage from "../components/ProductInfoPage";
 import data from "../data.json";
 import { useParams } from "react-router-dom";

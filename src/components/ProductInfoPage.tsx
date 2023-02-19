@@ -1,10 +1,4 @@
-import "../stylesheets/pages/_products.scss";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Image from "react-bootstrap/Image";
+import { Row, Col, Button, Form, Container, Image } from "react-bootstrap";
 
 const productInfoPage = (props: any) => {
   return (
@@ -84,7 +78,7 @@ const productInfoPage = (props: any) => {
                 height={400}
                 alt=""
               />
-               <a href="/productInfo/1">
+              <a href="/productInfo/1">
                 <div className="card-body link-dark">Smartphone Case</div>
               </a>
               <p className="card-text text-center mb-3 fw-bold">$100</p>
@@ -115,7 +109,7 @@ const productInfoPage = (props: any) => {
                 height={400}
                 alt=""
               />
-               <a href="/productInfo/4">
+              <a href="/productInfo/4">
                 <div className="card-body link-dark">Portable Power Bank</div>
               </a>
               <p className="card-text text-center mb-3 fw-bold">$100</p>

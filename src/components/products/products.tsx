@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "../../stylesheets/pages/_products.scss";
 
 const Product = (props: any) => {
   const productRating: number = props.data.rating;
@@ -34,7 +33,11 @@ const Product = (props: any) => {
               </div>
               {props.data.name}
               <p className="card-text">Price: {props.data.price}</p>
-              <Link to={productInfoRoute} className="btn btn-primary" style={{ textDecoration: "none" }}>
+              <Link
+                to={productInfoRoute}
+                className="btn btn-primary"
+                style={{ textDecoration: "none" }}
+              >
                 Buy
               </Link>
             </div>
