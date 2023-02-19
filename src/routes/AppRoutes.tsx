@@ -7,8 +7,8 @@ import routes from "../routes/routes";
 const AppRoutes = () => {
   return (
     <Suspense fallback={<BarsLoader />}>
-      <div className="h-screen bg-indigo-100 py-6 md:py-12">
-        <div className="container px-4 mx-auto">
+      <div className="h-screen bg-indigo-100">
+        <div className="px-4 m-0">
           <Routes>
             {(routes || []).map(({ element: Element, path }, index) => (
               <>
