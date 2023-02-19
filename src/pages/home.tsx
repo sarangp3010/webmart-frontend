@@ -1,22 +1,27 @@
 import card1 from "./img/card1.png";
-import arrow from "./img/arrow.png";
-import light from "./img/light-logo.png";
+import bands from "./img/Bands.webp";
+import utensils from "./img/Utensils.jpeg";
 import card2 from "./img/card2.png";
 import card3 from "./img/card3.png";
 import card4 from "./img/card4.png";
 import card5 from "./img/card5.png";
-import card6 from "./img/card6.png";
-import card7 from "./img/card7.png";
-import card8 from "./img/card8.png";
+import card6 from "./img/lamp.webp";
+import card7 from "./img/Fitness.webp";
+import card8 from "./img/powerbank.jpg";
+import card9 from "./img/Dryer.webp";
+import card10 from "./img/case.jpeg";
 import weblogo from "./img/Webmart_logo.jpeg";
 import user from "./img/user.png";
 import cart from "./img/cart.png";
+import bottle from "./img/Bottle.webp";
+import headphones from "./img/headphones.jpeg";
+import kettle from "./img/kettle.webp";
 
 const Dashboard = () => {
   
   return (<>
 
-       <nav className="navbar">
+       {/* <nav className="navbar">
        <div className="nav">
     <img src={weblogo} className="brand-logo"/>
     <div className="nav-items">
@@ -29,106 +34,44 @@ const Dashboard = () => {
         
     </div>
     </div>
-       </nav>
+       </nav> */}
 
-        <script src="home_scroll.tsx">
-          
-        </script>
+        
 
         <header className="hero-section">
           <div className="content">
-              <img src={light} className="logo" alt=""/>
+              
               <p className="sub-heading">Shop smarter, not harder.</p>
           </div>
         </header>
  
-  <section className="product">
+  
+<section className="product">
   <h2 className="product-category">Hot Deals</h2>
-  <button className="pre-btn"><img src={arrow} alt="" /></button>
-  <button className="nxt-btn"><img src={arrow} alt=""/></button>
+  
   <div className="product-container">
      <div className="product-card">
         <div className="product-image">
-           <span className="discount-tag">50% off</span>
-           <img src={card1} className="product-thumb" alt=""/>
+        <span className="discount-tag">50% off</span>
+           <img src={card6} className="product-thumb" alt=""/>
            <button className="card-btn">Buy</button>
         </div>
         <div className="product-info">
-             <h2 className="product-brand">brand</h2>
-             <p className="product-short-des">a short line about the product..</p>
-             <span className="price">$20</span><span className="actual-price">$40</span>
+             <h2 className="product-brand">Desk Lamp</h2>
+             
+             <span className="price">$200</span><span className="actual-price">$400</span>
         </div>
      </div>
      <div className="product-card">
        <div className="product-image">
-          <span className="discount-tag">50% off</span>
-          <img src={card2} className="product-thumb" alt=""/>
-          <button className="card-btn">Buy</button>
-       </div>
-       <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
-       </div>
-    </div>
-    <div className="product-card">
-       <div className="product-image">
-          <span className="discount-tag">50% off</span>
-          <img src={card3} className="product-thumb" alt=""/>
-          <button className="card-btn">Buy</button>
-       </div>
-       <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
-       </div>
-    </div>
-    <div className="product-card">
-       <div className="product-image">
-          <span className="discount-tag">50% off</span>
-          <img src={card4} className="product-thumb" alt=""/>
-          <button className="card-btn">Buy</button>
-       </div>
-       <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
-       </div>
-    </div>
-    <div className="product-card">
-       <div className="product-image">
-          <span className="discount-tag">50% off</span>
-          <img src={card5} className="product-thumb" alt=""/>
-          <button className="card-btn">Buy</button>
-       </div>
-       <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
-       </div>
-    </div>
-    <div className="product-card">
-       <div className="product-image">
-          <span className="discount-tag">50% off</span>
-          <img src={card6} className="product-thumb" alt=""/>
-          <button className="card-btn">Buy</button>
-       </div>
-       <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
-       </div>
-    </div>
-    <div className="product-card">
-       <div className="product-image">
-          <span className="discount-tag">50% off</span>
+       <span className="discount-tag">60% off</span>
           <img src={card7} className="product-thumb" alt=""/>
           <button className="card-btn">Buy</button>
        </div>
        <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
+            <h2 className="product-brand">Fitness Tracker</h2>
+            
+            <span className="price">$100</span><span className="actual-price">$250</span>
        </div>
     </div>
     <div className="product-card">
@@ -138,9 +81,33 @@ const Dashboard = () => {
           <button className="card-btn">Buy</button>
        </div>
        <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
+            <h2 className="product-brand">Power Bank</h2>
+            
+            <span className="price">$150</span><span className="actual-price">$300</span>
+       </div>
+    </div>
+    <div className="product-card">
+       <div className="product-image">
+          <span className="discount-tag">50% off</span>
+          <img src={card9} className="product-thumb" alt=""/>
+          <button className="card-btn">Buy</button>
+       </div>
+       <div className="product-info">
+            <h2 className="product-brand">Hair Dryer</h2>
+            
+            <span className="price">$200</span><span className="actual-price">$400</span>
+       </div>
+    </div>
+    <div className="product-card">
+       <div className="product-image">
+          <span className="discount-tag">20% off</span>
+          <img src={card10} className="product-thumb" alt=""/>
+          <button className="card-btn">Buy</button>
+       </div>
+       <div className="product-info">
+            <h2 className="product-brand">Smartphone Case</h2>
+            
+            <span className="price">$100</span><span className="actual-price">$125</span>
        </div>
     </div>
   </div>
@@ -148,207 +115,131 @@ const Dashboard = () => {
 
 <section className="product">
   <h2 className="product-category">Clothing</h2>
-  <button className="pre-btn"><img src={arrow} alt="" /></button>
-  <button className="nxt-btn"><img src={arrow} alt=""/></button>
+  
   <div className="product-container">
      <div className="product-card">
         <div className="product-image">
-           <span className="discount-tag">50% off</span>
+           
            <img src={card1} className="product-thumb" alt=""/>
            <button className="card-btn">Buy</button>
         </div>
         <div className="product-info">
-             <h2 className="product-brand">brand</h2>
-             <p className="product-short-des">a short line about the product..</p>
-             <span className="price">$20</span><span className="actual-price">$40</span>
+             <h2 className="product-brand">Nike</h2>
+             
+             <span className="price">$210</span>
         </div>
      </div>
      <div className="product-card">
        <div className="product-image">
-          <span className="discount-tag">50% off</span>
+          
           <img src={card2} className="product-thumb" alt=""/>
           <button className="card-btn">Buy</button>
        </div>
        <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
+            <h2 className="product-brand">Wrogn</h2>
+            
+            <span className="price">$140</span>
        </div>
     </div>
     <div className="product-card">
        <div className="product-image">
-          <span className="discount-tag">50% off</span>
           <img src={card3} className="product-thumb" alt=""/>
           <button className="card-btn">Buy</button>
        </div>
        <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
+            <h2 className="product-brand">Columbia</h2>
+            
+            <span className="price">$80</span>
        </div>
     </div>
     <div className="product-card">
        <div className="product-image">
-          <span className="discount-tag">50% off</span>
           <img src={card4} className="product-thumb" alt=""/>
           <button className="card-btn">Buy</button>
        </div>
        <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
+            <h2 className="product-brand">Calvin Klein</h2>
+            
+            <span className="price">$130</span>
        </div>
     </div>
     <div className="product-card">
        <div className="product-image">
-          <span className="discount-tag">50% off</span>
           <img src={card5} className="product-thumb" alt=""/>
           <button className="card-btn">Buy</button>
        </div>
        <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
+            <h2 className="product-brand">Chanel</h2>
+            
+            <span className="price">$160</span>
        </div>
     </div>
-    <div className="product-card">
-       <div className="product-image">
-          <span className="discount-tag">50% off</span>
-          <img src={card6} className="product-thumb" alt=""/>
-          <button className="card-btn">Buy</button>
-       </div>
-       <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
-       </div>
-    </div>
-    <div className="product-card">
-       <div className="product-image">
-          <span className="discount-tag">50% off</span>
-          <img src={card7} className="product-thumb" alt=""/>
-          <button className="card-btn">Buy</button>
-       </div>
-       <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
-       </div>
-    </div>
-    <div className="product-card">
-       <div className="product-image">
-          <span className="discount-tag">50% off</span>
-          <img src={card8} className="product-thumb" alt=""/>
-          <button className="card-btn">Buy</button>
-       </div>
-       <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
-       </div>
-    </div>
+  
   </div>
 </section>
 
+
 <section className="product">
-  <h2 className="product-category">Electronics</h2>
-  <button className="pre-btn"><img src={arrow} alt="" /></button>
-  <button className="nxt-btn"><img src={arrow} alt=""/></button>
+  <h2 className="product-category">Miscellaneous</h2>
+  
   <div className="product-container">
      <div className="product-card">
         <div className="product-image">
-           <span className="discount-tag">50% off</span>
-           <img src={card1} className="product-thumb" alt=""/>
+           <img src={utensils} className="product-thumb" alt=""/>
            <button className="card-btn">Buy</button>
         </div>
         <div className="product-info">
-             <h2 className="product-brand">brand</h2>
-             <p className="product-short-des">a short line about the product..</p>
-             <span className="price">$20</span><span className="actual-price">$40</span>
+             <h2 className="product-brand">Cooking Utensils Set</h2>
+             
+             <span className="price">$300</span>
         </div>
      </div>
      <div className="product-card">
        <div className="product-image">
-          <span className="discount-tag">50% off</span>
-          <img src={card2} className="product-thumb" alt=""/>
+          
+          <img src={bands} className="product-thumb" alt=""/>
           <button className="card-btn">Buy</button>
        </div>
        <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
+            <h2 className="product-brand">Resistance Bands</h2>
+            
+            <span className="price">$200</span>
        </div>
     </div>
     <div className="product-card">
        <div className="product-image">
-          <span className="discount-tag">50% off</span>
-          <img src={card3} className="product-thumb" alt=""/>
+          
+          <img src={bottle} className="product-thumb" alt=""/>
           <button className="card-btn">Buy</button>
        </div>
        <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
+            <h2 className="product-brand">Watter Bottle</h2>
+            
+            <span className="price">$300</span>
        </div>
     </div>
     <div className="product-card">
        <div className="product-image">
-          <span className="discount-tag">50% off</span>
-          <img src={card4} className="product-thumb" alt=""/>
+         
+          <img src={headphones} className="product-thumb" alt=""/>
           <button className="card-btn">Buy</button>
        </div>
        <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
+            <h2 className="product-brand">Wireless Headphones</h2>
+            
+            <span className="price">$100</span>
        </div>
     </div>
     <div className="product-card">
        <div className="product-image">
-          <span className="discount-tag">50% off</span>
-          <img src={card5} className="product-thumb" alt=""/>
+         
+          <img src={kettle} className="product-thumb" alt=""/>
           <button className="card-btn">Buy</button>
        </div>
        <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
-       </div>
-    </div>
-    <div className="product-card">
-       <div className="product-image">
-          <span className="discount-tag">50% off</span>
-          <img src={card6} className="product-thumb" alt=""/>
-          <button className="card-btn">Buy</button>
-       </div>
-       <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
-       </div>
-    </div>
-    <div className="product-card">
-       <div className="product-image">
-          <span className="discount-tag">50% off</span>
-          <img src={card7} className="product-thumb" alt=""/>
-          <button className="card-btn">Buy</button>
-       </div>
-       <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
-       </div>
-    </div>
-    <div className="product-card">
-       <div className="product-image">
-          <span className="discount-tag">50% off</span>
-          <img src={card8} className="product-thumb" alt=""/>
-          <button className="card-btn">Buy</button>
-       </div>
-       <div className="product-info">
-            <h2 className="product-brand">brand</h2>
-            <p className="product-short-des">a short line about the product..</p>
-            <span className="price">$20</span><span className="actual-price">$40</span>
+            <h2 className="product-brand">Electric Kettle</h2>
+            
+            <span className="price">$300</span>
        </div>
     </div>
   </div>
