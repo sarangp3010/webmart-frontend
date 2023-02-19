@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { BarsLoader } from "../components/loader/loader";
 import routes from "../routes/routes";
 import PublicRoute from "../components/routing/PublicRoute";
-const LoginPage = lazy(() => import("../pages/Login/login"));
+const LoginPage = lazy(() => import("../pages/Login/Login"));
 const ForgetPassword = lazy(() => import("../pages/forgetPassword"));
 
 const AppRoutes = () => {
