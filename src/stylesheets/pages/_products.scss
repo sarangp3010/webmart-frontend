@@ -61,7 +61,7 @@ body {
 
 .card-body p {
   font-size: 13px;
-  margin: 0 0 15px;
+  margin: 0 0 5px;
 }
 .user {
   display: flex;
@@ -79,4 +79,7 @@ body {
 }
 .user-info small {
   color: #545d7a;
+}
+.checked {
+  color: orange;
 }
