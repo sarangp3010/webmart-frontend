@@ -1,20 +1,17 @@
 .status-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: #ede7e7;
     color: #598dab;
     height: 50px;
     padding: 0 20px;
   }
-  .status-bar name {
-    margin-left: 5px;
-  }
+  
   
   .search-area {
     display: flex;
     align-items: center;
-    margin-left: 10px;
+    margin-left: 100px;
   }
   
   .search-area input[type="text"] {
@@ -33,19 +30,28 @@
     background-color: #598dab;
     border: none;
     border-radius: 20px;
+    margin-right: 50px;
     color: #333;
     cursor: pointer;
   }
   
+  .logo{
+    margin-right: 1px;
+  }
   .logo img {
     height: 40px;
-    margin-left: 5px;
+    margin-right: 1px;
   }
   
+  .name{
+    margin-left: 1px;
+    margin-right: 280px;
+  }
   .name h1 {
     font-size: 24px;
     margin: 0;
     margin-left: 1px;
+    padding-left: 10%;
   }
   
   .profile img {
@@ -59,6 +65,7 @@
     height: 40px;
     border: none;
     background-color: #ede7e7;
+    margin-left: 400px;
   }
 
   .cart img {
