@@ -52,7 +52,7 @@ export const loginActionThunk = (
       .catch((error) => {
         dispatch(authSuccess());
         if (error.response && error.response.data) {
-          errorToast(error.response.data.message);
+          errorToast(error.response.data.message || "Invalid Credentials" || "Something went wrong");
         } else {
           errorToast("Something went wrong.");
         }
