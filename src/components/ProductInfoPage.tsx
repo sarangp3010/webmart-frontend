@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 
+
 const productInfoPage = (props: any) => {
   return (
     <>
@@ -68,6 +69,104 @@ const productInfoPage = (props: any) => {
               </Row>
             </Form>
           </Col>
+        </Row>
+        <Row className="fluid-container mt-5 mb-2 p-2">
+        <h2 className="fw-bold"> Similar Products</h2>
+        </Row>
+        <Row>
+
+    
+        <Col>
+        <div className="card">
+              <Image
+                src="https://images.pexels.com/photos/8473458/pexels-photo-8473458.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                className="m-auto"
+                width={300}
+                height={400}
+                alt=""
+              />
+              <div className="card-body text-center fw-bold">Smartphone Case</div>
+              <p className="card-text text-center mb-3 fw-bold" >$100</p>
+            </div>
+        </Col>
+        <Col>
+        <div className="card">
+              <Image
+                src="https://images.pexels.com/photos/11255397/pexels-photo-11255397.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                className="m-auto"
+                width={300}
+                height={400}
+                alt=""
+              />
+              <div className="card-body text-center fw-bold">Electric Kettle</div>
+              <p className="card-text text-center mb-3 fw-bold" >$300</p>
+            </div>
+        </Col>
+        
+        <Col>
+        <div className="card">
+              <Image
+                src="https://images.pexels.com/photos/10104285/pexels-photo-10104285.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                className="m-auto"
+                width={300}
+                height={400}
+                alt=""
+              />
+              <div className="card-body">Portable Power Bank</div>
+              <p className="card-text text-center mb-3 fw-bold" >$100</p>
+            </div>
+        </Col>
+        
+        <Col>
+        <div className="card">
+              <Image
+                src="https://images.pexels.com/photos/973406/pexels-photo-973406.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                className="m-auto"
+                width={300}
+                height={400}
+                alt=""
+              />
+              <div className="card-body">Hair Dryer</div>
+              <p className="card-text text-center mb-3 fw-bold" >$200</p>
+            </div>
+        </Col>
+        
+        <Col>
+        <div className="card">
+              <Image
+                src="https://images.pexels.com/photos/1188649/pexels-photo-1188649.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                className="m-auto"
+                width={300}
+                height={400}
+                alt=""
+              />
+              <div className="card-body">Water Bottle</div>
+              <p className="card-text text-center mb-3 fw-bold" >$300</p>
+            </div>
+        </Col>
+        
+        <Col>
+        <div className="card">
+              <Image
+                src="https://images.pexels.com/photos/5081399/pexels-photo-5081399.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                className="m-auto"
+                width={300}
+                height={400}
+                alt=""
+              />
+              <div className="card-body">Wireless Headphones</div>
+              <p className="card-text text-center mb-3 fw-bold" >$100</p>
+            </div>
+        </Col>
+        
+        
+        
+       
+
+        
+        
+        
+       
         </Row>
       </Container>
     </>
