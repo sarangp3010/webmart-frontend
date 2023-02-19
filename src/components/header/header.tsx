@@ -17,10 +17,10 @@ const StatusBar: React.FC<any> = () => {
         <button>Search</button>
       </div>
       <div className="profile">
-        <img src={logo1} alt="Profile" />
+        <button><img src={logo1} alt="Profile" /></button>
       </div>
       <div className="cart">
-        <img src={logo2} alt="Logo" />
+        <button><img src={logo2} alt="Logo" /></button>
       </div>
     </div>
   );

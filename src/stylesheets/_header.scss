@@ -1,11 +1,14 @@
 .status-bar {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     background-color: #ede7e7;
     color: #598dab;
     height: 50px;
     padding: 0 20px;
+  }
+  .status-bar name {
+    margin-left: 5px;
   }
   
   .search-area {
@@ -42,7 +45,7 @@
   .name h1 {
     font-size: 24px;
     margin: 0;
-    margin-left: 2px;
+    margin-left: 1px;
   }
   
   .profile img {
@@ -51,10 +54,25 @@
     margin-left: 10px;
   }
 
+  .profile button
+  {
+    height: 40px;
+    border: none;
+    background-color: #ede7e7;
+  }
+
   .cart img {
     height: 40px;
     border-radius: 30%;
     margin-left: 10px;
+  }
+
+  .cart button
+  {
+    height: 40px;
+    border: none;
+    background-color: #ede7e7;
+    margin-left: 5px;
   }
   
   

@@ -4,6 +4,7 @@ import StatusBar from "../components/header/header";
 import { BarsLoader } from "../components/loader/loader";
 import routes from "../routes/routes";
 import PublicRoute from "../components/routing/PublicRoute";
+import Footer from "../components/footer/footer";
 const LoginPage = lazy(() => import("../pages/Login/Login"));
 const ForgetPassword = lazy(() => import("../pages/forgetPassword"));
 
@@ -19,6 +20,7 @@ const AppRoutes = () => {
       {!isHeaderAvailable(location.pathname) ?
         <React.Fragment>
         <StatusBar />
+        
       </React.Fragment> : null
       }
       
@@ -26,6 +28,7 @@ const AppRoutes = () => {
         {(routes || []).map(({ element: Element, path }, index) => (
           <>
             <Route path={`/${path}`} element={<Element />} key={index} />
+            
           </>
         ))}
 
@@ -35,6 +38,7 @@ const AppRoutes = () => {
           <Route path="/forgot-password" element={<ForgetPassword />} />
         </Route>
       </Routes>
+      <Footer />
     </Suspense>
   );
 };
