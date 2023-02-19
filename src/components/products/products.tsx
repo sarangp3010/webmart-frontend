@@ -20,7 +20,7 @@ const Product = (props: any) => {
     return (
         <div className="main-product-list">
             <div className="product-card">
-                <div className="container">
+                <div className="container main-product-container">
                     <div className="card">
                         <div className="card-header">
                             <img src={props.data.img} alt="rover" />
