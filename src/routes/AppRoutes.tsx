@@ -38,7 +38,13 @@ const AppRoutes = () => {
           <Route path="/forgot-password" element={<ForgetPassword />} />
         </Route>
       </Routes>
-      <Footer />
+      
+      {!isHeaderAvailable(location.pathname) ?
+        <React.Fragment>
+        <Footer />
+        
+      </React.Fragment> : null
+      }
     </Suspense>
   );
 };

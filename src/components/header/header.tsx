@@ -23,6 +23,7 @@ const StatusBar: React.FC<any> = () => {
         <button><img src={logo2} alt="Logo" /></button>
       </div>
     </div>
+    
   );
 };
 
