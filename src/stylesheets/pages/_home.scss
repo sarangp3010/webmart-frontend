@@ -1,3 +1,7 @@
+*{
+    overflow-x: hidden;
+}
+
 .hero-section{
     width: 100%;
     height: calc(100vh - 120px);
@@ -27,7 +31,6 @@
     position: relative;
     overflow: hidden;
     padding: 20px 0;
-
 }
 
 .product-category{
@@ -46,6 +49,8 @@
     overflow-x: auto;
     scroll-behavior: smooth;
     width: 100%;
+    
+  
 }
 
 .product-container::-webkit-scrollbar{
