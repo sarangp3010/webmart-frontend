@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/Images/Free_Sample_By_Wix.jpg";
-import logo2 from "../../assets/Images/download.png";
+import logo from "../../Assets/Images/Free_Sample_By_Wix.jpg";
+import logo2 from "../../Assets/Images/download.png";
 
 import { getProfileActionThunk } from "../../store/profile/profile.actions.async";
 import { logout } from "../../store/auth/auth.action";
