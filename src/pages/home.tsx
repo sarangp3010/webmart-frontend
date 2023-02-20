@@ -16,6 +16,7 @@ import cart from "./img/cart.png";
 import bottle from "./img/Bottle.webp";
 import headphones from "./img/headphones.jpeg";
 import kettle from "./img/kettle.webp";
+import "../stylesheets/pages/_home.scss";
 
 const Dashboard = () => {
   
@@ -34,14 +35,13 @@ const Dashboard = () => {
         
     </div>
     </div>
-       </nav> */}
+  </nav> */}
 
         
 
         <header className="hero-section">
           <div className="content">
-              
-              <p className="sub-heading">Shop smarter, not harder.</p>
+            <p className="sub-heading">Shop smarter, not harder.</p>
           </div>
         </header>
  
