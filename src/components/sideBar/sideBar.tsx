@@ -5,7 +5,7 @@ const SideBar = () => {
       <div className="price-filter-section mb-4 ms-3">
         <pre className="fs-4">Price</pre>
 
-        <div className="price-filter mb-5 ms-3">
+        <div className="price-filter mb-5">
           <label className="float-start">Min:</label>
           <label className="float-end">Max:</label>
 
@@ -30,7 +30,7 @@ const SideBar = () => {
             step="1"
           />
         </div>
-        <button className="btn btn-primary ms-3">Apply</button>
+        <button style={{marginLeft : "2rem"}} className="btn btn-primary">Apply</button>
       </div>
 
       <hr />

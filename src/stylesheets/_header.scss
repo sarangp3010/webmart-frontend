@@ -3,14 +3,15 @@
     align-items: center;
     background-color: #ede7e7;
     color: #598dab;
-    height: 50px;
+    height: 60px;
     padding: 0 0px;
+    overflow-y: hidden !important;
   }
   
   .search-area {
     display: flex;
     align-items: center;
-    margin-left: 100px;
+    margin-left: 80px;
   }
   
   .search-area input[type="text"] {

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../Assets/Images/Free_Sample_By_Wix.jpg";
-import logo2 from "../../Assets/Images/download.png";
+import logo from "../../assets/Images/Free_Sample_By_Wix.jpg";
+import logo2 from "../../assets/Images/download.png";
 
 import { getProfileActionThunk } from "../../store/profile/profile.actions.async";
 import { logout } from "../../store/auth/auth.action";
@@ -33,7 +33,7 @@ const StatusBar: React.FC<any> = () => {
   return (
     <header>
       <div className="status-bar">
-        <div className="logo ml-2px">
+        <div className="logo mx-4">
           <img src={logo} alt="Logo" />
         </div>
         <div className="name">
@@ -42,7 +42,7 @@ const StatusBar: React.FC<any> = () => {
             className="text-muted"
             style={{ textDecoration: "none" }}
           >
-            <h1>{"WebMart"}</h1>
+            <h1 style={{ minWidth: "188px" }}>{"WebMart"}</h1>
           </Link>
         </div>
         <div className="search-area">
@@ -55,7 +55,7 @@ const StatusBar: React.FC<any> = () => {
             Search
           </a>
         </div>
-        <div className="profile" style={{ marginLeft: "300px"}}>
+        <div className="profile" style={{ marginLeft: "240px"}}>
           {profile ? (
             <>
               <p style={{ marginLeft: "10px" , marginTop: "17px" }}>{`Hello, ${profile?.firstName || ""} ${profile?.lastName || ""} `}</p>
