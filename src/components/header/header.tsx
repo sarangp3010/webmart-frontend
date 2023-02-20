@@ -1,14 +1,39 @@
-import React from 'react';
-import logo from '../../assets/Images/Free_Sample_By_Wix.jpg';
-import logo1 from '../../assets/Images/images.png';
-import logo2 from '../../assets/Images/download.png';
-import '../../stylesheets/_header.scss';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import logo from "../../assets/Images/Free_Sample_By_Wix.jpg";
+import logo1 from "../../assets/Images/images.png";
+import logo2 from "../../assets/Images/download.png";
+
+import { getProfileActionThunk } from "../../store/profile/profile.actions.async";
+import { logout } from "../../store/auth/auth.action";
+import TRootState from "../../store/root.types";
+import "../../stylesheets/_header.scss";
 
 const StatusBar: React.FC<any> = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const profile = useSelector((state: TRootState) => state.profile.profileData);
+
+  /**
+   * Get Profile data when component load first time
+   */
+  useEffect(() => {
+    dispatch(getProfileActionThunk());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const logoutHandler = () => {
+    dispatch(logout());
+    navigate('/login');
+    localStorage.removeItem("lToken");
+    localStorage.removeItem("lRefreshToken");
+  };
+
   return (
     <header>
       <div className="status-bar">
-    
         <div className="logo ml-2px">
           <img src={logo} alt="Logo" />
         </div>
@@ -20,12 +45,15 @@ const StatusBar: React.FC<any> = () => {
           <button>Search</button>
         </div>
         <div className="profile">
-          <button><img src={logo1} alt="Profile" /></button>
+          <button>
+            <img src={logo1} alt="Profile" />
+          </button>
         </div>
         <div className="cart">
-          <button><img src={logo2} alt="Logo" /></button>
+          <button>
+            <img src={logo2} alt="Logo" />
+          </button>
         </div>
-      
       </div>
     </header>
   );
