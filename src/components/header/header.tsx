@@ -61,7 +61,7 @@ const StatusBar: React.FC<any> = () => {
               <p style={{ marginLeft: "10px" , marginTop: "17px" }}>{`Hello, ${profile?.firstName || ""} ${profile?.lastName || ""} `}</p>
             </>
           ) : (
-            <p style={{ marginLeft: "10px" , marginTop: "17px" }} onClick={() => navigate('/login')}>
+            <p style={{ marginLeft: "10px" , marginTop: "17px", cursor: "pointer" }} onClick={() => navigate('/login')}>
               Login
             </p>
           )}
