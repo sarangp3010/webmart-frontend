@@ -4,7 +4,7 @@ import { Middleware, MiddlewareAPI, Dispatch, AnyAction, Action } from "redux";
 import { loginSuccess, logout } from "../store/auth/auth.action";
 
 export const API = axios.create({
-  baseURL: "https://9c39-2603-7080-200-2687-410a-11b8-1b8e-f617.ngrok.io",
+  baseURL: "http://localhost:3333",
 });
 
 export const apiMiddleware: Middleware = (storeApi: MiddlewareAPI<any>) => (

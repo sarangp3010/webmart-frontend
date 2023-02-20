@@ -12,7 +12,8 @@ type TProfileState = {
 type TGetProfilePayload = {
   id: string;
   profileImage: string | undefined;
-  fullName: string | null;
+  firstName: string | null;
+  lastName: string | null;
   countryCode: number | string | null;
   mobileNumber: number | string | null;
   email: string | null;

@@ -29,11 +29,11 @@ export const getProfileActionThunk = (): any => {
       })
       .catch((error) => {
         dispatch(profileLoadedAction());
-        if (error.response && error.response.data) {
-          errorToast(error.response.data.message);
-        } else {
-          errorToast("Something went wrong.");
-        }
+        // if (error.response && error.response.data) {
+        //   errorToast(error.response.data.message);
+        // } else {
+        //   errorToast("Something went wrong.");
+        // }
       });
   };
 };
