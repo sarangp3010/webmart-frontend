@@ -49,13 +49,13 @@ const StatusBar: React.FC<any> = () => {
         </div>
         <div className="search-area">
           <input type="text" placeholder="Search" />
-          <a
-            href="/afterSearch"
+          <Link
+            to={"/afterSearch"}
             className="btn btn-primary"
             style={{ padding: "5px 5px", borderRadius: "12px" }}
           >
             Search
-          </a>
+          </Link>
         </div>
         <div className="profile" style={{ marginLeft: "40px" }}>
           {profile && profile?.id ? (

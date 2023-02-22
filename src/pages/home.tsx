@@ -20,33 +20,17 @@ import "../stylesheets/pages/_home.scss";
 
 const Dashboard = () => {
   
-  return (<>
-
-       {/* <nav className="navbar">
-       <div className="nav">
-    <img src={weblogo} className="brand-logo"/>
-    <div className="nav-items">
-        <div className="search">
-             <input type="text" className="search-box" placeholder="Search Products"/>
-             <button className="search-btn">Search</button>
-        </div>
-        <a href="#"><img src={user} alt="User"/></a>
-        <a href="#"><img src={cart} alt="Cart"/></a>
-        
-    </div>
-    </div>
-  </nav> */}
-
-        
-
-        <header className="hero-section">
+  return (
+  <div className="home-page-webmart"  >
+  
+        <div className="hero-section">
           <div className="content">
             <p className="sub-heading">Shop smarter, not harder.</p>
           </div>
-        </header>
+        </div>
  
   
-<section className="product">
+<section className="product overflow-hidden">
   <h2 className="product-category">Hot Deals</h2>
   
   <div className="product-container">
@@ -246,7 +230,7 @@ const Dashboard = () => {
 </section>
 
 
-</>)
+</div>)
 
 
   

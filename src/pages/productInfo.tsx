@@ -1,6 +1,7 @@
 import ProductInfoPage from "../components/ProductInfoPage";
 import data from "../data.json";
 import { useParams } from "react-router-dom";
+import React from "react";
 
 const ProductInfo = () => {
   let { productId } = useParams();
@@ -13,9 +14,9 @@ const ProductInfo = () => {
   });
 
   return (
-    <div>
+    <React.Fragment>
       <ProductInfoPage product={product} />
-    </div>
+    </React.Fragment>
   );
 };
 
