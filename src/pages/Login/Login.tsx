@@ -37,9 +37,27 @@ const Login = () => {
    */
   const LoginSchema = Yup.object().shape({
     email: Yup.string()
-      .email("The email must be a valid email address.")
-      .required("The email field is required."),
-    password: Yup.string().required("The password field is required."),
+      .email("Email must be a valid Email Address.")
+      .required("Email is required."),
+    password: Yup.string().required("Password is required."),
+  });
+
+  /**
+   * Signup validation schema
+   */
+  const SignupSchema = Yup.object().shape({
+    email: Yup.string()
+      .email("Email must be a valid Email Address.")
+      .required("Email is required."),
+    firstName: Yup.string().required("First name is required."),
+    lastName: Yup.string().required("Last name is required."),
+    password: Yup.string()
+      .min(6, "Password is Too short")
+      .max(128, "Password is Too long")
+      .required("Password is required"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password")], "Password does not match")
+      .required("Confirm password is required"),
   });
 
   /**
@@ -75,6 +93,7 @@ const Login = () => {
       lastName: "",
       confirmPassword: "",
     },
+    validationSchema: SignupSchema,
     onSubmit: (values) => {
       try {
         dispatch(
@@ -166,7 +185,10 @@ const Login = () => {
                         }}
                       />
                       {loginErrors.email && loginErrors.email && (
-                        <div className="text-danger">
+                        <div
+                          className="mx-2 text-danger"
+                          style={{ marginTop: "-7px", marginBottom: "5px" }}
+                        >
                           {loginErrors.email as string}
                         </div>
                       )}
@@ -186,7 +208,10 @@ const Login = () => {
                         }}
                       />
                       {loginErrors.password && loginTouch.password && (
-                        <div className="text-danger">
+                        <div
+                          className="mx-2 text-danger"
+                          style={{ marginTop: "-7px", marginBottom: "5px" }}
+                        >
                           {loginErrors.password}
                         </div>
                       )}
@@ -229,7 +254,10 @@ const Login = () => {
                         }}
                       />
                       {signupErrors.firstName && signupTouched.firstName && (
-                        <div className="text-danger">
+                        <div
+                          className="mx-2 text-danger"
+                          style={{ marginTop: "-7px", marginBottom: "5px" }}
+                        >
                           {signupErrors.firstName as string}
                         </div>
                       )}
@@ -249,7 +277,10 @@ const Login = () => {
                         }}
                       />
                       {signupErrors.lastName && signupTouched.lastName && (
-                        <div className="text-danger">
+                        <div
+                          className="mx-2 text-danger"
+                          style={{ marginTop: "-7px", marginBottom: "5px" }}
+                        >
                           {signupErrors.lastName as string}
                         </div>
                       )}
@@ -269,7 +300,10 @@ const Login = () => {
                         }}
                       />
                       {signupErrors.email && signupTouched.email && (
-                        <div className="text-danger">
+                        <div
+                          className="mx-2 text-danger"
+                          style={{ marginTop: "-7px", marginBottom: "5px" }}
+                        >
                           {signupErrors.email as string}
                         </div>
                       )}
@@ -289,7 +323,10 @@ const Login = () => {
                         }}
                       />
                       {signupErrors.password && signupTouched.password && (
-                        <div className="text-danger">
+                        <div
+                          className="mx-2 text-danger"
+                          style={{ marginTop: "-7px", marginBottom: "5px" }}
+                        >
                           {signupErrors.password}
                         </div>
                       )}
@@ -297,7 +334,7 @@ const Login = () => {
                       <input
                         type="password"
                         name="confirmPassword"
-                        placeholder="Password"
+                        placeholder="Confirm Password"
                         className="form-control"
                         onChange={formikSignUp.handleChange}
                         onBlur={formikSignUp.handleBlur}
@@ -310,7 +347,10 @@ const Login = () => {
                       />
                       {signupErrors.confirmPassword &&
                         signupTouched.confirmPassword && (
-                          <div className="text-danger">
+                          <div
+                            className="mx-2 text-danger"
+                            style={{ marginTop: "-7px", marginBottom: "5px" }}
+                          >
                             {signupErrors.confirmPassword}
                           </div>
                         )}
@@ -320,8 +360,6 @@ const Login = () => {
                         type="button"
                         className="btn btn-primary btn-block btn-lg"
                         onKeyDown={(event) => {
-                          console.log("Called");
-
                           if (event.key === "Enter") {
                             formikSignUp.handleSubmit();
                           }

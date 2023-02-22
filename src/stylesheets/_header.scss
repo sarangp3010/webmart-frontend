@@ -62,7 +62,7 @@
 
   .profile button
   {
-    height: 40px;
+    // height: 40px;
     border: none;
     background-color: #ede7e7;
     margin-left: 280px;
@@ -81,6 +81,8 @@
     background-color: #ede7e7;
     margin-left: 5px;
   }
-  
-  
-  
+
+  .profile-dropdown {
+    animation-name: slideUpIn !important;
+    position: fixed !important;
+  }
