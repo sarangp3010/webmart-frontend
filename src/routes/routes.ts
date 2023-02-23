@@ -13,7 +13,7 @@ const routes = [
   }, 
   {
     path: "*",
-    element: lazy(() => import("../pages/pageNotFound/pageNotFound")),
+    element: lazy(() => import("../components/pageNotFound/pageNotFound")),
     exact: true,
   },
   {
@@ -24,6 +24,11 @@ const routes = [
   {
     path: "/afterSearch",
     element: lazy(() => import("../pages/afterSearch")),
+    exact: true,
+  },
+  {
+    path: "/verify-email",
+    element: lazy(() => import("../pages/emailVerification")),
     exact: true,
   }
 ];

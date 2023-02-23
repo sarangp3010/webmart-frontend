@@ -1,3 +1,4 @@
+
 .status-bar {
     display: flex;
     align-items: center;
@@ -6,6 +7,7 @@
     height: 60px;
     padding: 0 0px;
     overflow-y: hidden !important;
+    overflow-x: hidden !important; 
   }
   
   .search-area {
@@ -62,7 +64,7 @@
 
   .profile button
   {
-    height: 40px;
+    // height: 40px;
     border: none;
     background-color: #ede7e7;
     margin-left: 280px;
@@ -81,6 +83,8 @@
     background-color: #ede7e7;
     margin-left: 5px;
   }
-  
-  
-  
+
+  .profile-dropdown {
+    animation-name: slideUpIn !important;
+    position: fixed !important;
+  }

@@ -1,11 +1,17 @@
-const SideBar = () => {
+import { useState } from "react";
+const SideBar: React.FC<any> = (props: any) => {
+  const [minPrice, setMinPrice] = useState(99);
+  const [maxPrice, setMaxPrice] = useState(1000);
+  const [categoryId, setCategory] = useState(0);
+  const [type, setType] = useState("all");
+
   return (
     <div className="sidebar">
       <pre className="fs-2">Filters:</pre>
       <div className="price-filter-section mb-4 ms-3">
         <pre className="fs-4">Price</pre>
 
-        <div className="price-filter mb-5">
+        <div className="price-filter price-selection-input mb-5">
           <label className="float-start">Min:</label>
           <label className="float-end">Max:</label>
 
@@ -18,6 +24,8 @@ const SideBar = () => {
             name="price-min"
             min="10"
             max="1000"
+            value={minPrice}
+            onChange={(e) => setMinPrice(Number(e.target.value))}
             step="1"
           />
           <input
@@ -27,10 +35,18 @@ const SideBar = () => {
             name="price-max"
             min="10"
             max="1000"
+            value={maxPrice}
+            onChange={(e) => setMaxPrice(Number(e.target.value))}
             step="1"
           />
         </div>
-        <button style={{marginLeft : "2rem"}} className="btn btn-primary">Apply</button>
+        <button
+          onClick={() => props.setFilters({ minPrice, maxPrice, category: categoryId, type })}
+          style={{ marginLeft: "2rem" }}
+          className="btn btn-primary"
+        >
+          Apply
+        </button>
       </div>
 
       <hr />
@@ -39,7 +55,7 @@ const SideBar = () => {
         <pre className="fs-4 mb-2">Category</pre>
 
         <div
-          className="btn-group-vertical ms-3"
+          className="btn-group-vertical category-selection-input ms-3"
           role="group"
           aria-label="Basic radio toggle button group"
         >
@@ -49,6 +65,12 @@ const SideBar = () => {
             name="category"
             id="category-1"
             autoComplete="off"
+            value={1}
+            checked={categoryId === 1}
+            onChange={(e) => {
+              setCategory(Number(e.target.value));
+              props.setFilters({ minPrice, maxPrice, category: Number(e.target.value), type })
+            }}
           />
           <label
             className="btn btn-outline-primary"
@@ -64,6 +86,12 @@ const SideBar = () => {
             name="category"
             id="category-2"
             autoComplete="off"
+            value={2}
+            checked={categoryId === 2}
+            onChange={(e) => {
+              setCategory(Number(e.target.value));
+              props.setFilters({ minPrice, maxPrice, category: Number(e.target.value), type})
+            }}
           />
           <label
             className="btn btn-outline-primary"
@@ -79,6 +107,12 @@ const SideBar = () => {
             name="category"
             id="category-3"
             autoComplete="off"
+            value={3}
+            checked={categoryId === 3}
+            onChange={(e) => {
+              setCategory(Number(e.target.value));
+              props.setFilters({ minPrice, maxPrice, category: Number(e.target.value), type})
+            }}
           />
           <label
             className="btn btn-outline-primary"
@@ -96,7 +130,7 @@ const SideBar = () => {
         <pre className="fs-4 mb-2">Type</pre>
 
         <div
-          className="btn-group-vertical ms-3"
+          className="btn-group-vertical type-selection-input ms-3"
           role="group"
           aria-label="Basic radio toggle button group"
         >
@@ -106,6 +140,12 @@ const SideBar = () => {
             name="type"
             id="type-1"
             autoComplete="off"
+            value={"New"}
+            checked={type === "New"}
+            onChange={(e) => {
+              setType(e.target.value);
+              props.setFilters({ minPrice, maxPrice, category: Number(e.target.value), type: e.target.value })
+            }}
           />
           <label
             className="btn btn-outline-primary"
@@ -121,6 +161,12 @@ const SideBar = () => {
             name="type"
             id="type-2"
             autoComplete="off"
+            value={"Used"}
+            checked={type === "Used"}
+            onChange={(e) => {
+              setType(e.target.value);
+              props.setFilters({ minPrice, maxPrice, category: Number(e.target.value), type: e.target.value })
+            }}
           />
           <label
             className="btn btn-outline-primary"
@@ -135,9 +181,9 @@ const SideBar = () => {
       <hr />
 
       <pre className="fs-2">Sort:</pre>
-      <div className="price-filter-section mb-4 ms-3">
+      <div className="sort-filter-section mb-4 ms-3">
         <div
-          className="btn-group-vertical ms-3"
+          className="btn-group-vertical type-selection-input ms-3 mt-1"
           role="group"
           aria-label="Basic radio toggle button group"
         >

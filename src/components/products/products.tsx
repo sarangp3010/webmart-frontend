@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Product = (props: any) => {
   const productRating: number = props.data.rating;
   let starRating: Array<any> = [];
-  for (let i: number = 0; i <= productRating; i++) {
+  for (let i: number = 1; i <= productRating; i++) {
     starRating.push(
       <span key={i} className="fa fa-star checked d-inline"></span>
     );

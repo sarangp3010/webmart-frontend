@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Row, Col, Button, Form, Container, Image } from "react-bootstrap";
 
 const productInfoPage = (props: any) => {
@@ -78,9 +79,9 @@ const productInfoPage = (props: any) => {
                 height={400}
                 alt=""
               />
-              <a href="/productInfo/1">
+              <Link to={"/productInfo/1"}>
                 <div className="card-body link-dark">Smartphone Case</div>
-              </a>
+              </Link>
               <p className="card-text text-center mb-3 fw-bold">$100</p>
             </div>
           </Col>
@@ -93,9 +94,9 @@ const productInfoPage = (props: any) => {
                 height={400}
                 alt=""
               />
-              <a href="/productInfo/3">
+              <Link to={"/productInfo/3"}>
                 <div className="card-body link-dark">Electric Kettle</div>
-              </a>
+              </Link>
               <p className="card-text text-center mb-3 fw-bold">$300</p>
             </div>
           </Col>
@@ -109,9 +110,9 @@ const productInfoPage = (props: any) => {
                 height={400}
                 alt=""
               />
-              <a href="/productInfo/4">
+              <Link to={"/productInfo/4"}>
                 <div className="card-body link-dark">Portable Power Bank</div>
-              </a>
+              </Link>
               <p className="card-text text-center mb-3 fw-bold">$100</p>
             </div>
           </Col>
@@ -125,9 +126,9 @@ const productInfoPage = (props: any) => {
                 height={400}
                 alt=""
               />
-              <a href="/productInfo/5">
+              <Link to={"/productInfo/5"}>
                 <div className="card-body link-dark">Hair Dryer</div>
-              </a>
+              </Link>
               <p className="card-text text-center mb-3 fw-bold">$200</p>
             </div>
           </Col>
@@ -141,9 +142,9 @@ const productInfoPage = (props: any) => {
                 height={400}
                 alt=""
               />
-              <a href="/productInfo/6">
+              <Link to={"/productInfo/6"}>
                 <div className="card-body link-dark">Water Bottle</div>
-              </a>
+              </Link>
               <p className="card-text text-center mb-3 fw-bold">$300</p>
             </div>
           </Col>
@@ -157,9 +158,9 @@ const productInfoPage = (props: any) => {
                 height={400}
                 alt=""
               />
-              <a href="/productInfo/12">
+              <Link to={"/productInfo/12"}>
                 <div className="card-body link-dark">Desk Lamp</div>
-              </a>
+              </Link>
               <p className="card-text text-center mb-3 fw-bold">$300</p>
             </li>
           </Col>
