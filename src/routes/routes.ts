@@ -30,6 +30,11 @@ const routes = [
     path: "/verify-email",
     element: lazy(() => import("../pages/emailVerification")),
     exact: true,
+  },
+  {
+    path: "/cart",
+    element: lazy(() => import("../pages/cart")),
+    exact: true,
   }
 ];
 
