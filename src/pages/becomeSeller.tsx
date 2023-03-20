@@ -1,5 +1,4 @@
 import { Component } from "react";
-import CourseDetails from "./CourseDetails";
 import Summary from "./Summary";
 import "../stylesheets/pages/_becomeSeller.scss";
 import BusinessInformation from "./businessInformation";
