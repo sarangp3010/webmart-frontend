@@ -1,0 +1,38 @@
+.similar-products-container{
+  *{
+  overflow-x: initial;
+  }
+} 
+.after-search {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-x: auto;
+    margin: 0;
+  }
+  .after-search-list-wrap,
+  .side-panel-wrap,
+  .list-wrap {
+    overflow-y: auto;
+  }
+  
+  .after-search-list-wrap {
+    flex: 1;
+    display: flex;
+  }
+  .side-panel-wrap {
+    z-index: 100000 !important;
+    flex-basis: 200px;
+    width: 100%;
+    // background-color: gainsboro;
+    padding: 1rem;
+  }
+  .list-wrap {
+    flex: 1;
+    display: flex;
+    padding: 1rem;
+  }
+
+//   ::-webkit-scrollbar {
+//     display: none;
+//   }

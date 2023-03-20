@@ -1,0 +1,23 @@
+.sidebar {
+    position: "fixed";
+    width: "100%";
+    top: 0;
+    left: 0;
+    background-color: "#f8f8f8";
+    // margin-right: 10px;
+    // border-right: 2px solid rgba(25, 25, 25, 0.5);
+
+    .category-selection-input,
+    .type-selection-input,
+    .price-selection-input,
+    .sort-selection-input {
+        overflow-x: visible !important;
+    }
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 2px solid rgba(25, 25, 25, 0.5);
+  }
