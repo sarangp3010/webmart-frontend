@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Stepper } from "react-form-stepper";
 
-class Summary extends Component<any, any> {
+class Review extends Component<any, any> {
   continue = (e: any) => {
     e.preventDefault();
     this.props.nextStep();
@@ -30,7 +30,7 @@ class Summary extends Component<any, any> {
     return (
       <div className="form">
         <div>
-          <Stepper
+          {/* <Stepper
             steps={[
               { label: "Business Information" },
               { label: "Billing" },
@@ -52,7 +52,7 @@ class Summary extends Component<any, any> {
             }}
             className={"stepper"}
             stepClassName={"stepper__step"}
-          />
+          /> */}
 
           <div className="summary">
             <h2 className="summary__heading">
@@ -152,4 +152,4 @@ class Summary extends Component<any, any> {
   }
 }
 
-export default Summary;
+export default Review;

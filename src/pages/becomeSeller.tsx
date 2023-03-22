@@ -1,9 +1,10 @@
 import { Component } from "react";
-import Summary from "./Summary";
 import "../stylesheets/pages/_becomeSeller.scss";
 import BusinessInformation from "./businessInformation";
-import StoreInformation from "./Billing";
-import Billing from "./Billing";
+// import StoreInformation from "./billing";
+import Billing from "./billing";
+import Review from "./review";
+import axios from "axios";
 
 const levelsData = ["Beginner", "Intermediate", "Advanced"];
 
@@ -235,6 +236,14 @@ class becomeSeller extends Component {
 
   submitData = (e: any) => {
     e.preventDefault();
+    axios
+      .get("http://localhost:3333/users")
+      .then((response) => {
+        console.log("In API ", response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     alert("Data sent");
   };
 
@@ -330,7 +339,7 @@ class becomeSeller extends Component {
         );
       case 3:
         return (
-          <Summary
+          <Review
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             companyRegistrationNumber={companyRegistrationNumber}

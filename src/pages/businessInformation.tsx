@@ -56,7 +56,7 @@ class BusinessInformation extends Component<any, any> {
     return (
       <div className="form">
         <form>
-          <Stepper
+          {/* <Stepper
             steps={[
               { label: "Business Information" },
               { label: "Billing" },
@@ -78,7 +78,7 @@ class BusinessInformation extends Component<any, any> {
             }}
             className={"stepper"}
             stepClassName={"stepper__step"}
-          />
+          /> */}
 
           <div className="form-group">
             <div className="form-group__element">
