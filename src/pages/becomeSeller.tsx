@@ -2,7 +2,7 @@ import { Component } from "react";
 import "../stylesheets/pages/_becomeSeller.scss";
 import BusinessInformation from "./businessInformation";
 // import StoreInformation from "./billing";
-import Billing from "./Billing";
+import Billing from "./billing";
 import Review from "./review";
 import axios from "axios";
 
@@ -364,12 +364,12 @@ class becomeSeller extends Component {
         element = null;
         break;
     }
-    return (<>
-      <h2 className="text-center mt-3">
-        Become seller
-      </h2>
-      {element}
-    </>)
+    return (
+      <>
+        <h2 className="text-center mt-3">Become seller</h2>
+        {element}
+      </>
+    );
   }
 }
 
