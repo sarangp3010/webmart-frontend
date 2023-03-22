@@ -28,7 +28,10 @@ class Review extends Component<any, any> {
     } = this.props;
 
     return (
-      <div className="form">
+      <div className="form mt-3">
+        <h3 className="text-center mb-4">
+          Review Details
+        </h3>
         <div>
           {/* <Stepper
             steps={[

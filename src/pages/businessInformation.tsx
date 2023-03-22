@@ -54,7 +54,10 @@ class BusinessInformation extends Component<any, any> {
     } = this.props;
 
     return (
-      <div className="form">
+      <div className="form mt-3">
+        <h3 className="text-center mb-4">
+          Business Information
+        </h3>
         <form>
           {/* <Stepper
             steps={[
@@ -130,54 +133,65 @@ class BusinessInformation extends Component<any, any> {
                 name="streetAddress"
                 onChange={handleChange("streetAddress")}
                 onBlur={validateStreetAddress}
-                className="form-group__input"
+                className="form-group__input d-block mx-auto"
                 placeholder="Street Address"
               />
-              <br />
-              <p className="error">
-                {isErrorStreetAddress && errorMessageStreetAddress}
-              </p>
+              {isErrorStreetAddress && errorMessageStreetAddress ?
+                <p className="d-block error">
+                  {isErrorStreetAddress && errorMessageStreetAddress}
+                </p> : null
+              }
               <input
                 type="text"
                 value={addressLine2}
                 name="addressLine2"
                 onChange={handleChange("addressLine2")}
-                className="form-group__input"
+                className="form-group__input d-block mx-auto"
                 placeholder="Address Line 2"
               />
-              <br />
               <input
                 type="text"
                 value={city}
                 name="city"
                 onChange={handleChange("city")}
                 onBlur={validateCity}
-                className="form-group__input"
+                className="form-group__input d-block mx-auto"
                 placeholder="City / Town"
               />
-              <br />
-              <p className="error">{isErrorCity && errorMessageCity}</p>
+              {
+                isErrorCity && errorMessageCity ?
+                  <p className="error">{isErrorCity && errorMessageCity}</p> : null
+              }
+
               <input
                 type="text"
                 value={state}
                 name="state"
                 onChange={handleChange("state")}
                 onBlur={validateState}
-                className="form-group__input"
+                className="form-group__input d-block mx-auto"
                 placeholder="State / Region"
               />
-              <br />
-              <p className="error">{isErrorState && errorMessageState}</p>
+              {
+                isErrorState && errorMessageState ?
+                  <p className="error">{isErrorState && errorMessageState}</p> : null
+              }
+
               <input
                 type="text"
                 value={zip}
                 name="zip"
                 onChange={handleChange("zip")}
                 onBlur={validateZip}
-                className="form-group__input"
+                className="form-group__input d-block mx-auto"
                 placeholder="ZIP / Postal code"
               />
-              <p className="error">{isErrorZip && errorMessageZip}</p>
+              {
+                isErrorZip && errorMessageZip ?
+                  <p className="error">{isErrorZip && errorMessageZip}</p>
+                  : null
+              }
+
             </div>
           </div>
 

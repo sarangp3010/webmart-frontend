@@ -2,7 +2,7 @@ import { Component } from "react";
 import "../stylesheets/pages/_becomeSeller.scss";
 import BusinessInformation from "./businessInformation";
 // import StoreInformation from "./billing";
-import Billing from "./billing";
+import Billing from "./Billing";
 import Review from "./review";
 import axios from "axios";
 
@@ -280,9 +280,11 @@ class becomeSeller extends Component {
       errorMessageRoutingNumber,
     } = this.state;
 
+    let element;
+
     switch (step) {
       case 1:
-        return (
+        element = (
           <BusinessInformation
             nextStep={this.nextStep}
             handleChange={this.handleChange}
@@ -317,8 +319,9 @@ class becomeSeller extends Component {
             errorMessageStoreName={errorMessageStoreName}
           />
         );
+        break;
       case 2:
-        return (
+        element = (
           <Billing
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -337,8 +340,9 @@ class becomeSeller extends Component {
             errorMessageRoutingNumber={errorMessageRoutingNumber}
           />
         );
+        break;
       case 3:
-        return (
+        element = (
           <Review
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -355,10 +359,17 @@ class becomeSeller extends Component {
             submitData={this.submitData}
           />
         );
-
+        break;
       default:
-        return null;
+        element = null;
+        break;
     }
+    return (<>
+      <h2 className="text-center mt-3">
+        Become seller
+      </h2>
+      {element}
+    </>)
   }
 }
 
