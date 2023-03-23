@@ -5,6 +5,8 @@ import BusinessInformation from "./businessInformation";
 import Billing from "./billing";
 import Review from "./review";
 import axios from "axios";
+import TRootState from "../store/root.types";
+import { useSelector, useDispatch } from "react-redux";
 
 const levelsData = ["Beginner", "Intermediate", "Advanced"];
 
@@ -41,7 +43,7 @@ class becomeSeller extends Component {
     errorMessageRoutingNumber: "",
     errorMessageAccountNumber: "",
   };
-
+  profile = useSelector((state: TRootState) => state.profile.profileData);
   nextStep = () => {
     const { step } = this.state;
     this.setState({
@@ -236,8 +238,41 @@ class becomeSeller extends Component {
 
   submitData = (e: any) => {
     e.preventDefault();
-    axios
-      .get("http://localhost:3333/users")
+
+    console.log("Profile ---- ", this.profile);
+
+    console.log("Street Address ", this.state.streetAddress);
+    const {
+      companyRegistrationNumber,
+      streetAddress,
+      addressLine2,
+      city,
+      state,
+      zip,
+      storeName,
+      accountName,
+      routingNumber,
+      accountNumber,
+    } = this.state;
+    axios("http://localhost:3333/users/become-seller", {
+      method: "POST",
+      data: {
+        companyRegistrationNumber,
+        streetAddress,
+        addressLine2,
+        city,
+        state,
+        zip,
+        storeName,
+        accountName,
+        routingNumber,
+        accountNumber,
+      },
+      headers: {
+        // 'Authorization': `bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    })
       .then((response) => {
         console.log("In API ", response.data);
       })
