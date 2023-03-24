@@ -33,7 +33,7 @@ const routes = [
   },
   {
     path: "/cart",
-    element: lazy(() => import("../pages/cart")),
+    element: lazy(() => import("../pages/carts")),
     exact: true,
   }
 ];
