@@ -73,7 +73,7 @@ const StatusBar: React.FC<any> = () => {
                   className="profile-dropdown"
                   style={{
                     animationName: "slideUpIn!important",
-                    position: "fixed"
+                    position: "fixed",
                   }}
                 >
                   <div className="dropdown-header">
@@ -105,7 +105,7 @@ const StatusBar: React.FC<any> = () => {
           )}
         </div>
         <div className="cart">
-          <button>
+          <button onClick={() => navigate("/cart")}>
             <img src={logo2} alt="Logo" />
           </button>
         </div>
