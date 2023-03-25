@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Col } from "react-bootstrap";
 import Cart from "../components/cart/cart";
 import data from "../data.json";
+import { getCarts, getCartById, updateCart, deleteCart} from "../services/cart/cartService";
 
 const Carts = () => {
-
-
   const [filteredData, setData] = useState(data);
+
+    useEffect(() => {
+        let tempData;
+        const Temp = async () => {
+            tempData = await getCarts();
+            setData(tempData.data.carts);
+            console.log(tempData.data.carts);
+        };
+        Temp();
+    }, []);
 
     return (
         <div className="px-4 px-lg-0">
