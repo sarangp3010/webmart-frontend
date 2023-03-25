@@ -5,8 +5,9 @@ import data from "../data.json";
 import { getCarts, getCartById, updateCart, deleteCart} from "../services/cart/cartService";
 
 const Carts = () => {
-  const [filteredData, setData] = useState(data);
-
+  const [filteredData, setData] = useState(data as any);
+    let price = 0;
+    let discount = 0;
     useEffect(() => {
         let tempData;
         const Temp = async () => {
@@ -23,7 +24,6 @@ const Carts = () => {
                 <div className="container d-inline">
                     <div className="row">
                         <div className="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
-
                             <div className="table-responsive">
                                 <table className="table">
                                     <thead>
@@ -45,9 +45,13 @@ const Carts = () => {
                                 </table>
                                 {(filteredData || []).length ? (
                                     <>
-                                        {(filteredData || []).map((product, i) => (
-                                                <Cart data={product} />
-                                        ))}
+                                        {(filteredData || []).map((cart : any) => 
+                                        {       const currentPrice = (cart?.product?.price || 0) * cart?.quantity;
+                                                price += currentPrice;
+                                                discount += (currentPrice * (cart?.product?.discount || 0))/100;
+                                                return (
+                                                <Cart data={cart} />
+                                        )})}
                                     </>
                                 ) : (
                                     <>
@@ -74,11 +78,11 @@ const Carts = () => {
                             <div className="p-4">
                                 <p className="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
                                 <ul className="list-unstyled mb-4">
-                                    <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
-                                    <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Shipping and handling</strong><strong>$10.00</strong></li>
+                                    <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Order Subtotal </strong><strong>{price}</strong></li>
+                                    <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Total Discount</strong><strong>{discount}</strong></li>
                                     <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Tax</strong><strong>$0.00</strong></li>
                                     <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Total</strong>
-                                        <h5 className="font-weight-bold">$400.00</h5>
+                                        <h5 className="font-weight-bold">{price-discount}</h5>
                                     </li>
                                 </ul><a href="#" className="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
                             </div>
