@@ -30,7 +30,17 @@ const routes = [
     path: "/verify-email",
     element: lazy(() => import("../pages/emailVerification")),
     exact: true,
-  }
+  },
+  {
+    path: "/products/:id",
+    element: lazy(() => import("../pages/product/add")),
+    exact: true,
+  },
+  {
+    path: "/brands",
+    element: lazy(() => import("../pages/brands")),
+    exact: true,
+  },
 ];
 
 export default routes;
