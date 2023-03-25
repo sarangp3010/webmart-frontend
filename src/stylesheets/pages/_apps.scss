@@ -1,0 +1,306 @@
+.mr-auto,
+.mx-auto {
+  margin-right: auto !important;
+}
+
+/* ********************************************************************************************
+    Page Header & Page Content
+*********************************************************************************************** */
+
+.page-header h1 {
+  font-weight: 600;
+}
+.page-content {
+  padding-top: 20px;
+}
+.page-header {
+  padding: 15px 15px 0;
+}
+.page-content {
+  padding: 15px !important;
+}
+.page-header .d-flex {
+  -ms-flex-wrap: wrap !important;
+  flex-wrap: wrap !important;
+}
+
+.button-with-textbox,
+.page-header .btn,
+.page-header a:link.btn,
+.removebtn {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  height: 35px;
+}
+
+.card.card-tabs .card-header .nav.nav-tabs li a,
+.card.card-tabs .card-header .nav.nav-tabs li button {
+  line-height: 1.3;
+}
+.card.card-tabs .card-header .nav.nav-tabs li:first-child a.active {
+  border-radius: 0.25rem 0 0 0;
+}
+
+.view-badge {
+  vertical-align: 19%;
+  margin-left: 10px;
+  display: inline-block;
+  padding: 4px 10px 4px;
+}
+.badge-orange {
+  background-color: #f39c12 !important;
+  color: rgba(255, 255, 255, 0.85);
+}
+.badge-green {
+  background-color: #70d144 !important;
+  color: rgba(255, 255, 255, 0.85);
+}
+.badge-dark {
+  background-color: #343a40 !important;
+}
+.badge-pill {
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+}
+.main-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+.tab-content .tab-pane .d-flex .btn {
+  height: 35px;
+  line-height: 18px;
+}
+.card-notification .card-container {
+  max-height: 350px;
+  overflow-y: auto;
+}
+.card-notification .actions .dropdown-menu {
+  top: 25% !important;
+  min-width: 200px !important;
+  min-height: auto !important;
+  width: 200px !important;
+}
+.card-notification .actions .btn-group .dropdown-toggle.btn-primary i {
+  font-size: 22px !important;
+}
+.active-header,
+.active-header > a {
+  color: #f7b500 !important;
+}
+
+.header-dropdown-item {
+  padding: 10px 0 10px 20px !important;
+  line-height: 1.7 !important;
+}
+
+.dropdown-menu .header-dropdown-item .icon {
+  margin-right: 8px !important;
+  font-size: 1rem !important;
+  vertical-align: top !important;
+}
+a.active-settings i {
+  position: relative;
+  top: -0.6rem;
+}
+
+a.active-settings {
+  height: 45px !important;
+  min-width: 45px !important;
+  border-radius: 50%;
+  position: relative;
+  top: 10px;
+  left: 7px;
+  background-color: rgba(240, 246, 255, 0.1);
+}
+
+.top-toolbar .navbar-nav .nav-item .dropdown > button:hover i.icon:after {
+  content: "";
+  position: absolute;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background-color: rgba(240, 246, 255, 0.1);
+  left: 14px;
+  top: 11px;
+  z-index: -1;
+}
+.top-toolbar .navbar-nav .nav-item.dropdown-notifications .dropdown > button:hover i.icon:after {
+  left: -6px;
+  top: -8px;
+}
+
+.profile-dropdown {
+  animation-name: slideUpIn !important;
+}
+
+  /* ********************************************************************************************
+    Tabs
+*********************************************************************************************** */
+.nav .nav-item .nav-link.active,
+.nav .nav-item .nav-link:active,
+.nav .nav-item .nav-link:hover,
+.nav-tabs.primary-tabs .nav-item .nav-link.active.show,
+.nav-tabs.primary-tabs .nav-item .nav-link:hover,
+.nav-tabs.primary-tabs .nav-item.show .nav-link {
+  color: #f7b500;
+}
+.nav-tabs.primary-tabs .nav-item .nav-link.active {
+  border-bottom: solid 1px #f7b500;
+}
+.nav-tabs .nav-item {
+  margin-bottom: 0;
+}
+.navbar-nav li.active a,
+.main-menu li.active a {
+  color: #f7b500 !important;
+}
+.nav .nav-item .nav-link.active {
+  // color: #f7b500 !important;
+  border-bottom: solid 1px #f7b500 !important;
+}
+.nav .nav-item .nav-link:active {
+  color: #f7b500 !important;
+  border-bottom: solid 1px #f7b500 !important;
+}
+.nav-tabs.primary-tabs .nav-item .nav-link.active.show {
+  color: #f7b500 !important;
+  border-bottom: solid 1px #f7b500 !important;
+}
+.nav-tabs.primary-tabs .nav-item .nav-link.active {
+  border-bottom: solid 1px #f7b500 !important;
+}
+.nav-tabs.primary-tabs .nav-item.show .nav-link {
+  color: #f7b500 !important;
+  border-bottom: solid 1px #f7b500 !important;
+}
+.card.card-tabs .nav.nav-tabs li button {
+  font-size: 0.875rem !important;
+  height: 60px !important;
+  padding: 1.4rem 1.5rem 1.3rem !important;
+  background: #ffff;
+  border-bottom: 1px solid #e8eef4;
+}
+.deactive:hover,
+.nav-item .nav-link.deactive:active {
+  color: #718599 !important;
+  cursor: not-allowed !important;
+  border-bottom: none !important;
+}
+.deactive {
+  cursor: not-allowed !important;
+}
+
+/* ********************************************************************************************
+    Form
+*********************************************************************************************** */
+
+.left-form-content {
+  margin-right: 40px;
+  margin-left: 20px;
+}
+.fileinput .thumbnail > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.upload-img-label {
+  font-size: 11px;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+.uploaded-user-image .upload-icon {
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+}
+
+.label {
+  font-weight: 600;
+}
+label em,
+.control-label em {
+  font-style: normal;
+  color: #ff0026;
+  font-weight: normal;
+  font-family: arial;
+}
+
+.form-row {
+  margin-left: -7.5px;
+  margin-right: -7.5px;
+}
+.form-row > .col,
+.form-row > [class*="col-"] {
+  padding-left: 7.5px;
+  padding-right: 7.5px;
+}
+
+.form-control:focus {
+  border: 1px solid #f7b500;
+}
+.fileinput-new.input-group .btn-file,
+.fileinput-new .input-group .btn-file {
+  height: 35px;
+}
+
+/* Select2 */
+.input-group .select2-container--default:first-of-type .select2-selection--single {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.select2-container--default .select2-selection--multiple,
+.select2-container--default .select2-selection--single {
+  min-height: 35px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  /*padding: 0.49rem 1rem;*/
+  color: #323a48;
+  position: relative;
+  padding: 0.5rem 0.75rem;
+  line-height: 1.25;
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+.select2-container--bootstrap.select2-container--focus .select2-selection,
+.select2-container--bootstrap.select2-container--open .select2-selection {
+  border: 1px solid #736cc7;
+  box-shadow: none;
+}
+select.form-control:not([size]):not([multiple]) {
+  height: calc(2.0625rem + 2px);
+}
+/* Checkbox & Radio */
+.custom-control-label {
+  cursor: pointer;
+}
+.control.control-outline {
+  cursor: pointer;
+}
+.control.control-outline .control__indicator {
+  border: 1px solid #ccc;
+}
+.control.control-outline.control-primary input:checked ~ .control__indicator {
+  border: 1px solid #f7b500;
+}
+.control.control-outline.control-primary.control--checkbox .control__indicator:after {
+  border-color: #f7b500;
+}
+.control.control-outline.control-primary.control--radio .control__indicator:after {
+  background-color: #f7b500;
+}
+.bootstrap-timepicker-widget table td input {
+  border-width: 1px;
+}
+.notifications .control.control-outline .control__indicator,
+.accessories .control.control-outline .control__indicator {
+  top: 50%;
+  transform: translateY(-50%);
+}
