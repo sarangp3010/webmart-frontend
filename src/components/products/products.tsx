@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Product = (props: any) => {
-  const productRating: number = props.data.rating;
+  const productRating: number = props?.data?.rating;
   let starRating: Array<any> = [];
   for (let i: number = 1; i <= productRating; i++) {
     starRating.push(
@@ -16,7 +16,7 @@ const Product = (props: any) => {
   const temp: Array<any> = [];
   temp.push(<span className="fa fa-star checked"></span>);
   temp.push(<span className="fa fa-star checked"></span>);
-  const productInfoRoute = `/productInfo/${props.data.product_Id}`;
+  const productInfoRoute = `/productInfo/${props?.data?.id}`;
 
   return (
     <div className="main-product-list">
@@ -24,15 +24,15 @@ const Product = (props: any) => {
         <div className="container main-product-container">
           <div className="card">
             <div className="card-header">
-              <img src={props.data.img} alt="rover" />
+              <img src={props?.data?.thumbnailImage} alt="rover" />
             </div>
             <div className="card-body">
               <div className="d-inline first-row">
-                <span className="tag tag-teal">{props.data.used_type}</span>
+                <span className="tag tag-teal">{props?.data?.used_type || null}</span>
                 <div className="text-end ms-5 d-inline">{starRating}</div>
               </div>
-              {props.data.name}
-              <p className="card-text">Price: {props.data.price}</p>
+              {props?.data?.name}
+              <p className="card-text">Price: {props?.data?.price}</p>
               <Link
                 to={productInfoRoute}
                 className="btn btn-primary"
