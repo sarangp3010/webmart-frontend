@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import { Row, Col, Button, Form, Container, Image } from "react-bootstrap";
+import { addCarts } from "../services/cart/cartService";
 
 const productInfoPage = (props: any) => {
+
+  const addToCart = () => {
+      const handler = async (data: any) => {
+        await addCarts(data);
+      };
+
+      handler({productId: '83958685-6e62-410d-9c3f-7cddf3d7cbdc', quantity: 1});
+      console.log("Product added successfully");
+  };
+
   return (
     <>
       <Container>
@@ -42,7 +53,7 @@ const productInfoPage = (props: any) => {
               </Row>
               <Row>
                 <Col>
-                  <Button className="btn-dark mb-1">Add to Cart</Button>
+                  <Button className="btn-dark mb-1" onClick={e => {addToCart()}}>Add to Cart</Button>
                 </Col>
               </Row>
               <Row className="pt-4">
