@@ -3,34 +3,39 @@ import { Col } from "react-bootstrap";
 import Cart from "../components/cart/cart";
 import data from "../data.json";
 import { getCarts, getCartById, updateCart, deleteCart} from "../services/cart/cartService";
+import * as lodash from "lodash";
 
 const Carts = () => {
   const [filteredData, setData] = useState([]);
     let price = 0;
     let discount = 0;
     useEffect(() => {
-        let tempData;
+        let tempData : any;
         const Temp = async () => {
             tempData = await getCarts();
-            await setData(tempData.data.carts);
-            console.log(filteredData, "---");
+            tempData = tempData.data.carts;
+            // console.log("---before sort", tempData);
+            tempData = lodash.sortBy(tempData,  `product.name`);
+            // console.log("---after sort", tempData);
+            await setData(tempData);
+            // console.log(filteredData, "---");
         };
         
         Temp();
-    }, []);
+    }, [data]);
 
     const quantityUpdate =  async (quantity : any, id : any) => {
         let tempData : any = [];
 
-        console.log(quantity, "---inside main carts", id, "----id");
+        // console.log(quantity, "---inside main carts", id, "----id");
         const update = async (filteredData : any) => {
             tempData = filteredData;
             tempData[id].quantity = quantity;
         };
-        console.log("---before", filteredData);
+        // console.log("---before", filteredData);
         await update(filteredData);
         setData(tempData);
-        console.log("---after", filteredData);
+        // console.log("---after", filteredData);
     };
 
     return (
@@ -95,9 +100,9 @@ const Carts = () => {
                                 <ul className="list-unstyled mb-4">
                                     <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Order Subtotal </strong><strong>{price}</strong></li>
                                     <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Total Discount</strong><strong>{discount}</strong></li>
-                                    <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Tax</strong><strong>$0.00</strong></li>
+                                    <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Tax</strong><strong>{(price-discount)*.08}</strong></li>
                                     <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Total</strong>
-                                        <h5 className="font-weight-bold">{price-discount}</h5>
+                                        <h5 className="font-weight-bold">{(price-discount)*1.08}</h5>
                                     </li>
                                 </ul><a href="#" className="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
                             </div>

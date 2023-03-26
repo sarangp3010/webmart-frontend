@@ -3,22 +3,38 @@ import { Col, Row } from "react-bootstrap";
 import { getCarts, getCartById, updateCart, deleteCart} from "../../services/cart/cartService";
 
 const Cart = (props: any) => {
+    const [quantity, setQuantity] = useState();
 
+    const fetchData = async () => {
+        const data = await getCarts();
+        props?.setData(data.data.carts);
+    };
 
-    // const [quantity, setQuantity] = useState(props?.data?.quantity);
-    // const [temp, setTemp] = useState(0);
-    // console.log(quantity, "----", props?.data?.quantity, "----", temp);
+    const cartUsingId = async () => {
+        const data = await getCartById(props?.data.id);
+        console.log(data, "----using id");
+        setQuantity(data.quantity);
+        // props?.setData(data.data);
+    };
 
-    // console.log("----", props?.data);
-
-    const [quantity, setQuantity] = useState(props?.data?.quantity);
-    // let quantity = props?.data?.quantity;
+    useEffect(() => {
+        cartUsingId();
+        fetchData();
+    }, [quantity]);
 
     const removeCart = async (id : any) => {
         await deleteCart(id);
-        const data = await getCarts();
-        props?.setData(data.data.carts);
+        await fetchData();
     }
+
+    const modifyQuantity = async (id : any, quantity: number) => {
+        await updateCart({quantity}, id);
+        fetchData();
+    }
+
+    const modifyhandler = (quantity : number, id : any) => {
+        modifyQuantity(id, quantity);
+    };
 
     return (
         <div >
@@ -35,7 +51,7 @@ const Cart = (props: any) => {
                                 <div className="" style={{ marginBottom: "50px" }}>{props?.data?.product?.price}</div>
                             </th>
                             <th scope="col" className="border-0">
-                                <div className="" style={{ marginBottom: "50px" }}><input type='number' value={quantity} onChange={e => props?.quantityUpdate(Number(e.target.value), props.i)} style={{ maxWidth: "40px" }}></input></div>
+                                <div className="" style={{ marginBottom: "50px" }}><input type='number' value={props.data.quantity} onChange={e => modifyhandler(Number(e.target.value), props?.data?.id)} style={{ maxWidth: "40px" }}></input></div>
                             </th>
                             <th scope="col" className="border-0">
                                 <div className="" style={{ marginBottom: "50px" }}><button onClick={e => removeCart(props?.data?.id)} className="text-dark"><i className="fa fa-trash"></i></button></div>
