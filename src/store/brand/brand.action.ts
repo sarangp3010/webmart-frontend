@@ -9,7 +9,6 @@ const getBrandFailed = () => action(TBrandActionTypeEnum.GET_BRAND_FAILED);
 
 const getBrandPending = () => action(TBrandActionTypeEnum.GET_BRAND_PENDING);
 
-
 const addBrandSuccess = (payload: TBrandPayload[]) =>
   action(TBrandActionTypeEnum.ADD_BRAND_SUCCESS, payload);
 
@@ -17,4 +16,23 @@ const addBrandFailed = () => action(TBrandActionTypeEnum.ADD_BRAND_FAILED);
 
 const addBrandPending = () => action(TBrandActionTypeEnum.ADD_BRAND_PENDING);
 
-export { getBrandSuccess, getBrandFailed, getBrandPending, addBrandFailed, addBrandSuccess, addBrandPending };
+const deleteBrandSuccess = (payload: Record<string, string> | null) =>
+  action(TBrandActionTypeEnum.DELETE_BRAND_SUCCESS, payload);
+
+const deleteBrandFailed = () =>
+  action(TBrandActionTypeEnum.DELETE_BRAND_FAILED);
+
+const deleteBrandPending = () =>
+  action(TBrandActionTypeEnum.DELETE_BRAND_PENDING);
+
+export {
+  getBrandSuccess,
+  getBrandFailed,
+  getBrandPending,
+  addBrandFailed,
+  addBrandSuccess,
+  addBrandPending,
+  deleteBrandFailed,
+  deleteBrandSuccess,
+  deleteBrandPending,
+};

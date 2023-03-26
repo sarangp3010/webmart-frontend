@@ -15,7 +15,9 @@ const Brand: React.FC<Prop> = ({ setTabValue, tabValue }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
-  const { brands } = useSelector((state: TRootState) => state?.brand?.brands || {});
+  const { brands } = useSelector(
+    (state: TRootState) => state?.brand?.brands || {}
+  );
   const { singleProductData } = useSelector(
     (state: TRootState) => state?.product
   );
@@ -123,7 +125,12 @@ const Brand: React.FC<Prop> = ({ setTabValue, tabValue }) => {
             <button type="button" className="btn btn-secondary clear-form mr-2">
               Cancel
             </button>
-            <button type="button" className={`btn btn-primary`} onClick={() => handleSubmit()}>
+            <button
+              type="button"
+              className={`btn btn-primary`}
+              style={{ marginLeft: "30px" }}
+              onClick={() => handleSubmit()}
+            >
               Next
             </button>
           </div>

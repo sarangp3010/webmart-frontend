@@ -7,6 +7,7 @@ import ModalAdd from "../components/Modals/ModalAdd";
 import {
   getBrandActionThunk,
   addBrandActionThunk,
+  deleteBrandActionThunk,
 } from "../store/brand/brand.action.async";
 import TRootState from "../store/root.types";
 import { BarsLoader } from "../components/loader/loader";
@@ -56,7 +57,7 @@ const Brands = () => {
   const { errors, touched } = formik;
 
   const deleteBrand = () => {
-    // dispatch(deleteBrandAction(brandId));
+    dispatch(deleteBrandActionThunk(brandId || "" as string));
   };
 
   return (
@@ -100,7 +101,7 @@ const Brands = () => {
                     <div className="col-md-12">
                       <div className="form-group">
                         <label className="control-label">
-                        Threshold <span className="text-danger">*</span>
+                          Threshold <span className="text-danger">*</span>
                         </label>
                         <input
                           type="number"
@@ -135,6 +136,15 @@ const Brands = () => {
                 <div className="mr-auto">
                   <h1>{"Brands"}</h1>
                 </div>
+                <div>
+                  <button
+                    type="button"
+                    onClick={() => setShowAddModal(true)}
+                    className="btn btn-primary"
+                  >
+                    {"Add New"}
+                  </button>
+                </div>
               </div>
             </header>
             <section
@@ -147,15 +157,7 @@ const Brands = () => {
                     <div className="tab-pane fadeIn active" id="tab-1">
                       <div className="p-3 d-flex justify-content-end inner-filter">
                         <div className="d-flex align-items-center">
-                          <div className="m-l-10">
-                            <button
-                              type="button"
-                              onClick={() => setShowAddModal(true)}
-                              className="btn btn-success"
-                            >
-                              {"Add New"}
-                            </button>
-                          </div>
+                          <div className="m-l-10"></div>
                         </div>
                       </div>
                       <div className="container ">
@@ -169,20 +171,27 @@ const Brands = () => {
                               brands.map((b, i) => (
                                 <div
                                   key={i}
-                                  className="card  col-md-2 mx-2 my-2 brand-cards"
+                                  className="card col-md-2 mx-2 my-2 brand-cards"
                                 >
                                   <div
                                     className="card-body"
                                     style={{ textAlign: "center" }}
                                   >
                                     <span>{b && b.name} </span>
-                                    <i
+                                    <span
+                                      className="material-symbols-outlined"
                                       onClick={() => {
                                         setBrandId((b?.id || "") as any);
                                         setShowDeleteModal(true);
                                       }}
-                                      className="fa fa-trash-alt fa-fw text-danger delete-icon"
-                                    ></i>
+                                    >
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 448 512"
+                                      >
+                                        <path d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" />
+                                      </svg>
+                                    </span>
                                   </div>
                                 </div>
                               ))

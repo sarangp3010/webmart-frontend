@@ -41,6 +41,11 @@ const routes = [
     element: lazy(() => import("../pages/brands")),
     exact: true,
   },
+  {
+    path: "/products/list",
+    element: lazy(() => import("../pages/product/list")),
+    exact: true,
+  },
 ];
 
 export default routes;
