@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/products/products";
+import { useDispatch, useSelector } from "react-redux";
 import data from "../data.json";
 import SideBar from "../components/sideBar/sideBar";
+import TRootState from "../store/root.types";
+import {
+  getProductsActionThunk,
+} from "../store/products/products.action.async";
+// import { getAll } from "../services/products/productsService";
 
 const AfterSeach: React.FC<any> = () => {
-  const [filteredData, setData] = useState(data);
+
+  const dispatch = useDispatch();
+  const [filteredData, setData] = useState([] as any);
   const setFilters = ({ minPrice, maxPrice, category, type }: any) => {
     
     function isFilter(val: any) {
@@ -20,6 +28,18 @@ const AfterSeach: React.FC<any> = () => {
     setData((data || []).filter(isFilter));
   };
 
+  const loading = useSelector((state: TRootState) => state?.product?.loading);
+  const { products} = useSelector(
+    (state: TRootState) => state?.product?.products
+  );
+
+  useEffect(() => {
+    dispatch(getProductsActionThunk(undefined, undefined, undefined));
+    console.log("---inside After Search", products);
+    setData(products);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [products]);
+
   return (
     <div className="after-search">
       <div className="after-search-list-wrap">
@@ -30,7 +50,7 @@ const AfterSeach: React.FC<any> = () => {
           <Row>
             {(filteredData || []).length ? (
               <>
-                {(filteredData || []).map((product, i) => (
+                {(filteredData || []).map((product : any, i : any) => (
                   <Col key={i} sm={12} md={6} lg={4} className="">
                     <Product data={product} />
                   </Col>
