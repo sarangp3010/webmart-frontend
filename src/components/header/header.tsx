@@ -114,7 +114,7 @@ const StatusBar: React.FC<any> = () => {
           )}
         </div>
         <div className="cart">
-          <button>
+          <button onClick={() => navigate("/cart")}>
             <img src={logo2} alt="Logo" />
           </button>
         </div>

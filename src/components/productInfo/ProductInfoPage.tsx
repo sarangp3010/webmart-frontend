@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Row, Col, Button, Form, Container, Image } from "react-bootstrap";
-import { addCarts } from "../services/cart/cartService";
+import { addCarts } from "../../services/cart/cartService";
 
 const productInfoPage = (props: any) => {
 
