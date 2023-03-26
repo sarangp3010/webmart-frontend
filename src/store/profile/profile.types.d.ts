@@ -17,6 +17,7 @@ type TGetProfilePayload = {
   countryCode: number | string | null;
   mobileNumber: number | string | null;
   email: string | null;
+  totalCredits: number | 0;
 } | null;
 
 /**
