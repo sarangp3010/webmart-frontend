@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
@@ -15,6 +15,7 @@ import { refreshProfileAction } from "../../store/profile/profile.action";
 const StatusBar: React.FC<any> = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [user_Type, setUser_Type] = useState([]);
 
   const profile = useSelector((state: TRootState) => state.profile.profileData);
   const refreshProfile = useSelector(
@@ -105,7 +106,11 @@ const StatusBar: React.FC<any> = () => {
                       </span>
                     </div>
                   </div>
-
+                  {profile?.firstName === "admin" && (
+                  <Dropdown.Item onClick={() => navigate("/admin-dashboard")}>
+                  <i className="icon dripicons-lock"></i> Admin DashBoard
+                  </Dropdown.Item>
+                  )}
                   <Dropdown.Item onClick={() => navigate(isUserOrSellerUrl)}>
                     <i className="icon dripicons-lock"></i>{" "}
                     {isUserOrSeller ? "Add Product" : "Become a seller"}
