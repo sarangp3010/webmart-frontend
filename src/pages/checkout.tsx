@@ -26,10 +26,11 @@ const CheckoutPage = () => {
   const [pincode, setPincode] = useState("");
   const [country, setCountry] = useState("");
 
+  const [nameOnCard, setNameOnCard] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [expMonth, setExpMonth] = useState("");
   const [expYear, setExpYear] = useState("");
-  const [cvv, setcvv] = useState("");
+  const [CVV, setCVV] = useState("");
 
   const sendAddressToBackend = () => {
     addAddress({
@@ -49,10 +50,11 @@ const CheckoutPage = () => {
   const sendCardToBackend = () => {
     addCard({
       body: {
+        name: nameOnCard,
         cardNumber: cardNumber,
         expMonth: expMonth,
         expYear: expYear,
-        cvc: cvv,
+        cvc: CVV,
       },
     });
   };
@@ -117,52 +119,52 @@ const CheckoutPage = () => {
               <Col>
                 <h3 className="text-center">Delivery</h3>
                 <Form>
-                  <Form.Group controlId="formBasicName" className="pt-2">
+                  <Form.Group controlId="name" className="pt-2">
                     <Form.Label>Name</Form.Label>
                     <Form.Control
                       type="text"
                       name="name"
-                      placeholder="Enter name"
+                      placeholder="Enter Name"
                       onChange={(event) => {
                         setName(event.target.value);
                       }}
                     />
                   </Form.Group>
-                  <Form.Group controlId="formBasicEmail" className="pt-2">
+                  <Form.Group controlId="email" className="pt-2">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                       type="email"
-                      placeholder="Enter email"
+                      placeholder="Enter Email"
                       onChange={(event) => {
                         setEmail(event.target.value);
                       }}
                     />
                   </Form.Group>
-                  <Form.Group controlId="formBasicAddress" className="pt-2">
+                  <Form.Group controlId="address" className="pt-2">
                     <Form.Label>Street Address</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Enter address"
+                      placeholder="Enter Address"
                       onChange={(event) => {
                         setStreetAddress(event.target.value);
                       }}
                     />
                   </Form.Group>
-                  <Form.Group controlId="formBasicCity" className="pt-2">
+                  <Form.Group controlId="city" className="pt-2">
                     <Form.Label>City</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Enter city"
+                      placeholder="Enter City"
                       onChange={(event) => {
                         setCity(event.target.value);
                       }}
                     />
                   </Form.Group>
-                  <Form.Group controlId="formBasicCity" className="pt-2">
+                  <Form.Group controlId="city" className="pt-2">
                     <Form.Label>County</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Enter county"
+                      placeholder="Enter County"
                       onChange={(event) => {
                         setCounty(event.target.value);
                       }}
@@ -172,7 +174,7 @@ const CheckoutPage = () => {
                     <Form.Label>Zip</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Enter zip"
+                      placeholder="Enter Zip"
                       onChange={(event) => {
                         setPincode(event.target.value);
                       }}
@@ -182,7 +184,7 @@ const CheckoutPage = () => {
                     <Form.Label>Country</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Enter country"
+                      placeholder="Enter Country"
                       onChange={(event) => {
                         setCountry(event.target.value);
                       }}
@@ -226,7 +228,7 @@ const CheckoutPage = () => {
                         <Form.Control
                           type="text"
                           name="name"
-                          placeholder="Enter name"
+                          placeholder="Enter Name"
                           onChange={(event) => {
                             setName(event.target.value);
                           }}
@@ -236,7 +238,7 @@ const CheckoutPage = () => {
                         <Form.Label>Email</Form.Label>
                         <Form.Control
                           type="email"
-                          placeholder="Enter email"
+                          placeholder="Enter Email"
                           onChange={(event) => {
                             setEmail(event.target.value);
                           }}
@@ -246,7 +248,7 @@ const CheckoutPage = () => {
                         <Form.Label>Street Address</Form.Label>
                         <Form.Control
                           type="text"
-                          placeholder="Enter address"
+                          placeholder="Enter Address"
                           onChange={(event) => {
                             setStreetAddress(event.target.value);
                           }}
@@ -256,7 +258,7 @@ const CheckoutPage = () => {
                         <Form.Label>City</Form.Label>
                         <Form.Control
                           type="text"
-                          placeholder="Enter city"
+                          placeholder="Enter City"
                           onChange={(event) => {
                             setCity(event.target.value);
                           }}
@@ -266,7 +268,7 @@ const CheckoutPage = () => {
                         <Form.Label>County</Form.Label>
                         <Form.Control
                           type="text"
-                          placeholder="Enter county"
+                          placeholder="Enter County"
                           onChange={(event) => {
                             setCounty(event.target.value);
                           }}
@@ -276,7 +278,7 @@ const CheckoutPage = () => {
                         <Form.Label>Zip</Form.Label>
                         <Form.Control
                           type="text"
-                          placeholder="Enter zip"
+                          placeholder="Enter Zip"
                           onChange={(event) => {
                             setPincode(event.target.value);
                           }}
@@ -286,7 +288,7 @@ const CheckoutPage = () => {
                         <Form.Label>Country</Form.Label>
                         <Form.Control
                           type="text"
-                          placeholder="Enter country"
+                          placeholder="Enter Country"
                           onChange={(event) => {
                             setCountry(event.target.value);
                           }}
@@ -324,43 +326,53 @@ const CheckoutPage = () => {
               <Col>
                 <h3 className="text-center">Payment</h3>
                 <Form>
+                <Form.Group controlId="cardHolderName" className="pt-2">
+                    <Form.Label>Name On Card</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter Name"
+                      onChange={(event) => {
+                        setNameOnCard(event.target.value);
+                      }}
+                    />
+                  </Form.Group>
                   <Form.Group controlId="cardNumber" className="pt-2">
                     <Form.Label>Card Number</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Enter card number"
+                      placeholder="Enter Card Number"
                       onChange={(event) => {
                         setCardNumber(event.target.value);
                       }}
                     />
                   </Form.Group>
                   <Form.Group controlId="expiryMonth" className="pt-2">
-                    <Form.Label>Expiration Date</Form.Label>
+                    <Form.Label>Expiration Month</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Enter expiration month"
+                      placeholder="Enter Expiration Month"
                       onChange={(event) => {
                         setExpMonth(event.target.value);
                       }}
                     />
                   </Form.Group>
                   <Form.Group controlId="expiryYear" className="pt-2">
-                    <Form.Label>Expiration Date</Form.Label>
+                    <Form.Label>Expiration Year</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Enter expiration year"
+                      placeholder="Enter Expiration Year"
                       onChange={(event) => {
                         setExpYear(event.target.value);
                       }}
                     />
                   </Form.Group>
-                  <Form.Group controlId="cvv" className="pt-2">
-                    <Form.Label>cvv</Form.Label>
+                  <Form.Group controlId="CVV" className="pt-2">
+                    <Form.Label>CVV</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Enter cvv"
+                      placeholder="Enter CVV"
                       onChange={(event) => {
-                        setcvv(event.target.value);
+                        setCVV(event.target.value);
                       }}
                     />
                   </Form.Group>
