@@ -73,7 +73,7 @@ const StatusBar: React.FC<any> = () => {
                   className="profile-dropdown"
                   style={{
                     animationName: "slideUpIn!important",
-                    position: "fixed",
+                    position: "fixed"
                   }}
                 >
                   <div className="dropdown-header">
@@ -84,6 +84,9 @@ const StatusBar: React.FC<any> = () => {
                       </span>
                     </div>
                   </div>
+                  <Dropdown.Item onClick={() => navigate("/login")}>
+                    <i className="icon dripicons-lock"></i> Become a seller
+                  </Dropdown.Item>
                   <Dropdown.Item onClick={logoutHandler}>
                     <i className="icon dripicons-lock"></i> Logout
                   </Dropdown.Item>
@@ -105,7 +108,7 @@ const StatusBar: React.FC<any> = () => {
           )}
         </div>
         <div className="cart">
-          <button onClick={() => navigate("/cart")}>
+          <button>
             <img src={logo2} alt="Logo" />
           </button>
         </div>

@@ -37,6 +37,16 @@ const routes = [
     exact: true,
   },
   {
+    path: "/cart",
+    element: lazy(() => import("../pages/carts")),
+    exact: true,
+  },
+  {
+    path: "/checkout",
+    element: lazy(() => import("../pages/checkout")),
+    exact: true,
+  },
+  {
     path: "/products/:id",
     element: lazy(() => import("../pages/product/add")),
     exact: true,
@@ -45,7 +55,7 @@ const routes = [
     path: "/brands",
     element: lazy(() => import("../pages/brands")),
     exact: true,
-  },
+  }
 ];
 
 export default routes;
