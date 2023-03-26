@@ -5,5 +5,5 @@ import { API } from "../../middleware/middleware";
  * @returns
  */
 export const getProfileDataAPI = (): Promise<any> => {
-  return API.get("/users/profile/me");
+  return API.get("/users/me");
 };

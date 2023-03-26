@@ -25,7 +25,7 @@ const AppRoutes = () => {
       ) : null}
 
       <ErrorBoundary>
-        <Routes>  
+        <Routes>
           {(routes || []).map(({ element: Element, path }, index) => (
             <>
               <Route path={`/${path}`} element={<Element />} key={index} />
@@ -39,7 +39,7 @@ const AppRoutes = () => {
           </Route>
         </Routes>
       </ErrorBoundary>
-      
+
       {!isHeaderAvailable(location.pathname) ? (
         <React.Fragment>
           <Footer />

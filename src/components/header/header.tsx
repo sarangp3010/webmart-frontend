@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
-import logo from "../../assets/Images/Free_Sample_By_Wix.jpg";
-import logo2 from "../../assets/Images/download.png";
-import logo3 from "../../assets/Images/images.png";
+import logo from "../../Assets/Images/Free_Sample_By_Wix.jpg";
+import logo2 from "../../Assets/Images/download.png";
+import logo3 from "../../Assets/Images/images.png";
 
 import { getProfileActionThunk } from "../../store/profile/profile.actions.async";
 import { logout } from "../../store/auth/auth.action";
@@ -84,6 +84,9 @@ const StatusBar: React.FC<any> = () => {
                       </span>
                     </div>
                   </div>
+                  <Dropdown.Item onClick={() => navigate('/user/profile')}>
+                    <span>Profile Setting</span>
+                  </Dropdown.Item>
                   <Dropdown.Item onClick={logoutHandler}>
                     <i className="icon dripicons-lock"></i> Logout
                   </Dropdown.Item>

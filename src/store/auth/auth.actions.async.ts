@@ -165,9 +165,13 @@ export const changePasswordActionThunk = (
       .authChangePassword(values)
       .then((response: any) => {
         dispatch(changePassword());
-        if (response.data && response.data.message) {
+        if (response.status === 200 && response.data && response.data.message) {
           successToast(response.data.message);
         }
+        else{
+          errorToast(response.data.message);
+        }
+        console.log(response.status, "*******************************************************")
         localStorage.removeItem("rememberMe");
         dispatch(logout());
       })

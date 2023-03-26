@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Logo from "../../assets/Images/Free_Sample_By_Wix.jpg";
+import Logo from "../../Assets/Images/Free_Sample_By_Wix.jpg";
 
 const PageNotFound = () => {
   const navigate = useNavigate();

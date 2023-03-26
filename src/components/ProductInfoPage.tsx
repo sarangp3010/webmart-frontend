@@ -65,6 +65,7 @@ const productInfoPage = (props: any) => {
           </Col>
         </Row>
 
+      <div className="similar-products-container">
         <Row className="justify-content-center mt-5 mb-2 p-2">
           <h2 className="fw-bold"> Similar Products</h2>
         </Row>
@@ -165,6 +166,7 @@ const productInfoPage = (props: any) => {
             </li>
           </Col>
         </Row>
+      </div>
       </Container>
     </>
   );
