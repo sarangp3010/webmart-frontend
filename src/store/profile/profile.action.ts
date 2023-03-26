@@ -30,9 +30,13 @@ const getProfileAction = (profileData: TGetProfilePayload) =>
  */
 const editProfileAction = () => action(ProfileActionTypeEnum.EDIT_PROFILE);
 
+const refreshProfileAction = (payload: boolean) =>
+  action(ProfileActionTypeEnum.REFRESH_PROFILE, payload);
+
 export {
   profileLoadingAction,
   profileLoadedAction,
   getProfileAction,
   editProfileAction,
+  refreshProfileAction,
 };
