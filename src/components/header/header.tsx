@@ -16,7 +16,7 @@ const StatusBar: React.FC<any> = () => {
   const navigate = useNavigate();
   const [user_Type, setUser_Type] = useState([]);
 
-  const profile = useSelector((state: TRootState) => {return state.profile.profileData});
+  const profile = useSelector((state: TRootState) => {console.log(state.profile.profileData) ;return state.profile.profileData});
 
   /**
    * Get Profile data when component load first time
