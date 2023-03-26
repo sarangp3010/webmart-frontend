@@ -35,10 +35,11 @@ const addCarts = (
  * @returns
  */
 const updateCart = (
-  data: any,
-  productId: string
+  quantity: any,
+  cartId: string
 ): Promise<any> => {
-  return API.put("/cart/" + productId, data)
+  console.log(quantity, "---inside service");
+  return API.put("/cart/" + cartId, quantity)
 };
 
 /**

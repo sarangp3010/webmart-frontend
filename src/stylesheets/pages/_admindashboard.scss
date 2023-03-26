@@ -1,0 +1,57 @@
+.admin-dashboard-container {
+    padding: 20px;
+  }
+  
+  .admin-dashboard-title {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .admin-dashboard-stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+   
+    
+  }
+  
+  .admin-dashboard-stat {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-basis: calc(25% - 20px);
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .admin-dashboard-stat h3 {
+    margin-bottom: 10px;
+  }
+  
+  .admin-dashboard-stat-value {
+    font-size: 32px;
+    font-weight: bold;
+  }
+  
+  .admin-dashboard-product-categories {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .admin-dashboard-product-categories-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .admin-dashboard-product-category {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+  }
+  
+  .admin-dashboard-product-category-count {
+    font-weight: bold;
+  }
+  
