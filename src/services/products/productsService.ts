@@ -11,14 +11,12 @@ const getProducts = (
   search?: string,
   categoryId?: number | string,
   categoryIds?: string[],
-  orderType?: number
 ): Promise<any> => {
   return API.get("/products", {
     params: {
       search: search || undefined,
       categoryId: categoryId && (categoryId === "All" ? undefined : Number(categoryId)),
       categoryIds: categoryIds,
-      orderType: orderType || undefined,
     },
   });
 };

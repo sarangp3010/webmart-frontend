@@ -151,7 +151,11 @@ const Prices: React.FC<Prop> = ({ setTabValue, tabValue }) => {
                 >
                   Cancel
                 </button>
-                <button type="submit" className={`btn btn-primary`}>
+                <button
+                  type="submit"
+                  className={`btn btn-primary`}
+                  style={{ marginLeft: "30px" }}
+                >
                   Submit
                 </button>
               </div>

@@ -4,13 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { getProductByIdActionThunk } from "../../store/products/products.action.async";
 import TRootState from "../../store/root.types";
-import * as requestFromServer from "../../services/brand/brand";
 
 import BasicDetails from "./basicDetails";
 import Prices from "./prices";
 import Brand from "./brand";
 import Category from "./category";
-const ProductsAdd = () => {
+
+interface Prop {}
+
+const ProductsAdd:React.FC<Prop> = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -73,7 +75,7 @@ const ProductsAdd = () => {
   }, []);
 
   const handleRedirectToProductList = () => {
-    navigate("products/list");
+    navigate("/products/list");
   };
 
   return (
@@ -85,14 +87,16 @@ const ProductsAdd = () => {
               <header className="page-header">
                 <div className="d-flex align-items-center">
                   <div className="mr-auto">
-                    <h1>{"Add New"} Product</h1>
+                    <h1>
+                      {id === "new" ? "Add New Product" : "Edit Product"}{" "}
+                    </h1>
                   </div>
                   <div className="m-l-10">
                     <button
-                      className="btn btn-secondary"
+                      className="btn btn-primary"
                       onClick={() => handleRedirectToProductList()}
                     >
-                      <i className="fa fa-angle-left">&nbsp;</i> Back
+                      <i className="fa fa-angle-left"></i> Back
                     </button>
                   </div>
                 </div>
@@ -139,7 +143,7 @@ const ProductsAdd = () => {
                   </div>
                   <div className="card-body p-0">
                     <div className="tab-content">
-                      {tabValue === 1 ? (
+                      {tabValue === 1 || !tabValue ? (
                         <BasicDetails setTabValue={setTabValue} />
                       ) : null}
 

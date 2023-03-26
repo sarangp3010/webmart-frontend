@@ -20,23 +20,15 @@ import {
 import * as requestFromServer from "../../services/products/productsService";
 import { errorToast, successToast } from "../../components/toast/toast";
 
-/**
- * Get products action thunk
- * @param search
- * @param categoryId
- * @param orderType
- * @returns
- */
 export const getProductsActionThunk = (
-  search?: string,
-  categoryId?: string,
-  categoryIds?: string[],
-  orderType?: number
-): ThunkAction<void, {}, {}, AnyAction> => {
+  search?: string | undefined,
+  categoryId?: string | undefined,
+  categoryIds?: string[] | undefined,
+): any => {
   return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
     dispatch(getProductsPending());
     requestFromServer
-      .getProducts(search, categoryId, categoryIds, orderType)
+      .getProducts(search, categoryId, categoryIds)
       .then((res) => {
         dispatch(getProductsSuccess(res?.data));
       })
@@ -46,12 +38,6 @@ export const getProductsActionThunk = (
       });
   };
 };
-
-/**
- * Get product by id action thunk
- * @param productId
- * @returns
- */
 
 export const getProductByIdActionThunk = (
   productId: string,
@@ -74,15 +60,6 @@ export const getProductByIdActionThunk = (
   };
 };
 
-/**
- * Add products action thunk
- * @param name
- * @param orderType
- * @param status
- * @param logo
- * @param details
- * @returns
- */
 export const addProductsActionThunk = (
   data: any,
   updateTab?: Function
@@ -125,16 +102,9 @@ export const updateProductActionThunk = (
   };
 };
 
-/**
- * Delete product action thunk
- * @param productId
- * @param orderType
- * @returns
- */
 export const deleteProductActionThunk = (
   productId: string,
-  orderType: number
-): ThunkAction<void, {}, {}, AnyAction> => {
+): any => {
   return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
     dispatch(deleteProductPending());
     requestFromServer
@@ -142,7 +112,7 @@ export const deleteProductActionThunk = (
       .then((res) => {
         if (res?.status === 201 || res?.status === 204) {
           successToast("Product deleted successfully");
-          dispatch(deleteProductSuccess({ productId, orderType }));
+          dispatch(deleteProductSuccess({ productId }));
         } else {
           errorToast("Something went wrong");
           dispatch(deleteProductFailed());
@@ -150,7 +120,7 @@ export const deleteProductActionThunk = (
       })
       .catch((err) => {
         errorToast(err?.response?.data?.message || "Something went wrong");
-        dispatch(deleteProductSuccess({ productId, orderType }));
+        dispatch(deleteProductFailed());
       });
   };
 };

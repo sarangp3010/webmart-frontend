@@ -7,6 +7,9 @@ import {
   addBrandFailed,
   addBrandPending,
   addBrandSuccess,
+  deleteBrandFailed,
+  deleteBrandPending,
+  deleteBrandSuccess
 } from "./brand.action";
 import * as requestFromServer from "../../services/brand/brand";
 import { errorToast, successToast } from "../../components/toast/toast";
@@ -47,6 +50,29 @@ export const addBrandActionThunk = (data: any): any => {
       .catch((err) => {
         errorToast("Something went wrong.");
         dispatch(addBrandFailed());
+      });
+  };
+};
+
+export const deleteBrandActionThunk = (
+  brandId: string,
+): any => {
+  return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+    dispatch(deleteBrandPending());
+    requestFromServer
+    .deleteBrand(brandId)
+      .then((res) => {
+        if (res?.status === 201 || res?.status === 204) {
+          successToast("Brand deleted successfully");
+          dispatch(deleteBrandSuccess({ brandId }));
+        } else {
+          errorToast("Something went wrong");
+          dispatch(deleteBrandFailed());
+        }
+      })
+      .catch((err) => {
+        errorToast(err?.response?.data?.message || "Something went wrong");
+        dispatch(deleteBrandFailed());
       });
   };
 };
