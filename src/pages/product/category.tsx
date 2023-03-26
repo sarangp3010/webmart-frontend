@@ -179,6 +179,7 @@ const Category: React.FC<Prop> = ({ setTabValue, tabValue }) => {
             <button
               type="button"
               className={`btn btn-primary`}
+              style={{ marginLeft: "30px" }}
               onClick={() => handleSubmit()}
             >
               Next

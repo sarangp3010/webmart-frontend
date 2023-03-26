@@ -7,6 +7,7 @@ type TProfileActionType = ActionType<typeof actions>;
 type TProfileState = {
   loading: boolean;
   profileData: TGetProfilePayload;
+  refreshProfile: boolean;
 };
 
 type TGetProfilePayload = {
@@ -18,6 +19,7 @@ type TGetProfilePayload = {
   mobileNumber: number | string | null;
   email: string | null;
   totalCredits: number | 0;
+  userType: string[];
 } | null;
 
 /**

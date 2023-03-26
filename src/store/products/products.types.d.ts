@@ -22,7 +22,7 @@ type TProductsPayload = {
 
 type TProductsState = {
   loading: boolean;
-  productsData: {
+  products: {
     count: number;
     products?: Array<TProductsPayload | null> | null;
   };

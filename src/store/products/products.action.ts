@@ -98,7 +98,6 @@ const updateProductFailed = () =>
  */
 const deleteProductSuccess = (payload: {
   productId: string;
-  orderType: number;
 }) => action(ProductsActionTypeEnum.DELETE_PRODUCTS_SUCCESS, payload);
 
 /**

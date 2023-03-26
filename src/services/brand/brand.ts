@@ -10,4 +10,8 @@ const addBrand = (data: any): Promise<any> => {
   return API.post("/brands/", data);
 };
 
-export { getBrand, addBrand };
+const deleteBrand = (id: string): Promise<any> => {
+  return API.delete("/brands/" + id);
+};
+
+export { getBrand, addBrand, deleteBrand };

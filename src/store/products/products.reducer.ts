@@ -4,7 +4,7 @@ import { TProductsState, TProductsActionType } from "./products.types";
 
 const initialState: TProductsState = {
   loading: false,
-  productsData: {
+  products: {
     count: 0,
     products: null,
   },
@@ -26,7 +26,7 @@ const productsReducer = (
       return {
         ...state,
         loading: false,
-        productsData: {
+        products: {
           ...action?.payload,
         },
       };
@@ -120,9 +120,15 @@ const productsReducer = (
       };
 
     case ProductsActionTypeEnum.DELETE_PRODUCTS_SUCCESS:
+      const products = state?.products?.products || [];
+      const updatedProducts = products.filter((prod: any) => prod.id !== action?.payload?.productId);
       return {
         ...state,
         loading: false,
+        products: {
+          count: state?.products?.count - 1,
+          products: updatedProducts
+        }
       };
       
     default:
