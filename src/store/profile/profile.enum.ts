@@ -3,6 +3,7 @@ enum ProfileActionTypeEnum {
   PROFILE_LOADED = "PROFILE_LOADED",
   GET_PROFILE = "GET_PROFILE",
   EDIT_PROFILE = "EDIT_PROFILE",
+  REFRESH_PROFILE = "REFRESH_PROFILE",
 }
 
 export default ProfileActionTypeEnum;

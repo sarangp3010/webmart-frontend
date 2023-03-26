@@ -10,7 +10,7 @@ const routes = [
     path: "",
     element: lazy(() => import("../pages/home")),
     exact: true,
-  }, 
+  },
   {
     path: "*",
     element: lazy(() => import("../components/pageNotFound/pageNotFound")),
@@ -57,10 +57,14 @@ const routes = [
     exact: true,
   },
   {
-    path: "/admin-dashboard",
-    element: lazy(() => import("../pages/admindashboard")),
+    path: "/become-seller",
+    element: lazy(() => import("../pages/becomeSeller")),
     exact: true,
-  }
+  },
+  {path: "/admin-dashboard",
+  element: lazy(() => import("../pages/admindashboard")),
+  exact: true,
+},
 ];
 
 export default routes;

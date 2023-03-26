@@ -10,13 +10,25 @@ import { getProfileActionThunk } from "../../store/profile/profile.actions.async
 import { logout } from "../../store/auth/auth.action";
 import TRootState from "../../store/root.types";
 import "../../stylesheets/_header.scss";
+import { refreshProfileAction } from "../../store/profile/profile.action";
 
 const StatusBar: React.FC<any> = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [user_Type, setUser_Type] = useState([]);
 
-  const profile = useSelector((state: TRootState) => {console.log(state.profile.profileData) ;return state.profile.profileData});
+  const profile = useSelector((state: TRootState) => state.profile.profileData);
+  const refreshProfile = useSelector(
+    (state: TRootState) => state.profile.refreshProfile
+  );
+  const isUserOrSeller = profile
+    ? profile.userType.includes("admin") || profile.userType.includes("seller")
+    : false;
+  const isUserOrSellerUrl = profile
+    ? profile.userType.includes("admin") || profile.userType.includes("seller")
+      ? "/products/new"
+      : "/become-seller"
+    : "";
 
   /**
    * Get Profile data when component load first time
@@ -25,6 +37,15 @@ const StatusBar: React.FC<any> = () => {
     dispatch(getProfileActionThunk());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profile?.id]);
+
+  useEffect(() => {
+    if (refreshProfile) {
+      dispatch(getProfileActionThunk());
+      dispatch(refreshProfileAction(false));
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [refreshProfile]);
 
   const logoutHandler = () => {
     dispatch(logout());
@@ -74,7 +95,7 @@ const StatusBar: React.FC<any> = () => {
                   className="profile-dropdown"
                   style={{
                     animationName: "slideUpIn!important",
-                    position: "fixed"
+                    position: "fixed",
                   }}
                 >
                   <div className="dropdown-header">
@@ -90,8 +111,9 @@ const StatusBar: React.FC<any> = () => {
                   <i className="icon dripicons-lock"></i> Admin DashBoard
                   </Dropdown.Item>
                   )}
-                  <Dropdown.Item onClick={() => navigate("/login")}>
-                    <i className="icon dripicons-lock"></i> Become a seller
+                  <Dropdown.Item onClick={() => navigate(isUserOrSellerUrl)}>
+                    <i className="icon dripicons-lock"></i>{" "}
+                    {isUserOrSeller ? "Add Product" : "Become a seller"}
                   </Dropdown.Item>
                   <Dropdown.Item onClick={logoutHandler}>
                     <i className="icon dripicons-lock"></i> Logout
