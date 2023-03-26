@@ -19,8 +19,7 @@ interface Prop {
 
 AWS.config.update({
   accessKeyId: "AKIAXBQMUZQ6AFYZN5D7",
-  secretAccessKey:
-    "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",
+  secretAccessKey: "xLYwuvpNXtxNuFB+vkVI1lG4KWSTFyZnFZFkrN3k",
   region: "us-east-1",
   signatureVersion: "v4",
 });
@@ -49,13 +48,11 @@ const BasicDetails: React.FC<Prop> = ({ setTabValue }) => {
     };
     const { Location } = await s3.upload(params).promise();
     formik && formik?.setFieldValue("thumbnailImage", Location);
-    console.log("uploading to s3", Location);
   };
 
   const { id } = useParams<{ id: string }>();
   useEffect(() => {
     if (newProduct?.id && id === "new") {
-      console.log("called inner");
       setTabValue(2);
       navigate("/products/" + newProduct?.id, { state: { tab: 2 } });
     }
@@ -101,17 +98,19 @@ const BasicDetails: React.FC<Prop> = ({ setTabValue }) => {
         );
       } else {
         dispatch(
-          addProductsActionThunk({
-            name: values?.name,
-            description: values?.description,
-            thumbnailImage: values?.thumbnailImage,
-            isUsed: values?.isUsed === "0" ? false : true,
-            completedStep: 1,
-          },
-          function () {
-            setTabValue(2);
-            navigate(location?.pathname, { state: { tab: 2 } });
-          })
+          addProductsActionThunk(
+            {
+              name: values?.name,
+              description: values?.description,
+              thumbnailImage: values?.thumbnailImage,
+              isUsed: values?.isUsed === "0" ? false : true,
+              completedStep: 1,
+            },
+            function () {
+              setTabValue(2);
+              navigate(location?.pathname, { state: { tab: 2 } });
+            }
+          )
         );
       }
     },
@@ -197,7 +196,6 @@ const BasicDetails: React.FC<Prop> = ({ setTabValue }) => {
                           )}
                         </div>
                       </div>
-
                       <div className="col-md-12 col-sm-12">
                         <div className="form-group">
                           <label className="control-label">Description</label>
@@ -215,48 +213,6 @@ const BasicDetails: React.FC<Prop> = ({ setTabValue }) => {
                           )}
                         </div>
                       </div>
-
-                      {/* <div className="col-md-6">
-                        <div className="form-group">
-                          <label className="control-label">
-                            Status <span className="text-danger">*</span>
-                          </label>
-                          <div>
-                            <label
-                              className="control control-outline d-inline-block control-primary control--radio mb-0 mr-3"
-                              htmlFor="status1"
-                            >
-                              {" "}
-                              Used
-                              <input
-                                type="radio"
-                                name="isUsed"
-                                value={"1"}
-                                id="isUsed1"
-                                checked={formik.values.isUsed === "1"}
-                                onChange={formik.handleChange}
-                              />
-                              <div className="control__indicator"></div>
-                            </label>
-                            <label
-                              className="control control-outline d-inline-block control-primary control--radio mb-0"
-                              htmlFor="status2"
-                            >
-                              {" "}
-                              Un Used
-                              <input
-                                type="radio"
-                                value={"0"}
-                                name="isUsed"
-                                id="isUsed2"
-                                checked={formik.values.isUsed === "0"}
-                                onChange={formik.handleChange}
-                              />
-                              <div className="control__indicator"></div>
-                            </label>
-                          </div>
-                        </div>
-                      </div> */}
                     </div>
                   </div>
                 </div>
@@ -270,7 +226,11 @@ const BasicDetails: React.FC<Prop> = ({ setTabValue }) => {
                 >
                   Cancel
                 </button>
-                <button type="submit" className={`btn btn-primary`}>
+                <button
+                  type="submit"
+                  className={`btn btn-primary`}
+                  style={{ marginLeft: "30px" }}
+                >
                   Next
                 </button>
               </div>
