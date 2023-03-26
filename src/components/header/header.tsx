@@ -84,6 +84,9 @@ const StatusBar: React.FC<any> = () => {
                       </span>
                     </div>
                   </div>
+                  <Dropdown.Item onClick={() => navigate("/login")}>
+                    <i className="icon dripicons-lock"></i> Become a seller
+                  </Dropdown.Item>
                   <Dropdown.Item onClick={logoutHandler}>
                     <i className="icon dripicons-lock"></i> Logout
                   </Dropdown.Item>

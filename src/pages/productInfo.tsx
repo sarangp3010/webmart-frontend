@@ -1,4 +1,4 @@
-import ProductInfoPage from "../components/ProductInfoPage";
+import ProductInfoPage from "../components/productInfo/ProductInfoPage";
 import data from "../data.json";
 import { useParams } from "react-router-dom";
 import React from "react";

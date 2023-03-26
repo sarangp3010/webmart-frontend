@@ -18,6 +18,8 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
+.product-card{
 .card {
   margin: 10px;
   background-color: #fff;
@@ -38,7 +40,7 @@
   align-items: flex-start;
   padding: 20px;
   min-height: 50px;
-}
+}}
 
 .tag {
   background: #cccccc;

@@ -1,3 +1,8 @@
+.similar-products-container{
+  *{
+  overflow-x: initial;
+  }
+} 
 .after-search {
     display: flex;
     flex-direction: column;
@@ -16,6 +21,7 @@
     display: flex;
   }
   .side-panel-wrap {
+    z-index: 100000 !important;
     flex-basis: 200px;
     width: 100%;
     // background-color: gainsboro;

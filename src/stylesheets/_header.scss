@@ -1,90 +1,90 @@
 
 .status-bar {
-    display: flex;
-    align-items: center;
-    background-color: #ede7e7;
-    color: #598dab;
-    height: 60px;
-    padding: 0 0px;
-    overflow-y: hidden !important;
-    overflow-x: hidden !important; 
-  }
-  
-  .search-area {
-    display: flex;
-    align-items: center;
-    margin-left: 80px;
-  }
-  
-  .search-area input[type="text"] {
-    width: 300px;
-    height: 30px;
-    border: none;
-    border-radius: 20px;
-    padding: 5px 10px;
-    margin-right: 10px;
-    
-  }
-  
-  .search-area button {
-    width: 80px;
-    height: 30px;
-    background-color: #598dab;
-    border: none;
-    border-radius: 20px;
-    margin-right: 50px;
-    color: #333;
-    cursor: pointer;
-  }
-  
-  .logo{
-    margin-right: 1px;
-  }
-  .logo img {
-    height: 40px;
-    margin-right: 1px;
-  }
-  
-  .name{
-    margin-left: 1px;
-    margin-right: 180px;
-  }
-  .name h1 {
-    font-size: 24px;
-    margin: 0;
-    margin-left: 1px;
-    padding-left: 10%;
-  }
-  
-  .profile img {
-    height: 40px;
-    border-radius: 30%;
-    margin-left: 10px;
-  }
+  display: flex;
+  align-items: center;
+  background-color: #ede7e7;
+  color: #598dab;
+  height: 60px;
+  padding: 0 0px;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important; 
+}
 
-  .profile button
-  {
-    // height: 40px;
-    border: none;
-    background-color: #ede7e7;
-    margin-left: 280px;
-  }
+.search-area {
+  display: flex;
+  align-items: center;
+  margin-left: 80px;
+}
 
-  .cart img {
-    height: 40px;
-    border-radius: 30%;
-    margin-left: 10px;
-  }
+.search-area input[type="text"] {
+  width: 300px;
+  height: 30px;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  
+}
 
-  .cart button
-  {
-    height: 40px;
-    border: none;
-    background-color: #ede7e7;
-    margin-left: 5px;
-  }
+.search-area button {
+  width: 80px;
+  height: 30px;
+  background-color: #598dab;
+  border: none;
+  border-radius: 20px;
+  margin-right: 50px;
+  color: #333;
+  cursor: pointer;
+}
 
-  .profile-dropdown {
-    animation-name: slideUpIn !important;
-    position: fixed !important;
-  }
+.logo{
+  margin-right: 1px;
+}
+.logo img {
+  height: 40px;
+  margin-right: 1px;
+}
+
+.name{
+  margin-left: 1px;
+  margin-right: 180px;
+}
+.name h1 {
+  font-size: 24px;
+  margin: 0;
+  margin-left: 1px;
+  padding-left: 10%;
+}
+
+.profile img {
+  height: 40px;
+  border-radius: 30%;
+  margin-left: 10px;
+}
+
+.profile button
+{
+  // height: 40px;
+  border: none;
+  background-color: #ede7e7;
+  margin-left: 280px;
+}
+
+.cart img {
+  height: 40px;
+  border-radius: 30%;
+  margin-left: 10px;
+}
+
+.cart button
+{
+  height: 40px;
+  border: none;
+  background-color: #ede7e7;
+  margin-left: 5px;
+}
+
+.profile-dropdown {
+  animation-name: slideUpIn !important;
+  position: fixed !important;
+}
