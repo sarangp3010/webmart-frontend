@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
 import { Row, Col, Button, Form, Container, Image } from "react-bootstrap";
-import { addCarts } from "../services/cart/cartService";
+import { addCarts } from "../../services/cart/cartService";
 
 const productInfoPage = (props: any) => {
-
   const addToCart = () => {
-      const handler = async (data: any) => {
-        await addCarts(data);
-      };
+    const handler = async (data: any) => {
+      await addCarts(data);
+    };
 
-      handler({productId: '83958685-6e62-410d-9c3f-7cddf3d7cbdc', quantity: 1});
-      console.log("Product added successfully");
+    handler({ productId: "83958685-6e62-410d-9c3f-7cddf3d7cbdc", quantity: 1 });
+    console.log("Product added successfully");
   };
 
   return (
@@ -53,7 +52,14 @@ const productInfoPage = (props: any) => {
               </Row>
               <Row>
                 <Col>
-                  <Button className="btn-dark mb-1" onClick={e => {addToCart()}}>Add to Cart</Button>
+                  <Button
+                    className="btn-dark mb-1"
+                    onClick={(e) => {
+                      addToCart();
+                    }}
+                  >
+                    Add to Cart
+                  </Button>
                 </Col>
               </Row>
               <Row className="pt-4">
@@ -76,108 +82,108 @@ const productInfoPage = (props: any) => {
           </Col>
         </Row>
 
-      <div className="similar-products-container">
-        <Row className="justify-content-center mt-5 mb-2 p-2">
-          <h2 className="fw-bold"> Similar Products</h2>
-        </Row>
+        <div className="similar-products-container">
+          <Row className="justify-content-center mt-5 mb-2 p-2">
+            <h2 className="fw-bold"> Similar Products</h2>
+          </Row>
 
-        <Row>
-          <Col>
-            <div className="card">
-              <Image
-                src="https://images.pexels.com/photos/8473458/pexels-photo-8473458.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                className="m-auto"
-                width={300}
-                height={400}
-                alt=""
-              />
-              <Link to={"/productInfo/1"}>
-                <div className="card-body link-dark">Smartphone Case</div>
-              </Link>
-              <p className="card-text text-center mb-3 fw-bold">$100</p>
-            </div>
-          </Col>
-          <Col>
-            <div className="card">
-              <Image
-                src="https://images.pexels.com/photos/11255397/pexels-photo-11255397.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                className="m-auto"
-                width={300}
-                height={400}
-                alt=""
-              />
-              <Link to={"/productInfo/3"}>
-                <div className="card-body link-dark">Electric Kettle</div>
-              </Link>
-              <p className="card-text text-center mb-3 fw-bold">$300</p>
-            </div>
-          </Col>
+          <Row>
+            <Col>
+              <div className="card">
+                <Image
+                  src="https://images.pexels.com/photos/8473458/pexels-photo-8473458.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  className="m-auto"
+                  width={300}
+                  height={400}
+                  alt=""
+                />
+                <Link to={"/productInfo/1"}>
+                  <div className="card-body link-dark">Smartphone Case</div>
+                </Link>
+                <p className="card-text text-center mb-3 fw-bold">$100</p>
+              </div>
+            </Col>
+            <Col>
+              <div className="card">
+                <Image
+                  src="https://images.pexels.com/photos/11255397/pexels-photo-11255397.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  className="m-auto"
+                  width={300}
+                  height={400}
+                  alt=""
+                />
+                <Link to={"/productInfo/3"}>
+                  <div className="card-body link-dark">Electric Kettle</div>
+                </Link>
+                <p className="card-text text-center mb-3 fw-bold">$300</p>
+              </div>
+            </Col>
 
-          <Col>
-            <div className="card">
-              <Image
-                src="https://images.pexels.com/photos/10104285/pexels-photo-10104285.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                className="m-auto"
-                width={300}
-                height={400}
-                alt=""
-              />
-              <Link to={"/productInfo/4"}>
-                <div className="card-body link-dark">Portable Power Bank</div>
-              </Link>
-              <p className="card-text text-center mb-3 fw-bold">$100</p>
-            </div>
-          </Col>
+            <Col>
+              <div className="card">
+                <Image
+                  src="https://images.pexels.com/photos/10104285/pexels-photo-10104285.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  className="m-auto"
+                  width={300}
+                  height={400}
+                  alt=""
+                />
+                <Link to={"/productInfo/4"}>
+                  <div className="card-body link-dark">Portable Power Bank</div>
+                </Link>
+                <p className="card-text text-center mb-3 fw-bold">$100</p>
+              </div>
+            </Col>
 
-          <Col>
-            <div className="card">
-              <Image
-                src="https://images.pexels.com/photos/973406/pexels-photo-973406.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                className="m-auto"
-                width={300}
-                height={400}
-                alt=""
-              />
-              <Link to={"/productInfo/5"}>
-                <div className="card-body link-dark">Hair Dryer</div>
-              </Link>
-              <p className="card-text text-center mb-3 fw-bold">$200</p>
-            </div>
-          </Col>
+            <Col>
+              <div className="card">
+                <Image
+                  src="https://images.pexels.com/photos/973406/pexels-photo-973406.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  className="m-auto"
+                  width={300}
+                  height={400}
+                  alt=""
+                />
+                <Link to={"/productInfo/5"}>
+                  <div className="card-body link-dark">Hair Dryer</div>
+                </Link>
+                <p className="card-text text-center mb-3 fw-bold">$200</p>
+              </div>
+            </Col>
 
-          <Col>
-            <div className="card">
-              <Image
-                src="https://images.pexels.com/photos/1188649/pexels-photo-1188649.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                className="m-auto"
-                width={300}
-                height={400}
-                alt=""
-              />
-              <Link to={"/productInfo/6"}>
-                <div className="card-body link-dark">Water Bottle</div>
-              </Link>
-              <p className="card-text text-center mb-3 fw-bold">$300</p>
-            </div>
-          </Col>
+            <Col>
+              <div className="card">
+                <Image
+                  src="https://images.pexels.com/photos/1188649/pexels-photo-1188649.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  className="m-auto"
+                  width={300}
+                  height={400}
+                  alt=""
+                />
+                <Link to={"/productInfo/6"}>
+                  <div className="card-body link-dark">Water Bottle</div>
+                </Link>
+                <p className="card-text text-center mb-3 fw-bold">$300</p>
+              </div>
+            </Col>
 
-          <Col>
-            <li className="card">
-              <Image
-                src="https://images.pexels.com/photos/1112598/pexels-photo-1112598.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                className="m-auto"
-                width={300}
-                height={400}
-                alt=""
-              />
-              <Link to={"/productInfo/12"}>
-                <div className="card-body link-dark">Desk Lamp</div>
-              </Link>
-              <p className="card-text text-center mb-3 fw-bold">$300</p>
-            </li>
-          </Col>
-        </Row>
-      </div>
+            <Col>
+              <li className="card">
+                <Image
+                  src="https://images.pexels.com/photos/1112598/pexels-photo-1112598.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  className="m-auto"
+                  width={300}
+                  height={400}
+                  alt=""
+                />
+                <Link to={"/productInfo/12"}>
+                  <div className="card-body link-dark">Desk Lamp</div>
+                </Link>
+                <p className="card-text text-center mb-3 fw-bold">$300</p>
+              </li>
+            </Col>
+          </Row>
+        </div>
       </Container>
     </>
   );

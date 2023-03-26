@@ -4,6 +4,7 @@ import { TProfileActionType, TProfileState } from "./profile.types";
 const INITIAL_STATE: TProfileState = {
   loading: false,
   profileData: null,
+  refreshProfile: false,
 };
 
 const profileReducer = (
@@ -28,6 +29,12 @@ const profileReducer = (
       return {
         ...state,
         loading: false,
+      };
+
+    case TimeSlotActionTypeEnum.REFRESH_PROFILE:
+      return {
+        ...state,
+        refreshProfile: action.payload,
       };
 
     default:
