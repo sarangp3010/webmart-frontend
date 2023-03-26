@@ -5,18 +5,33 @@ import data from "../data.json";
 import { getCarts, getCartById, updateCart, deleteCart} from "../services/cart/cartService";
 
 const Carts = () => {
-  const [filteredData, setData] = useState(data as any);
+  const [filteredData, setData] = useState([]);
     let price = 0;
     let discount = 0;
     useEffect(() => {
         let tempData;
         const Temp = async () => {
             tempData = await getCarts();
-            setData(tempData.data.carts);
-            console.log(tempData.data.carts);
+            await setData(tempData.data.carts);
+            console.log(filteredData, "---");
         };
+        
         Temp();
     }, []);
+
+    const quantityUpdate =  async (quantity : any, id : any) => {
+        let tempData : any = [];
+
+        console.log(quantity, "---inside main carts", id, "----id");
+        const update = async (filteredData : any) => {
+            tempData = filteredData;
+            tempData[id].quantity = quantity;
+        };
+        console.log("---before", filteredData);
+        await update(filteredData);
+        setData(tempData);
+        console.log("---after", filteredData);
+    };
 
     return (
         <div className="px-4 px-lg-0">
@@ -45,12 +60,12 @@ const Carts = () => {
                                 </table>
                                 {(filteredData || []).length ? (
                                     <>
-                                        {(filteredData || []).map((cart : any) => 
+                                        {(filteredData || []).map((cart : any, i : number) => 
                                         {       const currentPrice = (cart?.product?.price || 0) * cart?.quantity;
                                                 price += currentPrice;
                                                 discount += (currentPrice * (cart?.product?.discount || 0))/100;
                                                 return (
-                                                <Cart data={cart} />
+                                                <Cart data={cart} quantityUpdate={quantityUpdate} i={i} setData={setData}/>
                                         )})}
                                     </>
                                 ) : (

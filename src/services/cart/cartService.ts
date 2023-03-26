@@ -46,8 +46,9 @@ const updateCart = (
  * @param producId
  * @returns
  */
-const deleteCart = (producId: string): Promise<any> => {
-  return API.delete("/cart/" + producId);
+const deleteCart = (cartId: string): Promise<any> => {
+  // console.log("---cartID", cartId, "---in service");
+  return API.delete("/cart/" + cartId);
 };
 
 /**

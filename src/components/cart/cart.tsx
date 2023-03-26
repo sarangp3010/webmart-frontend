@@ -1,12 +1,24 @@
 import { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
+import { getCarts, getCartById, updateCart, deleteCart} from "../../services/cart/cartService";
 
 const Cart = (props: any) => {
 
 
+    // const [quantity, setQuantity] = useState(props?.data?.quantity);
+    // const [temp, setTemp] = useState(0);
+    // console.log(quantity, "----", props?.data?.quantity, "----", temp);
+
+    // console.log("----", props?.data);
+
     const [quantity, setQuantity] = useState(props?.data?.quantity);
-    const [temp, setTemp] = useState(0);
-    console.log(quantity, "----", props?.data?.quantity, "----", temp);
+    // let quantity = props?.data?.quantity;
+
+    const removeCart = async (id : any) => {
+        await deleteCart(id);
+        const data = await getCarts();
+        props?.setData(data.data.carts);
+    }
 
     return (
         <div >
@@ -23,10 +35,10 @@ const Cart = (props: any) => {
                                 <div className="" style={{ marginBottom: "50px" }}>{props?.data?.product?.price}</div>
                             </th>
                             <th scope="col" className="border-0">
-                                <div className="" style={{ marginBottom: "50px" }}><input type='number' value={props?.data?.quantity} onChange={e => setTemp(Number(e.target.value))} style={{ maxWidth: "40px" }}></input></div>
+                                <div className="" style={{ marginBottom: "50px" }}><input type='number' value={quantity} onChange={e => props?.quantityUpdate(Number(e.target.value), props.i)} style={{ maxWidth: "40px" }}></input></div>
                             </th>
                             <th scope="col" className="border-0">
-                                <div className="" style={{ marginBottom: "50px" }}><a href="#" className="text-dark"><i className="fa fa-trash"></i></a></div>
+                                <div className="" style={{ marginBottom: "50px" }}><button onClick={e => removeCart(props?.data?.id)} className="text-dark"><i className="fa fa-trash"></i></button></div>
                             </th>
                         </tr>
                     </thead>
