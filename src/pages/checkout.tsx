@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { addAddress, addCard } from "../services/checkout/checkout";
+
 import {
   Container,
   Row,
@@ -15,16 +17,50 @@ const CheckoutPage = () => {
   const [billingSameAsDelvery, setBillingSameAsDelvery] = useState(false);
   const [nextButton, setNextButton] = useState(1);
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [addressType, setAddressType] = useState("delivery");
+  const [streetAddress, setStreetAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [county, setCounty] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [country, setCountry] = useState("");
+
+  const [nameOnCard, setNameOnCard] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [expMonth, setExpMonth] = useState("");
+  const [expYear, setExpYear] = useState("");
+  const [CVV, setCVV] = useState("");
+
+  const sendAddressToBackend = () => {
+    addAddress({
+      params: {
+        name: name,
+        email: email,
+        addressType: addressType,
+        streetAddress: streetAddress,
+        city: city,
+        county: county || undefined,
+        pincode: pincode,
+        country: country,
+      },
+    });
+  };
+
+  const sendCardToBackend = () => {
+    addCard({
+      body: {
+        name: nameOnCard,
+        cardNumber: cardNumber,
+        expMonth: expMonth,
+        expYear: expYear,
+        cvc: CVV,
+      },
+    });
+  };
+
   const handleCheckboxChange = () => {
     setBillingSameAsDelvery(!billingSameAsDelvery);
-  };
-
-  const handleNextStep = () => {
-    setNextButton(nextButton + 1);
-  };
-
-  const handlePreviousStep = () => {
-    setNextButton(nextButton - 1);
   };
 
   const steps = [
@@ -71,7 +107,7 @@ const CheckoutPage = () => {
       </ProgressBar>
       <Row className="pt-4">
         <Tabs
-          defaultActiveKey="delivery-info"
+          defaultActiveKey="step1"
           className="m-3"
           fill
           activeKey={`step${nextButton}`}
@@ -82,34 +118,87 @@ const CheckoutPage = () => {
               <Col></Col>
               <Col>
                 <h3 className="text-center">Delivery</h3>
-                <Form.Group controlId="formBasicName" className="pt-2">
-                  <Form.Label>Name</Form.Label>
-                  <Form.Control type="text" placeholder="Enter name" />
-                </Form.Group>
-                <Form.Group controlId="formBasicEmail" className="pt-2">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
-                </Form.Group>
-                <Form.Group controlId="formBasicAddress" className="pt-2">
-                  <Form.Label>Address</Form.Label>
-                  <Form.Control type="text" placeholder="Enter address" />
-                </Form.Group>
-                <Form.Group controlId="formBasicCity" className="pt-2">
-                  <Form.Label>City</Form.Label>
-                  <Form.Control type="text" placeholder="Enter city" />
-                </Form.Group>
-                <Form.Group controlId="formBasicState" className="pt-2">
-                  <Form.Label>State</Form.Label>
-                  <Form.Control type="text" placeholder="Enter state" />
-                </Form.Group>
-                <Form.Group controlId="formBasicZip" className="pt-2">
-                  <Form.Label>Zip</Form.Label>
-                  <Form.Control type="text" placeholder="Enter zip" />
-                </Form.Group>
+                <Form>
+                  <Form.Group controlId="name" className="pt-2">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="name"
+                      placeholder="Enter Name"
+                      onChange={(event) => {
+                        setName(event.target.value);
+                      }}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="email" className="pt-2">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                      type="email"
+                      placeholder="Enter Email"
+                      onChange={(event) => {
+                        setEmail(event.target.value);
+                      }}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="address" className="pt-2">
+                    <Form.Label>Street Address</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter Address"
+                      onChange={(event) => {
+                        setStreetAddress(event.target.value);
+                      }}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="city" className="pt-2">
+                    <Form.Label>City</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter City"
+                      onChange={(event) => {
+                        setCity(event.target.value);
+                      }}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="city" className="pt-2">
+                    <Form.Label>County</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter County"
+                      onChange={(event) => {
+                        setCounty(event.target.value);
+                      }}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicZip" className="pt-2">
+                    <Form.Label>Zip</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter Zip"
+                      onChange={(event) => {
+                        setPincode(event.target.value);
+                      }}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicZip" className="pt-2">
+                    <Form.Label>Country</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter Country"
+                      onChange={(event) => {
+                        setCountry(event.target.value);
+                      }}
+                    />
+                  </Form.Group>
+                </Form>
                 <Col className="text-center pt-3">
                   <Button
                     className="btn-success m-1 text-light"
-                    onClick={handleNextStep}
+                    onClick={() => {
+                      setNextButton(2);
+                      setAddressType("delivery");
+                      sendAddressToBackend();
+                    }}
                   >
                     Next
                   </Button>
@@ -134,29 +223,76 @@ const CheckoutPage = () => {
                 {!billingSameAsDelvery && (
                   <Col>
                     <Form>
-                      <Form.Group controlId="formBasicName" className="pt-2">
+                      <Form.Group controlId="name" className="pt-2">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter name" />
+                        <Form.Control
+                          type="text"
+                          name="name"
+                          placeholder="Enter Name"
+                          onChange={(event) => {
+                            setName(event.target.value);
+                          }}
+                        />
                       </Form.Group>
-                      <Form.Group controlId="formBasicEmail" className="pt-2">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                      <Form.Group controlId="email" className="pt-2">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control
+                          type="email"
+                          placeholder="Enter Email"
+                          onChange={(event) => {
+                            setEmail(event.target.value);
+                          }}
+                        />
                       </Form.Group>
-                      <Form.Group controlId="formBasicAddress" className="pt-2">
-                        <Form.Label>Address</Form.Label>
-                        <Form.Control type="text" placeholder="Enter address" />
+                      <Form.Group controlId="streetAddress" className="pt-2">
+                        <Form.Label>Street Address</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Enter Address"
+                          onChange={(event) => {
+                            setStreetAddress(event.target.value);
+                          }}
+                        />
                       </Form.Group>
-                      <Form.Group controlId="formBasicCity" className="pt-2">
+                      <Form.Group controlId="city" className="pt-2">
                         <Form.Label>City</Form.Label>
-                        <Form.Control type="text" placeholder="Enter city" />
+                        <Form.Control
+                          type="text"
+                          placeholder="Enter City"
+                          onChange={(event) => {
+                            setCity(event.target.value);
+                          }}
+                        />
                       </Form.Group>
-                      <Form.Group controlId="formBasicState" className="pt-2">
-                        <Form.Label>State</Form.Label>
-                        <Form.Control type="text" placeholder="Enter state" />
+                      <Form.Group controlId="county" className="pt-2">
+                        <Form.Label>County</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Enter County"
+                          onChange={(event) => {
+                            setCounty(event.target.value);
+                          }}
+                        />
                       </Form.Group>
-                      <Form.Group controlId="formBasicZip" className="pt-2">
+                      <Form.Group controlId="zip" className="pt-2">
                         <Form.Label>Zip</Form.Label>
-                        <Form.Control type="text" placeholder="Enter zip" />
+                        <Form.Control
+                          type="text"
+                          placeholder="Enter Zip"
+                          onChange={(event) => {
+                            setPincode(event.target.value);
+                          }}
+                        />
+                      </Form.Group>
+                      <Form.Group controlId="country" className="pt-2">
+                        <Form.Label>Country</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Enter Country"
+                          onChange={(event) => {
+                            setCountry(event.target.value);
+                          }}
+                        />
                       </Form.Group>
                     </Form>
                   </Col>
@@ -164,13 +300,17 @@ const CheckoutPage = () => {
                 <Col className="text-center pt-3">
                   <Button
                     className="btn-success m-1 text-light"
-                    onClick={handlePreviousStep}
+                    onClick={() => setNextButton(1)}
                   >
                     Previous
                   </Button>
                   <Button
                     className="btn-success m-1 text-light"
-                    onClick={handleNextStep}
+                    onClick={() => {
+                      setNextButton(3);
+                      setAddressType("billing");
+                      sendAddressToBackend();
+                    }}
                   >
                     Next
                   </Button>
@@ -186,31 +326,69 @@ const CheckoutPage = () => {
               <Col>
                 <h3 className="text-center">Payment</h3>
                 <Form>
-                  <Form.Group controlId="formBasicCardNumber" className="pt-2">
-                    <Form.Label>Card Number</Form.Label>
-                    <Form.Control type="text" placeholder="Enter card number" />
-                  </Form.Group>
-                  <Form.Group controlId="formBasicExpiration" className="pt-2">
-                    <Form.Label>Expiration Date</Form.Label>
+                <Form.Group controlId="cardHolderName" className="pt-2">
+                    <Form.Label>Name On Card</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Enter expiration date"
+                      placeholder="Enter Name"
+                      onChange={(event) => {
+                        setNameOnCard(event.target.value);
+                      }}
                     />
                   </Form.Group>
-                  <Form.Group controlId="formBasicCVV" className="pt-2">
+                  <Form.Group controlId="cardNumber" className="pt-2">
+                    <Form.Label>Card Number</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter Card Number"
+                      onChange={(event) => {
+                        setCardNumber(event.target.value);
+                      }}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="expiryMonth" className="pt-2">
+                    <Form.Label>Expiration Month</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter Expiration Month"
+                      onChange={(event) => {
+                        setExpMonth(event.target.value);
+                      }}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="expiryYear" className="pt-2">
+                    <Form.Label>Expiration Year</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter Expiration Year"
+                      onChange={(event) => {
+                        setExpYear(event.target.value);
+                      }}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="CVV" className="pt-2">
                     <Form.Label>CVV</Form.Label>
-                    <Form.Control type="text" placeholder="Enter CVV" />
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter CVV"
+                      onChange={(event) => {
+                        setCVV(event.target.value);
+                      }}
+                    />
                   </Form.Group>
                   <Col className="text-center pt-3">
                     <Button
                       className="btn-success m-1 text-light"
-                      onClick={handlePreviousStep}
+                      onClick={() => setNextButton(2)}
                     >
                       Previous
                     </Button>
                     <Button
                       className="btn-success m-1 text-light"
-                      onClick={handleNextStep}
+                      onClick={() => {
+                        setNextButton(4);
+                        sendCardToBackend();
+                      }}
                     >
                       Next
                     </Button>
@@ -233,7 +411,7 @@ const CheckoutPage = () => {
                   <Col className="text-center">
                     <Button
                       className="btn-success m-1 text-light"
-                      onClick={handlePreviousStep}
+                      onClick={() => setNextButton(3)}
                     >
                       Previous
                     </Button>
