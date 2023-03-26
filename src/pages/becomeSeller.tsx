@@ -1,19 +1,21 @@
 import { Component } from "react";
 import "../stylesheets/pages/_becomeSeller.scss";
 import BusinessInformation from "./businessInformation";
-// import StoreInformation from "./billing";
-import Billing from "./billing";
+import Billing from "./Billing";
 import Review from "./review";
 import axios from "axios";
 import TRootState from "../store/root.types";
 import { useSelector, useDispatch, connect } from "react-redux";
 import { TGetProfilePayload } from "../store/profile/profile.types";
+import { Navigate } from "react-router-dom";
+import { refreshProfileAction } from "../store/profile/profile.action";
 
 const levelsData = ["Beginner", "Intermediate", "Advanced"];
 
 interface Props {
   // In your case
   profile: TGetProfilePayload;
+  refreshProfile: (toggle: boolean) => {};
 }
 
 class becomeSeller extends Component<Props> {
@@ -48,7 +50,9 @@ class becomeSeller extends Component<Props> {
     errorMessageAccountName: "",
     errorMessageRoutingNumber: "",
     errorMessageAccountNumber: "",
+    redirect: false,
   };
+
   //profile = useSelector((state: TRootState) => state.profile.profileData);
   nextStep = () => {
     const { step } = this.state;
@@ -68,40 +72,6 @@ class becomeSeller extends Component<Props> {
     this.setState({
       [input]: e.target.value,
     });
-
-    // if (input === "companyRegistrationNumber") {
-    //   console.log("In Change " + this.state.companyRegistrationNumber.length);
-
-    //   if (this.state.companyRegistrationNumber.length == 10) {
-    //     this.setState({
-    //       isErrorCompanyRegistrationNumber: false,
-    //     });
-    //   }
-    // } else if (input === "streetAddress") {
-    //   if (this.state.streetAddress.length >= 1) {
-    //     this.setState({
-    //       isErrorStreetAddress: false,
-    //     });
-    //   }
-    // } else if (input === "city") {
-    //   if (this.state.city.length >= 1) {
-    //     this.setState({
-    //       isErrorCity: false,
-    //     });
-    //   }
-    // } else if (input === "state") {
-    //   if (this.state.state.length >= 1) {
-    //     this.setState({
-    //       isErrorState: false,
-    //     });
-    //   }
-    // } else if (input === "zip") {
-    //   if (this.state.zip.length >= 1) {
-    //     this.setState({
-    //       isErrorZip: false,
-    //     });
-    //   }
-    // }
   };
 
   validateCompanyRegistrationNumber = () => {
@@ -290,7 +260,10 @@ class becomeSeller extends Component<Props> {
       .catch((error) => {
         console.log(error);
       });
-    alert("Data sent");
+    this.props.refreshProfile(true);
+    this.setState({
+      redirect: true,
+    });
   };
 
   render() {
@@ -412,6 +385,7 @@ class becomeSeller extends Component<Props> {
     }
     return (
       <>
+        {this.state.redirect && <Navigate to="/home" replace={true} />}
         <h2 className="text-center mt-3">Become seller</h2>
         {element}
       </>
@@ -423,4 +397,8 @@ const mapStateToProps = (state: any) => ({
   profile: state.profile.profileData,
 });
 
-export default connect(mapStateToProps)(becomeSeller);
+const dispatchToProps = (dispatch: any) => ({
+  refreshProfile: (toggle: boolean) => dispatch(refreshProfileAction(toggle)),
+});
+
+export default connect(mapStateToProps, dispatchToProps)(becomeSeller);
