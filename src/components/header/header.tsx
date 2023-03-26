@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
@@ -14,8 +14,9 @@ import "../../stylesheets/_header.scss";
 const StatusBar: React.FC<any> = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [user_Type, setUser_Type] = useState([]);
 
-  const profile = useSelector((state: TRootState) => state.profile.profileData);
+  const profile = useSelector((state: TRootState) => {return state.profile.profileData});
 
   /**
    * Get Profile data when component load first time
@@ -84,6 +85,11 @@ const StatusBar: React.FC<any> = () => {
                       </span>
                     </div>
                   </div>
+                  {profile?.firstName === "admin" && (
+                  <Dropdown.Item onClick={() => navigate("/admin-dashboard")}>
+                  <i className="icon dripicons-lock"></i> Admin DashBoard
+                  </Dropdown.Item>
+                  )}
                   <Dropdown.Item onClick={() => navigate("/login")}>
                     <i className="icon dripicons-lock"></i> Become a seller
                   </Dropdown.Item>

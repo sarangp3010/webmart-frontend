@@ -55,6 +55,11 @@ const routes = [
     path: "/brands",
     element: lazy(() => import("../pages/brands")),
     exact: true,
+  },
+  {
+    path: "/admin-dashboard",
+    element: lazy(() => import("../pages/admindashboard")),
+    exact: true,
   }
 ];
 
