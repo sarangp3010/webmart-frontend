@@ -6,11 +6,17 @@ import Billing from "./billing";
 import Review from "./review";
 import axios from "axios";
 import TRootState from "../store/root.types";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch, connect } from "react-redux";
+import { TGetProfilePayload } from "../store/profile/profile.types";
 
 const levelsData = ["Beginner", "Intermediate", "Advanced"];
 
-class becomeSeller extends Component {
+interface Props {
+  // In your case
+  profile: TGetProfilePayload;
+}
+
+class becomeSeller extends Component<Props> {
   state = {
     step: 1,
     companyRegistrationNumber: "",
@@ -43,7 +49,7 @@ class becomeSeller extends Component {
     errorMessageRoutingNumber: "",
     errorMessageAccountNumber: "",
   };
-  profile = useSelector((state: TRootState) => state.profile.profileData);
+  //profile = useSelector((state: TRootState) => state.profile.profileData);
   nextStep = () => {
     const { step } = this.state;
     this.setState({
@@ -238,8 +244,9 @@ class becomeSeller extends Component {
 
   submitData = (e: any) => {
     e.preventDefault();
+    const { profile } = this.props;
 
-    console.log("Profile ---- ", this.profile);
+    console.log("Profile ---- ", profile);
 
     console.log("Street Address ", this.state.streetAddress);
     const {
@@ -254,6 +261,9 @@ class becomeSeller extends Component {
       routingNumber,
       accountNumber,
     } = this.state;
+    const token = localStorage.getItem("lToken");
+    console.log("Token", token);
+
     axios("http://localhost:3333/users/become-seller", {
       method: "POST",
       data: {
@@ -269,12 +279,13 @@ class becomeSeller extends Component {
         accountNumber,
       },
       headers: {
-        // 'Authorization': `bearer ${token}`,
+        Authorization: `bearer ${token}`,
         "Content-Type": "application/json",
       },
     })
       .then((response) => {
         console.log("In API ", response.data);
+        console.log("In LocalStorage", localStorage);
       })
       .catch((error) => {
         console.log(error);
@@ -408,4 +419,8 @@ class becomeSeller extends Component {
   }
 }
 
-export default becomeSeller;
+const mapStateToProps = (state: any) => ({
+  profile: state.profile.profileData,
+});
+
+export default connect(mapStateToProps)(becomeSeller);
