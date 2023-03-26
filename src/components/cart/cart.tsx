@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
+import { debounce } from "lodash";
 import { getCarts, getCartById, updateCart, deleteCart} from "../../services/cart/cartService";
 
 const Cart = (props: any) => {
@@ -32,7 +33,7 @@ const Cart = (props: any) => {
         fetchData();
     }
 
-    const modifyhandler = (quantity : number, id : any) => {
+    const modifyhandler = (quantity : number, id : any) : any => {
         modifyQuantity(id, quantity);
     };
 
@@ -51,7 +52,7 @@ const Cart = (props: any) => {
                                 <div className="" style={{ marginBottom: "50px" }}>{props?.data?.product?.price}</div>
                             </th>
                             <th scope="col" className="border-0">
-                                <div className="" style={{ marginBottom: "50px" }}><input type='number' value={props.data.quantity} onChange={e => modifyhandler(Number(e.target.value), props?.data?.id)} style={{ maxWidth: "40px" }}></input></div>
+                                <div className="" style={{ marginBottom: "50px" }}><input type='number' value={props.data.quantity} onChange={e => debounce(modifyhandler(Number(e.target.value), props?.data?.id), 1500)} style={{ maxWidth: "40px" }}></input></div>
                             </th>
                             <th scope="col" className="border-0">
                                 <div className="" style={{ marginBottom: "50px" }}><button onClick={e => removeCart(props?.data?.id)} className="text-dark"><i className="fa fa-trash"></i></button></div>
