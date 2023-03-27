@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addAddress, addCard } from "../services/checkout/checkout";
+import { addAddress, addCard, placeOrder } from "../services/checkout/checkout";
 
 import {
   Container,
@@ -32,8 +32,11 @@ const CheckoutPage = () => {
   const [expYear, setExpYear] = useState("");
   const [CVV, setCVV] = useState("");
 
-  const sendAddressToBackend = () => {
-    addAddress({
+  const [stripeCardId, setStripeCardId] = useState("");
+  const [addressId, setAddressId] = useState("");
+
+  const sendAddressToBackend = async () => {
+    const res = await addAddress({
       params: {
         name: name,
         email: email,
@@ -45,10 +48,11 @@ const CheckoutPage = () => {
         country: country,
       },
     });
+    setAddressId(res.data.id);
   };
 
-  const sendCardToBackend = () => {
-    addCard({
+  const sendCardToBackend = async () => {
+    const res = await addCard({
       body: {
         name: nameOnCard,
         cardNumber: cardNumber,
@@ -57,10 +61,19 @@ const CheckoutPage = () => {
         cvc: CVV,
       },
     });
+    setStripeCardId(res.data.sources.id);
   };
 
   const handleCheckboxChange = () => {
     setBillingSameAsDelvery(!billingSameAsDelvery);
+  };
+
+  const orderPlace = () => {
+    console.log("stripeCardId: "+stripeCardId+" and addressId: "+addressId)
+    placeOrder({
+      stripeCardId: stripeCardId,
+      addressId: addressId,
+    });
   };
 
   const steps = [
@@ -326,7 +339,7 @@ const CheckoutPage = () => {
               <Col>
                 <h3 className="text-center">Payment</h3>
                 <Form>
-                <Form.Group controlId="cardHolderName" className="pt-2">
+                  <Form.Group controlId="cardHolderName" className="pt-2">
                     <Form.Label>Name On Card</Form.Label>
                     <Form.Control
                       type="text"
@@ -415,7 +428,10 @@ const CheckoutPage = () => {
                     >
                       Previous
                     </Button>
-                    <Button className="btn-success m-1 text-light">
+                    <Button
+                      className="btn-success m-1 text-light"
+                      onClick={() => orderPlace()}
+                    >
                       Place Order
                     </Button>
                   </Col>

@@ -16,8 +16,11 @@ const addAddress = (data: any): Promise<any> => {
 };
 
 const addCard = (data: any): Promise<any> => {
-    return API.post("/userCards", data.body);
-  };
+  return API.post("/userCards", data.body);
+};
 
+const placeOrder = (data: any): Promise<any> => {
+  return API.post("/orders/", data);
+};
 
-export { addAddress, addCard };
+export { addAddress, addCard, placeOrder};
