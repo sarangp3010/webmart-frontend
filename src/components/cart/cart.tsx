@@ -13,9 +13,7 @@ const Cart = (props: any) => {
 
     const cartUsingId = async () => {
         const data = await getCartById(props?.data.id);
-        console.log(data, "----using id");
         setQuantity(data.quantity);
-        // props?.setData(data.data);
     };
 
     useEffect(() => {

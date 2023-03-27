@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 import React from "react";
 
 const ProductInfo = () => {
-  let { productId } = useParams();
+  let { id } = useParams();
   let product;
 
   data.forEach((element) => {
-    if (element.product_Id === productId) {
+    if (element.product_Id === id) {
       product = element;
     }
   });

@@ -34,11 +34,14 @@ const AfterSeach: React.FC<any> = () => {
   );
 
   useEffect(() => {
-    dispatch(getProductsActionThunk(undefined, undefined, undefined));
-    console.log("---inside After Search", products);
     setData(products);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products]);
+
+  useEffect(() => {
+    dispatch(getProductsActionThunk(undefined, undefined, undefined));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="after-search">
@@ -51,7 +54,7 @@ const AfterSeach: React.FC<any> = () => {
             {(filteredData || []).length ? (
               <>
                 {(filteredData || []).map((product : any, i : any) => (
-                  <Col key={i} sm={12} md={6} lg={4} className="">
+                  <Col key={i} md={6} lg={4} className="">
                     <Product data={product} />
                   </Col>
                 ))}

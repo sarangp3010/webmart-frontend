@@ -19,13 +19,13 @@ const productInfoPage = (props: any) => {
           <Col>
             <div className="card">
               <Image
-                src={props.product.img}
+                src={props?.product?.img}
                 className="m-auto"
                 width={300}
                 height={400}
                 alt=""
               />
-              <div className="card-body">{props.product.name}</div>
+              <div className="card-body">{props?.product?.name}</div>
             </div>
           </Col>
 
@@ -65,7 +65,7 @@ const productInfoPage = (props: any) => {
               <Row className="pt-4">
                 <h3 className="fw-bold"> Product Description:</h3>
                 <p className="text-secondary fst-italic">
-                  {props.product.description}
+                  {props?.product?.description}
                 </p>
               </Row>
 
