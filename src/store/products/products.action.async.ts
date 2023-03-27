@@ -1,5 +1,5 @@
 import { AnyAction } from "redux";
-import { ThunkAction, ThunkDispatch } from "redux-thunk";
+import { ThunkDispatch } from "redux-thunk";
 import {
   addProductsFailed,
   addProductsPending,
@@ -71,7 +71,6 @@ export const addProductsActionThunk = (
       .then((res) => {
         if (res.status === 200 || res.status === 201) {
           dispatch(addProductsSuccess({ product: res?.data }));
-          successToast("Product added successfully");
           updateTab && updateTab();
         }
       })
@@ -85,7 +84,8 @@ export const addProductsActionThunk = (
 export const updateProductActionThunk = (
   data: Record<string, any>,
   productId?: string,
-  updateTab?: Function
+  updateTab?: Function,
+  tab?: number
 ): any => {
   return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
     dispatch(updateProductPending());
@@ -94,6 +94,9 @@ export const updateProductActionThunk = (
       .then((res) => {
         dispatch(updateProductSuccess(data));
         updateTab && updateTab();
+
+        if (tab === 4) 
+          successToast("Product Updated Successfully");
       })
       .catch((err) => {
         dispatch(updateProductFailed());

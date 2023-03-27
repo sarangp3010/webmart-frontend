@@ -28,7 +28,7 @@ const Product = (props: any) => {
             </div>
             <div className="card-body">
               <div className="d-inline first-row">
-                <span className="tag tag-teal">{props?.data?.used_type || null}</span>
+                {/* <span className="tag tag-teal">{props?.data?.used_type || null}</span> */}
                 <div className="text-end ms-5 d-inline">{starRating}</div>
               </div>
               {props?.data?.name}

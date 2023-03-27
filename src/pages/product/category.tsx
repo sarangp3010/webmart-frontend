@@ -15,6 +15,7 @@ const Category: React.FC<Prop> = ({ setTabValue, tabValue }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
+  const state = location?.state as { tab: string };
 
   const { categories } = useSelector(
     (state: TRootState) => state?.category?.categories
@@ -74,7 +75,8 @@ const Category: React.FC<Prop> = ({ setTabValue, tabValue }) => {
               tab: 3,
             },
           });
-        }
+        },
+        Number(state?.tab) || 1
       )
     );
   };
@@ -173,7 +175,7 @@ const Category: React.FC<Prop> = ({ setTabValue, tabValue }) => {
             </div>
           </div>
           <div className="card-footer bg-light text-right">
-            <button type="button" className="btn btn-secondary clear-form mr-2">
+            <button type="button" className="btn btn-secondary clear-form mr-2" onClick={() => navigate("/products/list")}>
               Cancel
             </button>
             <button
