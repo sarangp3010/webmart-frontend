@@ -1,16 +1,64 @@
-import { Link } from "react-router-dom";
-import { Row, Col, Button, Form, Container, Image } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
+import {
+  Row,
+  Col,
+  Button,
+  Form,
+  Container,
+  Image,
+  Table,
+} from "react-bootstrap";
 import { addCarts } from "../../services/cart/cartService";
+import { getProductById } from "../../services/products/productsService";
+import { useEffect, useState } from "react";
 
-const productInfoPage = (props: any) => {
+const ProductInfoPage = () => {
+  let { productId } = useParams();
+
+  const getProduct = async (producId: any) => {
+      return await getProductById(producId);
+  };
+
+  let product = getProduct(productId);
+  const [productName, setProductName] = useState("");
+  const [productDescription, setProductDescription] = useState("");
+  const [productProperties, setProductProperties] = useState([] as any);
+  const [productImage, setProductImage] = useState("");
+  const [productPrice, setProductPrice] = useState("");
+  const [productQuantity, setProductQuantity] = useState("");
+  console.log(productId);
+
   const addToCart = () => {
+
     const handler = async (data: any) => {
       await addCarts(data);
     };
 
-    handler({ productId: "83958685-6e62-410d-9c3f-7cddf3d7cbdc", quantity: 1 });
+    handler({ productId: productId, quantity: productQuantity });
     console.log("Product added successfully");
   };
+
+
+  product.then((res) => {
+    console.log(res.data);
+    setProductName(res.data.name);
+    setProductDescription(res.data.description);
+    setProductImage(res.data.thumbnailImage);
+    setProductProperties(res.data.properties);
+    setProductPrice(res.data.price);
+    console.log(res.data.properties);
+    productMetrics();
+  });
+
+  const productMetrics = () => {
+    for (let index = 0; index < productProperties.length; index++) {
+      console.log(index);
+    }
+  };
+
+  useEffect(() => {
+
+  });
 
   return (
     <>
@@ -19,21 +67,19 @@ const productInfoPage = (props: any) => {
           <Col>
             <div className="card">
               <Image
-                src={props?.product?.img}
+                src={productImage}
                 className="m-auto"
                 width={300}
                 height={400}
                 alt=""
               />
-              <div className="card-body">{props?.product?.name}</div>
+              <div className="card-body text-center fw-bold">{productName}</div>
             </div>
           </Col>
 
           <Col className="col-8 mt-5">
             <Row>
-              <h3 className="fw-bold pb-2 text-success">
-                {props.product.price}
-              </h3>
+              <h3 className="fw-bold pb-2 text-success">${productPrice}</h3>
             </Row>
 
             <Form>
@@ -47,6 +93,10 @@ const productInfoPage = (props: any) => {
                   <Form.Control
                     className="form-control form-control-sm"
                     type="number"
+                    min = {0}
+                    onChange={(event) => {
+                      setProductQuantity(event.target.value);
+                    }}
                   />
                 </Col>
               </Row>
@@ -65,19 +115,14 @@ const productInfoPage = (props: any) => {
               <Row className="pt-4">
                 <h3 className="fw-bold"> Product Description:</h3>
                 <p className="text-secondary fst-italic">
-                  {props?.product?.description}
+                  {productDescription}
                 </p>
               </Row>
 
               <Row>
                 <h3 className="fw-bold pt-1"> Product Metrics:</h3>
               </Row>
-              <Row>
-                <Col>Weight:</Col>
-                <Col>Length:</Col>
-                <Col>Width:</Col>
-                <Col>Height:</Col>
-              </Row>
+              <Row></Row>
             </Form>
           </Col>
         </Row>
@@ -189,4 +234,4 @@ const productInfoPage = (props: any) => {
   );
 };
 
-export default productInfoPage;
+export default ProductInfoPage;
