@@ -18,7 +18,7 @@ const routes = [
   },
   {
     path: "/productInfo/:productId",
-    element: lazy(() => import("../pages/productInfo")),
+    element: lazy(() => import("../components/productInfo/ProductInfoPage")),
     exact: true,
   },
   {
