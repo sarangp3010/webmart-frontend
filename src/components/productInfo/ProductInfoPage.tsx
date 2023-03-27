@@ -14,7 +14,12 @@ import { useEffect, useState } from "react";
 
 const ProductInfoPage = () => {
   let { productId } = useParams();
-  let product = getProductById(productId!);
+
+  const getProduct = async (producId: any) => {
+      return await getProductById(producId);
+  };
+
+  let product = getProduct(productId);
   const [productName, setProductName] = useState("");
   const [productDescription, setProductDescription] = useState("");
   const [productProperties, setProductProperties] = useState([] as any);
@@ -24,6 +29,7 @@ const ProductInfoPage = () => {
   console.log(productId);
 
   const addToCart = () => {
+
     const handler = async (data: any) => {
       await addCarts(data);
     };
@@ -31,6 +37,7 @@ const ProductInfoPage = () => {
     handler({ productId: productId, quantity: productQuantity });
     console.log("Product added successfully");
   };
+
 
   product.then((res) => {
     console.log(res.data);
@@ -48,6 +55,10 @@ const ProductInfoPage = () => {
       console.log(index);
     }
   };
+
+  useEffect(() => {
+
+  });
 
   return (
     <>
@@ -82,6 +93,7 @@ const ProductInfoPage = () => {
                   <Form.Control
                     className="form-control form-control-sm"
                     type="number"
+                    min = {0}
                     onChange={(event) => {
                       setProductQuantity(event.target.value);
                     }}

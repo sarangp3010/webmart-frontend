@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom";
 import { addAddress, addCard, placeOrder } from "../services/checkout/checkout";
 
 import {
@@ -14,6 +15,7 @@ import {
 import { Link } from "react-router-dom";
 
 const CheckoutPage = () => {
+  const navigate = useNavigate();
   const [billingSameAsDelvery, setBillingSameAsDelvery] = useState(false);
   const [nextButton, setNextButton] = useState(1);
 
@@ -73,6 +75,8 @@ const CheckoutPage = () => {
     placeOrder({
       stripeCardId: stripeCardId,
       addressId: addressId,
+    }).then(() => {
+      navigate("/order/success");
     });
   };
 
@@ -430,7 +434,7 @@ const CheckoutPage = () => {
                     </Button>
                     <Button
                       className="btn-success m-1 text-light"
-                      onClick={() => orderPlace()}
+                      onClick={() => {orderPlace()}}
                     >
                       Place Order
                     </Button>

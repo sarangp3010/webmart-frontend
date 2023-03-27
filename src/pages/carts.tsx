@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Col } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import Cart from "../components/cart/cart";
 import data from "../data.json";
 import { getCarts, getCartById, updateCart, deleteCart} from "../services/cart/cartService";
@@ -104,7 +105,7 @@ const Carts = () => {
                                     <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Total</strong>
                                         <h5 className="font-weight-bold">{(price-discount)*1.08}</h5>
                                     </li>
-                                </ul><a href="#" className="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+                                </ul><Link to="/checkout" className="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</Link>
                             </div>
                         </div>
                     </div>

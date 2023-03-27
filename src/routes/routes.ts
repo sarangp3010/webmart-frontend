@@ -70,6 +70,10 @@ const routes = [
   element: lazy(() => import("../pages/admindashboard")),
   exact: true,
 },
+{path: "/order/success",
+element: lazy(() => import("../components/orderSuccess")),
+exact: true,
+},
 ];
 
 export default routes;
