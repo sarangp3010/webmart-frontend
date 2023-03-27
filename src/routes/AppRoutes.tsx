@@ -42,7 +42,7 @@ const AppRoutes = () => {
       
       {!isHeaderAvailable(location.pathname) ? (
         <React.Fragment>
-          <Footer />
+          {/* <Footer /> */}
         </React.Fragment>
       ) : null}
     </Suspense>

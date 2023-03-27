@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import {useNavigate} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { addAddress, addCard, placeOrder } from "../services/checkout/checkout";
+import { getCarts } from "../services/cart/cartService";
 
 import {
   Container,
@@ -18,6 +19,7 @@ const CheckoutPage = () => {
   const navigate = useNavigate();
   const [billingSameAsDelvery, setBillingSameAsDelvery] = useState(false);
   const [nextButton, setNextButton] = useState(1);
+  const [total, setTotal] = useState(0);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -71,7 +73,6 @@ const CheckoutPage = () => {
   };
 
   const orderPlace = () => {
-    console.log("stripeCardId: "+stripeCardId+" and addressId: "+addressId)
     placeOrder({
       stripeCardId: stripeCardId,
       addressId: addressId,
@@ -79,6 +80,26 @@ const CheckoutPage = () => {
       navigate("/order/success");
     });
   };
+
+  useEffect(() => {
+    let tempData: any;
+    const Temp = async () => {
+      tempData = await getCarts();
+      tempData = tempData.data.carts;
+      let price = 0,
+        discount = 0;
+      (tempData || []).forEach((cart: any, i: number) => {
+        const currentPrice = (cart?.product?.price || 0) * cart?.quantity;
+        price += currentPrice;
+        discount += (currentPrice * (cart?.product?.discount || 0)) / 100;
+      });
+
+      const finalPrice = (price - discount) * 1.08;
+      setTotal(finalPrice);
+    };
+
+    Temp();
+  }, []);
 
   const steps = [
     {
@@ -422,7 +443,7 @@ const CheckoutPage = () => {
                 <h3 className="text-center">Your Order Summary</h3>
                 <Row className="pt-3 pb-3 text-center">
                   <h3 className="fw-bold">Order Total</h3>
-                  <h4 className="text-success">$183.50</h4>
+                  <h4 className="text-success">${total}</h4>
                 </Row>
                 <Row className="pt-4">
                   <Col className="text-center">
@@ -434,7 +455,9 @@ const CheckoutPage = () => {
                     </Button>
                     <Button
                       className="btn-success m-1 text-light"
-                      onClick={() => {orderPlace()}}
+                      onClick={() => {
+                        orderPlace();
+                      }}
                     >
                       Place Order
                     </Button>

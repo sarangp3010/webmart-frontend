@@ -100,7 +100,7 @@ const Brands = () => {
 
                     <div className="col-md-12">
                       <div className="form-group">
-                        <label className="control-label">
+                        <label className="control-label mt-2">
                           Threshold <span className="text-danger">*</span>
                         </label>
                         <input
@@ -121,7 +121,7 @@ const Brands = () => {
               </div>
             </div>
           </div>
-          <div className="card-footer text-right">
+          <div className="card-footer text-right mt-3">
             <button type="submit" className="btn btn-primary">
               Add
             </button>

@@ -85,7 +85,7 @@ const Carts = () => {
                                                 textAlign: "center",
                                             }}
                                             className="fs-2">
-                                            No Products Found with Filters
+                                            No Products Found
                                         </div>
                                     </>
                                 )}

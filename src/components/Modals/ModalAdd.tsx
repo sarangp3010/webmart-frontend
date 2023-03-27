@@ -13,9 +13,6 @@ const ModalAdd: React.FC<Prop> = ({ show, hideModal, title, children }) => {
     <Modal centered size="sm" show={show || false} onHide={hideModal as any}>
       <Modal.Header closeButton>
         <h4 className="modal-title">{title}</h4>
-        {/* <button className="close" onClick={() => hideModal()}>
-          <span aria-hidden="true" className="zmdi zmdi-close"></span>
-        </button> */}
       </Modal.Header>
       <Modal.Body>{children}</Modal.Body>
     </Modal>
