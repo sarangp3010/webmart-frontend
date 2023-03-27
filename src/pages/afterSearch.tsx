@@ -28,7 +28,6 @@ const AfterSeach: React.FC<any> = () => {
     setData((data || []).filter(isFilter));
   };
 
-  const loading = useSelector((state: TRootState) => state?.product?.loading);
   const { products} = useSelector(
     (state: TRootState) => state?.product?.products
   );

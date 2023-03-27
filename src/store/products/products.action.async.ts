@@ -1,5 +1,5 @@
 import { AnyAction } from "redux";
-import { ThunkAction, ThunkDispatch } from "redux-thunk";
+import { ThunkDispatch } from "redux-thunk";
 import {
   addProductsFailed,
   addProductsPending,
