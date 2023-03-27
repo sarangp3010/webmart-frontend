@@ -384,11 +384,11 @@ class becomeSeller extends Component<Props> {
         break;
     }
     return (
-      <>
+      <div className="becomeSeller">
         {this.state.redirect && <Navigate to="/home" replace={true} />}
         <h2 className="text-center mt-3">Become seller</h2>
         {element}
-      </>
+      </div>
     );
   }
 }
