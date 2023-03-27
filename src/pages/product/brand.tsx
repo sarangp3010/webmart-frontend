@@ -15,6 +15,7 @@ const Brand: React.FC<Prop> = ({ setTabValue, tabValue }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
+  const state = location?.state as { tab: string };
   const { brands } = useSelector(
     (state: TRootState) => state?.brand?.brands || {}
   );
@@ -51,7 +52,8 @@ const Brand: React.FC<Prop> = ({ setTabValue, tabValue }) => {
               tab: 4,
             },
           });
-        }
+        },
+        Number(state?.tab) || 1
       )
     );
   };
@@ -122,7 +124,7 @@ const Brand: React.FC<Prop> = ({ setTabValue, tabValue }) => {
             </div>
           </div>
           <div className="card-footer bg-light text-right">
-            <button type="button" className="btn btn-secondary clear-form mr-2">
+            <button type="button" className="btn btn-secondary clear-form mr-2" onClick={() => navigate("/products/list")}>
               Cancel
             </button>
             <button

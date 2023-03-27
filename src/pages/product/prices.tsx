@@ -55,7 +55,8 @@ const Prices: React.FC<Prop> = ({ setTabValue, tabValue }) => {
           function () {
             setTabValue(1);
             navigate(location?.pathname, { state: { tab: 1 } });
-          }
+          },
+          Number(state?.tab) || 1
         )
       );
     },
@@ -148,6 +149,7 @@ const Prices: React.FC<Prop> = ({ setTabValue, tabValue }) => {
                 <button
                   type="button"
                   className="btn btn-secondary clear-form mr-2"
+                  onClick={() => navigate("/products/list")}
                 >
                   Cancel
                 </button>
