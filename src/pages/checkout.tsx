@@ -19,7 +19,7 @@ const CheckoutPage = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [addressType, setAddressType] = useState("delivery");
+  const [addressType, setAddressType] = useState("");
   const [streetAddress, setStreetAddress] = useState("");
   const [city, setCity] = useState("");
   const [county, setCounty] = useState("");
