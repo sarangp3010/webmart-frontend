@@ -79,9 +79,7 @@ const Carts = () => {
                                         <div
                                             style={{
                                                 position: "absolute",
-                                                top: "50%",
-                                                left: "50%",
-                                                transform: "translate(-50%,-50%)",
+                                                marginLeft: "50px",
                                                 textAlign: "center",
                                             }}
                                             className="fs-2">
@@ -101,9 +99,8 @@ const Carts = () => {
                                 <ul className="list-unstyled mb-4">
                                     <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Order Subtotal </strong><strong>{price}</strong></li>
                                     <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Total Discount</strong><strong>{discount}</strong></li>
-                                    <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Tax</strong><strong>{(price-discount)*.08}</strong></li>
                                     <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Total</strong>
-                                        <h5 className="font-weight-bold">{(price-discount)*1.08}</h5>
+                                        <h5 className="font-weight-bold">{(price-discount)}</h5>
                                     </li>
                                 </ul><Link to="/checkout" className="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</Link>
                             </div>
