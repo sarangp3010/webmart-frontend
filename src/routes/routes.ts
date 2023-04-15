@@ -66,14 +66,21 @@ const routes = [
     element: lazy(() => import("../pages/becomeSeller")),
     exact: true,
   },
-  {path: "/admin-dashboard",
-  element: lazy(() => import("../pages/admindashboard")),
-  exact: true,
-},
-{path: "/order/success",
-element: lazy(() => import("../components/orderSuccess")),
-exact: true,
-},
+  {
+    path: "/admin-dashboard",
+    element: lazy(() => import("../pages/admindashboard")),
+    exact: true,
+  },
+  {
+    path: "/pending-seller-request",
+    element: lazy(() => import("../pages/pendingSellerRequest")),
+    exact: true,
+  },
+  {
+    path: "/order/success",
+    element: lazy(() => import("../components/orderSuccess")),
+    exact: true,
+  },
 ];
 
 export default routes;
