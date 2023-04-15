@@ -256,14 +256,14 @@ class becomeSeller extends Component<Props> {
       .then((response) => {
         console.log("In API ", response.data);
         console.log("In LocalStorage", localStorage);
+        this.props.refreshProfile(true);
+        this.setState({
+          redirect: true,
+        });
       })
       .catch((error) => {
         console.log(error);
       });
-    this.props.refreshProfile(true);
-    this.setState({
-      redirect: true,
-    });
   };
 
   render() {
