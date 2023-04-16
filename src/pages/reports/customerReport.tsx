@@ -17,19 +17,20 @@ const CustomerReports = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const state = location?.state as { page: string };
+  const [page, setPage] = useState(Number(state?.page) || 1);
+  const [searchCustomer, setSearchCustomer] = useState("");
 
   const customers = useSelector(
     (state: TRootState) => state?.report?.customerData
   );
 
-  const [page, setPage] = useState(Number(state?.page) || 1);
-  const [searchCustomer, setSearchCustomer] = useState("");
-
+  const itemsPerPage = 10;
   /**
    *  get customer reports thunk dispatch
    */
   const fetchCustomersReports = (pages?: number) => {
-    dispatch(getCustomerReportsActionThunk(searchCustomer));
+    dispatch(getCustomerReportsActionThunk(searchCustomer, pages || page,
+      itemsPerPage));
   };
 
   /**
@@ -140,7 +141,7 @@ const CustomerReports = () => {
                 <Dropdown.Item
                   href=""
                   onClick={() =>
-                    generateXLSX(customers?.customers, `Customer Report`, [
+                    generateXLSX(customers?.customers, `Customer Report ${moment().format("MM/DD/YYYY")}`, [
                       {
                         key: "firstName",
                         header: "First Name",

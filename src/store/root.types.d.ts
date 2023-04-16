@@ -5,6 +5,7 @@ import { TCategoryState } from "./category/category.types";
 import { TBrandState } from "./brand/brand.types";
 import { TOrderState } from "./order/order.types";
 import { TReportsState } from "./reports/reports.types";
+import { TUserState } from "./user/user.types";
 
 /**
  * Import all not available imports.
@@ -17,7 +18,8 @@ type TRootState = {
   category: TCategoryState;
   brand: TBrandState;
   order: TOrderState;
-  report: TReportsState
+  report: TReportsState;
+  user: TUserState;
 };
 
 export default TRootState;

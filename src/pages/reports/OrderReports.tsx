@@ -5,6 +5,7 @@ import { saveAs } from "file-saver";
 import { CSVLink } from "react-csv";
 import moment from "moment";
 
+import { DatePicker } from "../../components/DatePicker/datePicker";
 import Report from "./list";
 import Pagination from "../../components/pagination/pagination";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,12 +20,25 @@ const OrderReports = () => {
   const state = location?.state as { page: string };
   const [page, setPage] = useState(Number(state?.page) || 1);
   const [searchOrder, setSearchOrder] = useState("");
+  const [startDate, setStartDate] = useState<moment.Moment | string>("");
+  const [endDate, setEndDate] = useState<moment.Moment | string>("");
+
+  const itemsPerPage = 10;
 
   const orderReports = useSelector(
     (state: TRootState) => state?.report?.orderData
   );
+
   const fetchOrderReports = (pages?: number) => {
-    dispatch(getOrderReportsActionThunk(searchOrder || null));
+    dispatch(
+      getOrderReportsActionThunk(
+        searchOrder || null,
+        startDate,
+        endDate,
+        pages || page,
+        itemsPerPage
+      )
+    );
   };
 
   const orderReportsFilterSubmitHandler = () => {
@@ -103,6 +117,16 @@ const OrderReports = () => {
             </div>
           </div>
           <div style={{ marginLeft: "10px" }}>
+            <div className="d-flex">
+              <DatePicker
+                setStartDate={setStartDate}
+                setEndDate={setEndDate}
+                startDate={startDate}
+                endDate={endDate}
+              />
+            </div>
+          </div>
+          <div style={{ marginLeft: "10px" }}>
             <button
               type="button"
               className="btn btn-dark"
@@ -128,7 +152,7 @@ const OrderReports = () => {
                 <Dropdown.Item
                   href=""
                   onClick={() =>
-                    generateXLSX(orderReports?.ordersReports, `Order Report`, [
+                    generateXLSX(orderReports?.ordersReports, `Order Report ${moment().format("MM/DD/YYYY")}`, [
                       {
                         header: "Order Id",
                         key: "orderId",
@@ -223,6 +247,7 @@ const OrderReports = () => {
           page={page}
           setPage={setPage}
           dispatchAction={fetchOrderReports}
+          itemsPerPage
         />
       </div>
     </Report>

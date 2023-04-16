@@ -8,6 +8,7 @@ import brandReducer from "./brand/brand.reducer";
 import profileReducer from "./profile/profile.reducer";
 import orderReducer from "./order/order.reducer";
 import reportReducer from "./reports/reports.reducer";
+import userReducer from "./user/user.reducer";
 
 const reducers: Reducer<CombinedState<any>, any> = combineReducers({
   auth: authReducer,
@@ -17,6 +18,7 @@ const reducers: Reducer<CombinedState<any>, any> = combineReducers({
   product: productReducer,
   order: orderReducer,
   report: reportReducer,
+  user: userReducer,
 });
 
 export default reducers;
