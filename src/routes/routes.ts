@@ -72,13 +72,38 @@ const routes = [
     exact: true,
   },
   {
-    path: "/pending-seller-request",
-    element: lazy(() => import("../pages/pendingSellerRequest")),
+    path: "/order/success",
+    element: lazy(() => import("../components/orderSuccess")),
     exact: true,
   },
   {
-    path: "/order/success",
-    element: lazy(() => import("../components/orderSuccess")),
+    path: "/orders/list",
+    element: lazy(() => import("../pages/order/list")),
+    exact: true,
+  },
+  {
+    path: "/reports/customer",
+    element: lazy(() => import("../pages/reports/customerReport")),
+    exact: true,
+  },
+  {
+    path: "/reports/product",
+    element: lazy(() => import("../pages/reports/ProductReports")),
+    exact: true,
+  },
+  {
+    path: "/reports/order",
+    element: lazy(() => import("../pages/reports/OrderReports")),
+    exact: true,
+  },
+  {
+    path: "/customers/list",
+    element: lazy(() => import("../pages/users/userList")),
+    exact: true,
+  },
+  {
+    path: "/seller/list",
+    element: lazy(() => import("../pages/users/sellerList")),
     exact: true,
   },
 ];
