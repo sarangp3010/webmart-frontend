@@ -21,6 +21,7 @@ interface Props {
 class becomeSeller extends Component<Props> {
   state = {
     step: 1,
+    id: "",
     companyRegistrationNumber: "",
     streetAddress: "",
     addressLine2: "",
@@ -52,6 +53,51 @@ class becomeSeller extends Component<Props> {
     errorMessageAccountNumber: "",
     redirect: false,
   };
+
+  componentDidMount(): void {
+    const token = localStorage.getItem("lToken");
+
+    axios("http://localhost:3333/users/sellerInfo", {
+      method: "GET",
+      headers: {
+        Authorization: `bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        console.log("In sellerInfo ", response);
+        const {
+          companyRegistrationNumber,
+          streetAddress,
+          addressLine2,
+          city,
+          state,
+          zip,
+          storeName,
+          accountName,
+          routingNumber,
+          accountNumber,
+          id,
+        } = response?.data || {};
+        console.log(id);
+        this.setState({
+          companyRegistrationNumber,
+          streetAddress,
+          addressLine2,
+          city,
+          state,
+          zip,
+          storeName,
+          accountName,
+          accountNumber,
+          routingNumber,
+          id,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   //profile = useSelector((state: TRootState) => state.profile.profileData);
   nextStep = () => {
@@ -230,40 +276,74 @@ class becomeSeller extends Component<Props> {
       accountName,
       routingNumber,
       accountNumber,
+      id,
     } = this.state;
     const token = localStorage.getItem("lToken");
     console.log("Token", token);
 
-    axios("http://localhost:3333/users/become-seller", {
-      method: "POST",
-      data: {
-        companyRegistrationNumber,
-        streetAddress,
-        addressLine2,
-        city,
-        state,
-        zip,
-        storeName,
-        accountName,
-        routingNumber,
-        accountNumber,
-      },
-      headers: {
-        Authorization: `bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        console.log("In API ", response.data);
-        console.log("In LocalStorage", localStorage);
-        this.props.refreshProfile(true);
-        this.setState({
-          redirect: true,
-        });
+    if (id) {
+      axios("http://localhost:3333/users/become-seller", {
+        method: "PUT",
+        data: {
+          companyRegistrationNumber,
+          streetAddress,
+          addressLine2,
+          city,
+          state,
+          zip,
+          storeName,
+          accountName,
+          routingNumber,
+          accountNumber,
+        },
+        headers: {
+          Authorization: `bearer ${token}`,
+          "Content-Type": "application/json",
+        },
       })
-      .catch((error) => {
-        console.log(error);
-      });
+        .then((response) => {
+          console.log("In API ", response.data);
+          console.log("In LocalStorage", localStorage);
+          this.props.refreshProfile(true);
+          this.setState({
+            redirect: true,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      axios("http://localhost:3333/users/become-seller", {
+        method: "POST",
+        data: {
+          companyRegistrationNumber,
+          streetAddress,
+          addressLine2,
+          city,
+          state,
+          zip,
+          storeName,
+          accountName,
+          routingNumber,
+          accountNumber,
+        },
+        headers: {
+          Authorization: `bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          console.log("In API ", response.data);
+          console.log("In LocalStorage", localStorage);
+          this.props.refreshProfile(true);
+          this.setState({
+            redirect: true,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   render() {

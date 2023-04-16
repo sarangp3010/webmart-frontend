@@ -9,30 +9,40 @@ const PendingSellerRequest = () => {
   const [showRequest, setShowRequest] = useState(false);
   const [request, setRequest] = useState({});
 
-  useEffect(() => {
+  const getPendingRequest = () => {
     axios
       .get("http://localhost:3333/users/pendingSellerRequest")
       .then((response) => {
         console.log("In API ", response.data.pendingRequest);
-        setData(response.data.pendingRequest);
+        setData(response.data.pendingRequest || []);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  };
 
   const handleRequest = (item: any) => {
     setShowRequest(true);
     setRequest(item);
   };
 
+  const setRequestToggle = () => {
+    setShowRequest(false);
+    setRequest({});
+    getPendingRequest();
+  };
+
+  useEffect(() => {
+    getPendingRequest();
+  }, []);
+
   return (
     <div>
       {showRequest ? (
-        <SellerRequest request={request} />
+        <SellerRequest request={request} setRequestToggle={setRequestToggle} />
       ) : (
         <Container>
-          <table className="table">
+          <table className="table" style={{ width: "100%" }}>
             <thead className="thead-dark">
               <tr>
                 <th scope="col">#</th>

@@ -1,20 +1,15 @@
-.main-container {
-  width: 85%;
-  margin: 0 auto;
-}
-
 .main-container__header,
 .main-container__subheader {
   text-align: center;
 }
 
-.becomeSeller{
-.form {
-  width: 700px;
-  margin: 0 auto;
-  background-color: #fafafa;
-  padding: 25px 15px;
-}
+.becomeSeller {
+  .form {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fafafa;
+    padding: 25px 15px;
+  }
 }
 .form-group {
   text-align: center;
