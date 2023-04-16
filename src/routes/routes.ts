@@ -106,6 +106,11 @@ const routes = [
     element: lazy(() => import("../pages/users/sellerList")),
     exact: true,
   },
+  {
+    path: "/pending-seller-request",
+    element: lazy(() => import("../pages/pendingSellerRequest")),
+    exact: true,
+  },
 ];
 
 export default routes;
