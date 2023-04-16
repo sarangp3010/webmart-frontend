@@ -6,7 +6,6 @@ import {
   profileLoadedAction,
   getProfileAction,
 } from "./profile.action";
-import { errorToast } from "../../components/toast/toast";
 import * as requestFromServer from "../../services/profile/profileService";
 
 /*
@@ -29,11 +28,6 @@ export const getProfileActionThunk = (): any => {
       })
       .catch((error) => {
         dispatch(profileLoadedAction());
-        // if (error.response && error.response.data) {
-        //   errorToast(error.response.data.message);
-        // } else {
-        //   errorToast("Something went wrong.");
-        // }
       });
   };
 };

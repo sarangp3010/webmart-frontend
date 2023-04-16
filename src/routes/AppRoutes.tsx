@@ -5,7 +5,7 @@ import { BarsLoader } from "../components/loader/loader";
 import routes from "../routes/routes";
 import PublicRoute from "../components/routing/PublicRoute";
 import ErrorBoundary from "../components/errorBoundary/errorBoundary";
-import Footer from "../components/footer/footer";
+
 const LoginPage = lazy(() => import("../pages/Login/Login"));
 const ForgetPassword = lazy(() => import("../pages/forgetPassword"));
 
@@ -13,9 +13,9 @@ const withoutHeader = ["/login", "/signup", "/forgot-password", "/verify-email"]
 const isHeaderAvailable = (path: string) => {
   return withoutHeader.includes(path);
 };
+
 const AppRoutes = () => {
   const location = useLocation();
-
   return (
     <Suspense fallback={<BarsLoader />}>
       {!isHeaderAvailable(location.pathname) ? (

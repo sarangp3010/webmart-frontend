@@ -66,14 +66,36 @@ const routes = [
     element: lazy(() => import("../pages/becomeSeller")),
     exact: true,
   },
-  {path: "/admin-dashboard",
-  element: lazy(() => import("../pages/admindashboard")),
-  exact: true,
-},
-{path: "/order/success",
-element: lazy(() => import("../components/orderSuccess")),
-exact: true,
-},
+  {
+    path: "/admin-dashboard",
+    element: lazy(() => import("../pages/admindashboard")),
+    exact: true,
+  },
+  {
+    path: "/order/success",
+    element: lazy(() => import("../components/orderSuccess")),
+    exact: true,
+  },
+  {
+    path: "/orders/list",
+    element: lazy(() => import("../pages/order/list")),
+    exact: true,
+  },
+  {
+    path: "/reports/customer",
+    element: lazy(() => import("../pages/reports/customerReport")),
+    exact: true,
+  },
+  {
+    path: "/reports/product",
+    element: lazy(() => import("../pages/reports/ProductReports")),
+    exact: true,
+  },
+  {
+    path: "/reports/order",
+    element: lazy(() => import("../pages/reports/OrderReports")),
+    exact: true,
+  },
 ];
 
 export default routes;

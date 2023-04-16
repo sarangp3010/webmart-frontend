@@ -3,6 +3,8 @@ import { TProfileState } from "./profile/profile.types";
 import { TProductsState } from "./products/products.types";
 import { TCategoryState } from "./category/category.types";
 import { TBrandState } from "./brand/brand.types";
+import { TOrderState } from "./order/order.types";
+import { TReportsState } from "./reports/reports.types";
 
 /**
  * Import all not available imports.
@@ -14,6 +16,8 @@ type TRootState = {
   product: TProductsState;
   category: TCategoryState;
   brand: TBrandState;
+  order: TOrderState;
+  report: TReportsState
 };
 
 export default TRootState;
