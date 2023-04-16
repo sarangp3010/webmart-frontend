@@ -29,8 +29,9 @@ const CustomerReports = () => {
    *  get customer reports thunk dispatch
    */
   const fetchCustomersReports = (pages?: number) => {
-    dispatch(getCustomerReportsActionThunk(searchCustomer, pages || page,
-      itemsPerPage));
+    dispatch(
+      getCustomerReportsActionThunk(searchCustomer, pages || page, itemsPerPage)
+    );
   };
 
   /**
@@ -141,7 +142,7 @@ const CustomerReports = () => {
                 <Dropdown.Item
                   href=""
                   onClick={() =>
-                    generateXLSX(customers?.customers, `Customer Report ${moment().format("MM/DD/YYYY")}`, [
+                    generateXLSX(customers?.customers, `Customer Report`, [
                       {
                         key: "firstName",
                         header: "First Name",

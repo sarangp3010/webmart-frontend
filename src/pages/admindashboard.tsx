@@ -19,6 +19,7 @@ const AdminDashboard = () => {
   const [seller, setSeller] = useState(0);
   const [pendingRequests, setPendingRequests] = useState(0);
   const [category, setCategory] = useState("");
+  const [orders, setOrders] = useState(0);
   const navigate = useNavigate();
 
   const getCount = () => {
@@ -32,6 +33,7 @@ const AdminDashboard = () => {
         setSeller(response.data.sellerCount);
         setPendingRequests(response.data.pendingRequest);
         setProducts(response.data.productsCount);
+        setOrders(response.data.ordersCount);
       })
       .catch((error) => {
         console.log(error);
@@ -50,39 +52,46 @@ const AdminDashboard = () => {
         <h2 className="admin-dashboard-title">Admin Dashboard</h2>
         <div className="admin-dashboard-stats-container">
           <div
-            className="admin-dashboard-stat"
-            onClick={() => setCategory("userTable")}
+            className="admin-dashboard-stat cursor-pointer"
+            onClick={() => navigate("/customers/list")}
           >
             <h3>Number of total Users:</h3>
             <p className="admin-dashboard-stat-value">{users}</p>
           </div>
           <div
             className="admin-dashboard-stat"
-            onClick={() => setCategory("productTable")}
+            onClick={() => navigate("/products/list")}
           >
             <h3>Number of total Products:</h3>
             <p className="admin-dashboard-stat-value">{products}</p>
           </div>
           <div
             className="admin-dashboard-stat"
-            onClick={() => setCategory("brandTable")}
+            onClick={() => navigate("/brands")}
           >
             <h3>Number of total Brands:</h3>
             <p className="admin-dashboard-stat-value">{brands}</p>
           </div>
           <div
             className="admin-dashboard-stat"
-            onClick={() => setCategory("categoryTable")}
+            onClick={() => navigate("/category/list")}
           >
             <h3>Number of total Categories:</h3>
             <p className="admin-dashboard-stat-value">{categories}</p>
           </div>
           <div
             className="admin-dashboard-stat"
-            onClick={() => setCategory("categoryTable")}
+            onClick={() => navigate("/seller/list")}
           >
             <h3>Number of Sellers</h3>
             <p className="admin-dashboard-stat-value">{seller}</p>
+          </div>
+          <div
+            className="admin-dashboard-stat"
+            onClick={() => navigate("/orders/list")}
+          >
+            <h3>Number of Orders</h3>
+            <p className="admin-dashboard-stat-value">{orders}</p>
           </div>
           <div
             className="admin-dashboard-stat"

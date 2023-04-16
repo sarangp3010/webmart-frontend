@@ -261,6 +261,14 @@ const StatusBar: React.FC<any> = () => {
                     </Dropdown.Item>
                   ) : null}
 
+                  {profile?.userType?.includes("admin") ? (
+                    <Dropdown.Item
+                      onClick={() => navigate("/reports/customer")}
+                    >
+                      <i className="icon dripicons-lock"></i> {"Reports"}
+                    </Dropdown.Item>
+                  ) : null}
+
                   <Dropdown.Item onClick={logoutHandler}>
                     <i className="icon dripicons-lock"></i> Logout
                   </Dropdown.Item>

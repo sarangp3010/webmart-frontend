@@ -142,7 +142,7 @@ const ProductReports = () => {
                   onClick={() =>
                     generateXLSX(
                       productReports?.productReports,
-                      `Product Report ${moment().format("MM/DD/YYYY")}`,
+                      `Product Report`,
                       [
                         {
                           key: "productId",
