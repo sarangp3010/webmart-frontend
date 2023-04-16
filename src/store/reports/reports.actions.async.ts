@@ -12,12 +12,14 @@ import { errorToast } from "../../components/toast/toast";
 import * as requestFromServer from "../../services/reports/reportsService";
 
 export const getCustomerReportsActionThunk = (
-  search: string | null
+  search: string | null,
+  page: number,
+  perPage: number
 ): any => {
   return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
     dispatch(reportsLoadingAction());
     requestFromServer
-      .getCustomerReportsAPI(search)
+      .getCustomerReportsAPI(search, page, perPage)
       .then((response) => {
         dispatch(getCustomerReportsAction(response.data));
       })
@@ -33,13 +35,17 @@ export const getCustomerReportsActionThunk = (
 };
 
 export const getOrderReportsActionThunk = (
-  search: string | null
+  search: string | null,
+  startDate: any,
+  endDate: any,
+  page: number,
+  perPage: number
 ): any => {
   return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
     dispatch(reportsLoadingAction());
 
     requestFromServer
-      .getOrderReportsAPI(search)
+      .getOrderReportsAPI(search, startDate, endDate, page, perPage)
       .then((response) => {
         dispatch(getOrderReportsAction(response.data));
       })
@@ -55,13 +61,15 @@ export const getOrderReportsActionThunk = (
 };
 
 export const getProductReportsActionThunk = (
-  search: string | null
+  search: string | null,
+  page: number,
+  perPage: number
 ): any => {
   return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
     dispatch(reportsLoadingAction());
 
     requestFromServer
-      .getProductReportsAPI(search)
+      .getProductReportsAPI(search, page, perPage)
       .then((response) => {
         dispatch(getProductsReportsAction(response.data));
       })

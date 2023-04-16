@@ -96,6 +96,16 @@ const routes = [
     element: lazy(() => import("../pages/reports/OrderReports")),
     exact: true,
   },
+  {
+    path: "/customers/list",
+    element: lazy(() => import("../pages/users/userList")),
+    exact: true,
+  },
+  {
+    path: "/seller/list",
+    element: lazy(() => import("../pages/users/sellerList")),
+    exact: true,
+  },
 ];
 
 export default routes;

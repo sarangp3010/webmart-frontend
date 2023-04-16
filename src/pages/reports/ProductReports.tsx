@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import * as excel from "exceljs";
 import { saveAs } from "file-saver";
+import moment from "moment";
 
 import Pagination from "../../components/pagination/pagination";
 import Report from "./list";
@@ -17,9 +18,10 @@ const ProductReports = () => {
 
   const location = useLocation();
   const state = location?.state as { page: string };
+  const [page, setPage] = useState(Number(state?.page) || 1);
   const [searchProduct, setSearchProduct] = useState("");
-  const [page, setPage] = useState(1);
 
+  const itemsPerPage = 10;
   const productReports = useSelector(
     (state: TRootState) => state?.report?.productData
   );
@@ -32,7 +34,13 @@ const ProductReports = () => {
   };
 
   const fetchProductsReports = (pages?: number) => {
-    dispatch(getProductReportsActionThunk(searchProduct || null));
+    dispatch(
+      getProductReportsActionThunk(
+        searchProduct || null,
+        pages || page,
+        itemsPerPage
+      )
+    );
   };
   const headers = [
     { label: "Product Id", key: "productId" },
@@ -134,7 +142,7 @@ const ProductReports = () => {
                   onClick={() =>
                     generateXLSX(
                       productReports?.productReports,
-                      `Product Report`,
+                      `Product Report ${moment().format("MM/DD/YYYY")}`,
                       [
                         {
                           key: "productId",

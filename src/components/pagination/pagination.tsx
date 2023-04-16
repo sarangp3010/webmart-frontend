@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
 import ReactPaginate from "react-paginate";
 
+import { withRouter } from "../withRouter/withRouter";
+ 
 const Pagination: React.FC<any> = ({
   setFilter,
   ItemsComponent,
   pageCount,
   dispatchAction,
   filter,
-  history,
+  navigate,
+  location,
   page,
   setPage,
   setFilterBy,
@@ -16,7 +19,7 @@ const Pagination: React.FC<any> = ({
 
   const handlePageClick = (event: { selected: number }) => {
     setPage && setPage(event.selected + 1);
-    history.push(history.location.pathname, {
+    navigate(location.pathname, {
       page: event.selected + 1,
     });
   };
@@ -28,7 +31,7 @@ const Pagination: React.FC<any> = ({
   useEffect(() => {
     if (page && page > Math.ceil(pageCount / itemsPerPage) && pageCount) {
       setPage && setPage(() => page && page - 1);
-      history.push(history.location.pathname, { page: page - 1 });
+      navigate(location.pathname, { page: page - 1 });
     }
   }, [Math.ceil(pageCount / itemsPerPage)]);
 
@@ -87,4 +90,4 @@ const Pagination: React.FC<any> = ({
   );
 };
 
-export default Pagination;
+export default withRouter(Pagination);
