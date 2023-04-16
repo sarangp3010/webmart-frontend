@@ -51,7 +51,7 @@ const OrderList = () => {
               <header className="page-header">
                 <div className="d-flex align-items-center">
                   <div className="mr-auto">
-                    <h1>Customers</h1>
+                    <h1>Seller</h1>
                   </div>
                   <div className="" style={{ marginRight: "10px" }}>
                     <div className="input-group w-250">
@@ -93,8 +93,8 @@ const OrderList = () => {
                             <th className="text-center">Email</th>
                             <th className="text-center">Mobile Number</th>
                             <th className="text-center">Status</th>
-                            <th className="text-center">Credits</th>
-                            <th className="table-field-actions">Actions</th>
+                            {/* <th className="text-center">Credits</th> */}
+                            {/* <th className="table-field-actions">Actions</th> */}
                           </tr>
                         </thead>
                         <tbody>
@@ -123,10 +123,10 @@ const OrderList = () => {
                                         : "Un-Verified"}
                                     </td>
 
-                                    <td className="text-center">
+                                    {/* <td className="text-center">
                                       {user?.totalCredits || 0}
-                                    </td>
-                                    <td className="">
+                                    </td> */}
+                                    {/* <td className="">
                                       <Dropdown className="btn-group">
                                         <Dropdown.Toggle
                                           id="dropdown-basic"
@@ -144,7 +144,7 @@ const OrderList = () => {
                                           </Dropdown.Item>
                                         </Dropdown.Menu>
                                       </Dropdown>
-                                    </td>
+                                    </td> */}
                                   </tr>
                                 </React.Fragment>
                               ))
