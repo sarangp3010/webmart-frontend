@@ -122,6 +122,16 @@ const routes = [
     exact: true,
   },
   {
+    path: "/category/list",
+    element: lazy(() => import("../pages/categories/list")),
+    exact: true,
+  },
+  {
+    path: "/category/:id",
+    element: lazy(() => import("../pages/categories/edit")),
+    exact: true,
+  },
+  {
     path: "/pending-seller-request",
     element: lazy(() => import("../pages/pendingSellerRequest")),
     exact: true,
