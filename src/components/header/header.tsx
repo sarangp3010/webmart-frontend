@@ -256,9 +256,9 @@ const StatusBar: React.FC<any> = () => {
                     </Dropdown.Item>
                   ) : null}
 
-                  {isSellerRequested && isUserOrSeller ? (
-                    <Dropdown.Item onClick={() => navigate("/become-seller")}>
-                      <i className="icon dripicons-lock"></i> Update seller
+                  {profile?.userType?.includes("admin") ? (
+                    <Dropdown.Item onClick={() => navigate("/category/list")}>
+                      <i className="icon dripicons-lock"></i> {"Category"}
                     </Dropdown.Item>
                   ) : null}
 
