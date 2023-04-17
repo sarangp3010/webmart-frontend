@@ -21,6 +21,9 @@ const StatusBar: React.FC<any> = () => {
   const refreshProfile = useSelector(
     (state: TRootState) => state.profile.refreshProfile
   );
+
+  const isSellerRequested = profile?.sellerStatus;
+
   const isUserOrSeller = profile
     ? profile.userType.includes("admin") || profile.userType.includes("seller")
     : false;
@@ -233,19 +236,43 @@ const StatusBar: React.FC<any> = () => {
                       </span>
                     </div>
                   </div>
-                  {profile?.firstName === "admin" && (
+                  {profile.userType.includes("admin") && (
                     <Dropdown.Item onClick={() => navigate("/admin-dashboard")}>
                       <i className="icon dripicons-lock"></i> Admin DashBoard
                     </Dropdown.Item>
                   )}
                   <Dropdown.Item onClick={() => navigate(isUserOrSellerUrl)}>
                     <i className="icon dripicons-lock"></i>{" "}
-                    {isUserOrSeller ? "Add Product" : "Become a seller"}
+                    {isSellerRequested != null && !isSellerRequested
+                      ? "Seller requested"
+                      : isUserOrSeller
+                      ? "Add Product"
+                      : "Become a seller"}
                   </Dropdown.Item>
+
+                  {isSellerRequested && isUserOrSeller ? (
+                    <Dropdown.Item onClick={() => navigate("/become-seller")}>
+                      <i className="icon dripicons-lock"></i> Update seller
+                    </Dropdown.Item>
+                  ) : null}
+
+                  {isSellerRequested && isUserOrSeller ? (
+                    <Dropdown.Item onClick={() => navigate("/become-seller")}>
+                      <i className="icon dripicons-lock"></i> Update seller
+                    </Dropdown.Item>
+                  ) : null}
 
                   {profile?.userType?.includes("admin") ? (
                     <Dropdown.Item onClick={() => navigate("/brands")}>
                       <i className="icon dripicons-lock"></i> {"Brands"}
+                    </Dropdown.Item>
+                  ) : null}
+
+                  {profile?.userType?.includes("admin") ? (
+                    <Dropdown.Item
+                      onClick={() => navigate("/reports/customer")}
+                    >
+                      <i className="icon dripicons-lock"></i> {"Reports"}
                     </Dropdown.Item>
                   ) : null}
 

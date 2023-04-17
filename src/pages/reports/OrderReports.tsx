@@ -152,7 +152,7 @@ const OrderReports = () => {
                 <Dropdown.Item
                   href=""
                   onClick={() =>
-                    generateXLSX(orderReports?.ordersReports, `Order Report ${moment().format("MM/DD/YYYY")}`, [
+                    generateXLSX(orderReports?.ordersReports, `Order Report`, [
                       {
                         header: "Order Id",
                         key: "orderId",
