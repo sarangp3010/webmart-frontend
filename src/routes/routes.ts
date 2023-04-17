@@ -87,7 +87,7 @@ const routes = [
     exact: true,
   },
   {
-    path: "/admin-dashboard/modificationRequests",
+    path: "/modificationRequests",
     element: lazy(() => import("../components/modificationRequests/modificationRequests")),
     exact: true,
   },

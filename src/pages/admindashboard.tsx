@@ -20,6 +20,7 @@ const AdminDashboard = () => {
   const [pendingRequests, setPendingRequests] = useState(0);
   const [category, setCategory] = useState("");
   const [orders, setOrders] = useState(0);
+  const [modificationRequests, setModificationRequests] = useState(0);
   const navigate = useNavigate();
 
   const getCount = () => {
@@ -34,6 +35,7 @@ const AdminDashboard = () => {
         setPendingRequests(response.data.pendingRequest);
         setProducts(response.data.productsCount);
         setOrders(response.data.ordersCount);
+        setModificationRequests(response.data.modificationRequest);
       })
       .catch((error) => {
         console.log(error);
@@ -99,6 +101,13 @@ const AdminDashboard = () => {
           >
             <h3>Number of Pending Seller Requests:</h3>
             <p className="admin-dashboard-stat-value">{pendingRequests}</p>
+          </div>
+          <div
+            className="admin-dashboard-stat"
+            onClick={() => navigate("/modificationRequests")}
+          >
+            <h3>Number of Product Modification Requests:</h3>
+            <p className="admin-dashboard-stat-value">{modificationRequests}</p>
           </div>
         </div>
       </div>
