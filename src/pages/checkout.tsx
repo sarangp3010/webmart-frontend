@@ -156,8 +156,22 @@ const CheckoutPage = () => {
               <Col></Col>
               <Col>
                 <h3 className="text-center">Delivery</h3>
+                <h5 className="mt-4 text-center fw-bold text-dark">
+                  Choose From Saved Addresses
+                </h5>
+                <Form.Group controlId="savedAddresses" className="pt-2">
+                  <Form.Control as="select">
+                    <option>Select an address</option>
+                    <option>123 Main St, New York, USA</option>
+                    <option>456 Elm St, Delaware, USA</option>
+                    <option>789 Oak St, Denver, USA</option>
+                  </Form.Control>
+                </Form.Group>
+                <h5 className="mt-5 text-center fw-bold text-dark">
+                  Or Add a New Address
+                </h5>
                 <Form>
-                  <Form.Group controlId="name" className="pt-2">
+                  <Form.Group controlId="name" className="">
                     <Form.Label>Name</Form.Label>
                     <Form.Control
                       type="text"
@@ -227,6 +241,11 @@ const CheckoutPage = () => {
                         setCountry(event.target.value);
                       }}
                     />
+                    <Form.Check
+                      className="mt-2 fw-bold"
+                      type="checkbox"
+                      label="Save this Address"
+                    />
                   </Form.Group>
                 </Form>
                 <Col className="text-center pt-3">
@@ -242,6 +261,7 @@ const CheckoutPage = () => {
                   </Button>
                 </Col>
               </Col>
+
               <Col></Col>
             </Row>
           </Tab>
@@ -261,7 +281,21 @@ const CheckoutPage = () => {
                 {!billingSameAsDelvery && (
                   <Col>
                     <Form>
-                      <Form.Group controlId="name" className="pt-2">
+                      <h5 className="mt-4 text-center fw-bold text-dark">
+                        Choose From Saved Addresses
+                      </h5>
+                      <Form.Group controlId="savedAddresses" className="pt-2">
+                        <Form.Control as="select">
+                          <option>Select an address</option>
+                          <option>123 Main St, New York, USA</option>
+                          <option>456 Elm St, Delaware, USA</option>
+                          <option>789 Oak St, Denver, USA</option>
+                        </Form.Control>
+                      </Form.Group>
+                      <h5 className="mt-5 text-center fw-bold text-dark">
+                        Or Add a New Address
+                      </h5>
+                      <Form.Group controlId="name" className="">
                         <Form.Label>Name</Form.Label>
                         <Form.Control
                           type="text"
@@ -335,6 +369,11 @@ const CheckoutPage = () => {
                     </Form>
                   </Col>
                 )}
+                <Form.Check
+                  className="mt-2 fw-bold"
+                  type="checkbox"
+                  label="Save this Address"
+                />
                 <Col className="text-center pt-3">
                   <Button
                     className="btn-success m-1 text-light"
@@ -363,8 +402,22 @@ const CheckoutPage = () => {
               <Col></Col>
               <Col>
                 <h3 className="text-center">Payment</h3>
+                <h5 className="mt-4 text-center fw-bold text-dark">
+                  Choose From Saved Cards
+                </h5>
+                <Form.Group controlId="savedAddresses" className="pt-2">
+                  <Form.Control as="select">
+                    <option>Select a card</option>
+                    <option>5588 Visa</option>
+                    <option>4231 AMEX</option>
+                    <option>9081 Visa</option>
+                  </Form.Control>
+                </Form.Group>
+                <h5 className="mt-4 text-center fw-bold text-dark">
+                  Or Add a New Card
+                </h5>
                 <Form>
-                  <Form.Group controlId="cardHolderName" className="pt-2">
+                  <Form.Group controlId="cardHolderName" className="">
                     <Form.Label>Name On Card</Form.Label>
                     <Form.Control
                       type="text"

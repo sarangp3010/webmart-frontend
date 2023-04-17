@@ -77,6 +77,21 @@ const routes = [
     exact: true,
   },
   {
+    path: "/contactUs",
+    element: lazy(() => import("../pages/contact")),
+    exact: true,
+  },
+  {
+    path: "/admin-dashboard",
+    element: lazy(() => import("../pages/admindashboard")),
+    exact: true,
+  },
+  {
+    path: "/order/success",
+    element: lazy(() => import("../components/orderSuccess")),
+    exact: true,
+  },
+  {
     path: "/orders/list",
     element: lazy(() => import("../pages/order/list")),
     exact: true,
@@ -114,6 +129,11 @@ const routes = [
   {
     path: "/category/:id",
     element: lazy(() => import("../pages/categories/edit")),
+    exact: true,
+  },
+  {
+    path: "/pending-seller-request",
+    element: lazy(() => import("../pages/pendingSellerRequest")),
     exact: true,
   },
 ];

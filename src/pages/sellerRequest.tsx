@@ -1,64 +1,73 @@
-import React, { Component } from "react";
-import { Stepper } from "react-form-stepper";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "../stylesheets/pages/_admindashboard.scss";
+import "../stylesheets/pages/_becomeSeller.scss";
+import { Container } from "react-bootstrap";
+import { connect } from "react-redux";
 
-class Review extends Component<any, any> {
-  continue = (e: any) => {
-    e.preventDefault();
-    this.props.nextStep();
+const SellerRequest = (props: any) => {
+  const { request, profile } = props || {};
+  const [message, setMessage] = useState("");
+  console.log("In Seller Reuqest personal", request);
+
+  const {
+    companyRegistrationNumber,
+    streetAddress,
+    addressLine2,
+    city,
+    state,
+    zip,
+    storeName,
+    accountName,
+    routingNumber,
+    accountNumber,
+    submitData,
+    id,
+  } = request || {};
+
+  const handleChangeOnMessage = (event: any) => {
+    const { value } = event?.target || {};
+    console.log(value);
+    setMessage(value);
   };
 
-  back = (e: any) => {
-    e.preventDefault();
-    this.props.prevStep();
+  const handleClickOnAcceptOrDecline = (decision: string) => {
+    const { id: userId } = profile || {};
+    const token = localStorage.getItem("lToken");
+
+    axios("http://localhost:3333/users/sellerRequestDecision", {
+      method: "POST",
+      data: {
+        userId: request.user.id,
+        sellerRequestId: id,
+        decision,
+        ...(message && { message }),
+      },
+      headers: {
+        Authorization: `bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        console.log("In API ", response.data.pendingRequest);
+        props.setRequestToggle();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
-  render() {
-    const {
-      companyRegistrationNumber,
-      streetAddress,
-      addressLine2,
-      city,
-      state,
-      zip,
-      storeName,
-      accountName,
-      routingNumber,
-      accountNumber,
-      submitData,
-    } = this.props;
+  const handleClickOnBack = () => {
+    props.setRequestToggle();
+  };
 
-    return (
+  return (
+    <Container className="becomeSeller">
       <div className="form mt-3">
         <h3 className="text-center mb-4">Review Details</h3>
         <div>
-          {/* <Stepper
-            steps={[
-              { label: "Business Information" },
-              { label: "Billing" },
-              { label: "Review" },
-            ]}
-            activeStep={2}
-            styleConfig={{
-              activeBgColor: "#2b7cff",
-              activeTextColor: "#fff",
-              inactiveBgColor: "#fff",
-              inactiveTextColor: "#2b7cff",
-              completedBgColor: "#fff",
-              completedTextColor: "#2b7cff",
-              size: "3em",
-              circleFontSize: "1rem",
-              labelFontSize: "0.875rem",
-              borderRadius: "50%",
-              fontWeight: "500",
-            }}
-            className={"stepper"}
-            stepClassName={"stepper__step"}
-          /> */}
-
           <div className="summary">
-            <h2 className="summary__heading">
-              Confirm your Business Information
-            </h2>
+            <h2 className="summary__heading">Business Information</h2>
             <div>
               <p>
                 <span className="summary__item-title">
@@ -105,9 +114,7 @@ class Review extends Component<any, any> {
           </div>
 
           <div className="summary">
-            <h2 className="summary__heading">
-              Confirm your Billing Information
-            </h2>
+            <h2 className="summary__heading">Billing Information</h2>
             <div>
               <div>
                 <p>
@@ -131,26 +138,41 @@ class Review extends Component<any, any> {
               </div>
             </div>
           </div>
-
+          <div className="buttons">
+            <input
+              type="text"
+              name="message"
+              placeholder="Reason for accept or decline (optional)"
+              onChange={handleChangeOnMessage}
+              className="form-group__input"
+            />
+          </div>
           <div className="buttons">
             <button
               className="buttons__button buttons__button--back"
-              onClick={this.back}
+              onClick={() => handleClickOnAcceptOrDecline("declined")}
             >
-              Back
+              Decline
             </button>
             <button
               className="buttons__button buttons__button--next"
               type="submit"
-              onClick={submitData}
+              onClick={() => handleClickOnAcceptOrDecline("accepted")}
             >
-              Submit
+              Accept
             </button>
+          </div>
+          <div className="text-center mt-3">
+            <a href="javascript:void(0)" onClick={handleClickOnBack}>
+              back
+            </a>
           </div>
         </div>
       </div>
-    );
-  }
-}
-
-export default Review;
+    </Container>
+  );
+};
+const mapStateToProps = (state: any) => ({
+  profile: state.profile.profileData,
+});
+export default connect(mapStateToProps, null)(SellerRequest);
