@@ -106,6 +106,16 @@ const routes = [
     element: lazy(() => import("../pages/users/sellerList")),
     exact: true,
   },
+  {
+    path: "/category/list",
+    element: lazy(() => import("../pages/categories/list")),
+    exact: true,
+  },
+  {
+    path: "/category/:id",
+    element: lazy(() => import("../pages/categories/edit")),
+    exact: true,
+  },
 ];
 
 export default routes;
