@@ -29,9 +29,7 @@ class Review extends Component<any, any> {
 
     return (
       <div className="form mt-3">
-        <h3 className="text-center mb-4">
-          Review Details
-        </h3>
+        <h3 className="text-center mb-4">Review Details</h3>
         <div>
           {/* <Stepper
             steps={[
@@ -121,7 +119,7 @@ class Review extends Component<any, any> {
               </div>
               <div>
                 <p>
-                  <span className="summary__item-title">Account Numebr</span>{" "}
+                  <span className="summary__item-title">Account Number</span>{" "}
                   {accountNumber}
                 </p>
               </div>

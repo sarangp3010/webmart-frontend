@@ -36,9 +36,7 @@ class Billing extends Component<any, any> {
 
     return (
       <div className="form mt-3">
-        <h3 className="text-center mb-4">
-          Billing Information
-        </h3>
+        <h3 className="text-center mb-4">Billing Information</h3>
         <form>
           {/* <Stepper
             steps={[
@@ -86,7 +84,7 @@ class Billing extends Component<any, any> {
             </div>
             <div className="form-group__element">
               <label htmlFor="Account Number" className="form-group__label">
-                AccountNumebr
+                AccountNumber
               </label>
               <input
                 type="text"

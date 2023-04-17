@@ -20,6 +20,7 @@ type TGetProfilePayload = {
   email: string | null;
   totalCredits: number | 0;
   userType: string[];
+  sellerStatus: boolean | null;
 } | null;
 
 /**

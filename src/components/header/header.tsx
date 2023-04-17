@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { Dropdown } from "react-bootstrap";
+import { Button, Dropdown } from "react-bootstrap";
 import logo from "../../assets/Images/Free_Sample_By_Wix.jpg";
 import logo2 from "../../assets/Images/download.png";
 import logo3 from "../../assets/Images/images.png";
+import contactLogo from "../../assets/Images/contactLogo.jpg";
 
 import { getProfileActionThunk } from "../../store/profile/profile.actions.async";
 import { logout } from "../../store/auth/auth.action";
@@ -20,6 +21,9 @@ const StatusBar: React.FC<any> = () => {
   const refreshProfile = useSelector(
     (state: TRootState) => state.profile.refreshProfile
   );
+
+  const isSellerRequested = profile?.sellerStatus;
+
   const isUserOrSeller = profile
     ? profile.userType.includes("admin") || profile.userType.includes("seller")
     : false;
@@ -55,8 +59,8 @@ const StatusBar: React.FC<any> = () => {
 
   return (
     <header>
-      <div className="status-bar">
-        <div className="logo mx-4">
+      <div className="status-bar bg-light">
+        <div className="logo mx-3">
           <img src={logo} alt="Logo" />
         </div>
         <div className="name">
@@ -232,20 +236,43 @@ const StatusBar: React.FC<any> = () => {
                       </span>
                     </div>
                   </div>
-                  {profile?.firstName === "Het" && (
+                  {profile.userType.includes("admin") && (
                     <Dropdown.Item onClick={() => navigate("/admin-dashboard")}>
                       <i className="icon dripicons-lock"></i> Admin DashBoard
                     </Dropdown.Item>
                   )}
                   <Dropdown.Item onClick={() => navigate(isUserOrSellerUrl)}>
                     <i className="icon dripicons-lock"></i>{" "}
-                    {isUserOrSeller ? "Add Product" : "Become a seller"}
+                    {isSellerRequested != null && !isSellerRequested
+                      ? "Seller requested"
+                      : isUserOrSeller
+                      ? "Add Product"
+                      : "Become a seller"}
                   </Dropdown.Item>
+
+                  {isSellerRequested && isUserOrSeller ? (
+                    <Dropdown.Item onClick={() => navigate("/become-seller")}>
+                      <i className="icon dripicons-lock"></i> Update seller
+                    </Dropdown.Item>
+                  ) : null}
+
+                  {isSellerRequested && isUserOrSeller ? (
+                    <Dropdown.Item onClick={() => navigate("/become-seller")}>
+                      <i className="icon dripicons-lock"></i> Update seller
+                    </Dropdown.Item>
+                  ) : null}
 
                   {profile?.userType?.includes("admin") ? (
                     <Dropdown.Item onClick={() => navigate("/brands")}>
-                      <i className="icon dripicons-lock"></i>{" "}
-                      {"Brands"}
+                      <i className="icon dripicons-lock"></i> {"Brands"}
+                    </Dropdown.Item>
+                  ) : null}
+
+                  {profile?.userType?.includes("admin") ? (
+                    <Dropdown.Item
+                      onClick={() => navigate("/reports/customer")}
+                    >
+                      <i className="icon dripicons-lock"></i> {"Reports"}
                     </Dropdown.Item>
                   ) : null}
 
@@ -261,6 +288,7 @@ const StatusBar: React.FC<any> = () => {
               style={{
                 marginLeft: "290px",
                 marginTop: "17px",
+                marginRight: "5px",
                 cursor: "pointer",
               }}
               onClick={() => navigate("/login")}
@@ -270,9 +298,29 @@ const StatusBar: React.FC<any> = () => {
           )}
         </div>
         <div className="cart">
-          <button onClick={() => navigate("/cart")}>
-            <img src={logo2} alt="Logo" />
-          </button>
+          <Link to="/cart">
+            <img className="rounded-circle" src={logo2} alt="Logo" />
+          </Link>
+        </div>
+        <div>
+          <Link
+            className="contactUs background-color:transparentbg-transparent"
+            style={{
+              marginLeft: "5px",
+              marginTop: "4px",
+              marginRight: "10px",
+              cursor: "pointer",
+            }}
+            to={"/contactUs"}
+          >
+            <img
+              className="rounded-circle"
+              src={contactLogo}
+              alt="Logo"
+              height={50}
+              width={50}
+            />
+          </Link>
         </div>
       </div>
     </header>
