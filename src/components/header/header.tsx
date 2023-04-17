@@ -232,7 +232,7 @@ const StatusBar: React.FC<any> = () => {
                       </span>
                     </div>
                   </div>
-                  {profile?.firstName === "admin" && (
+                  {profile?.firstName === "Het" && (
                     <Dropdown.Item onClick={() => navigate("/admin-dashboard")}>
                       <i className="icon dripicons-lock"></i> Admin DashBoard
                     </Dropdown.Item>
