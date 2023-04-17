@@ -24,7 +24,7 @@ const Product = (props: any) => {
         <div className="container main-product-container">
           <div className="card">
             <div className="card-header">
-              <img src={props?.data?.thumbnailImage} alt="rover" />
+              <img src={props?.data?.thumbnailImage} height='200px' style={{minHeight: '200px', maxHeight: '200px'}} alt="rover" />
             </div>
             <div className="card-body">
               <div className="d-inline first-row">

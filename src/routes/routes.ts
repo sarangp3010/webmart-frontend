@@ -87,6 +87,11 @@ const routes = [
     exact: true,
   },
   {
+    path: "/admin-dashboard/modificationRequests",
+    element: lazy(() => import("../components/modificationRequests/modificationRequests")),
+    exact: true,
+  },
+  {
     path: "/order/success",
     element: lazy(() => import("../components/orderSuccess")),
     exact: true,

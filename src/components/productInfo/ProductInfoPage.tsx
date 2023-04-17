@@ -11,54 +11,49 @@ import {
 import { addCarts } from "../../services/cart/cartService";
 import { getProductById } from "../../services/products/productsService";
 import { useEffect, useState } from "react";
+import Customization from '../customization/customization';
+import { successToast } from "../toast/toast";
 
 const ProductInfoPage = () => {
   let { productId } = useParams();
 
-  const getProduct = async (producId: any) => {
-      return await getProductById(producId);
+  const getProduct = (producId: any) => {
+      return getProductById(producId).then((res) => {
+        setProductName(res.data.name);
+        setProductDescription(res.data.description);
+        setProductImage(res.data.thumbnailImage);
+        setProductProperties(res.data.properties);
+        setProductPrice(res.data.price);
+        productMetrics();
+      });;
   };
 
-  let product = getProduct(productId);
+  const [product, setProduct] = useState(null);
   const [productName, setProductName] = useState("");
   const [productDescription, setProductDescription] = useState("");
   const [productProperties, setProductProperties] = useState([] as any);
   const [productImage, setProductImage] = useState("");
   const [productPrice, setProductPrice] = useState("");
   const [productQuantity, setProductQuantity] = useState("");
-  console.log(productId);
-
+ 
   const addToCart = () => {
-
     const handler = async (data: any) => {
       await addCarts(data);
     };
 
-    handler({ productId: productId, quantity: productQuantity });
-    console.log("Product added successfully");
+    handler({ productId: productId, quantity: productQuantity==""?1:productQuantity});
+    successToast("Product added in cart!!!");
   };
 
-
-  product.then((res) => {
-    console.log(res.data);
-    setProductName(res.data.name);
-    setProductDescription(res.data.description);
-    setProductImage(res.data.thumbnailImage);
-    setProductProperties(res.data.properties);
-    setProductPrice(res.data.price);
-    console.log(res.data.properties);
-    productMetrics();
-  });
-
+  useEffect(()=>{
+    getProduct(productId);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [product]);
   const productMetrics = () => {
     for (let index = 0; index < productProperties.length; index++) {
       console.log(index);
     }
   };
-
-  useEffect(() => {
-
-  });
 
   return (
     <>
@@ -126,6 +121,8 @@ const ProductInfoPage = () => {
             </Form>
           </Col>
         </Row>
+        
+        <Customization data={{productId,  productProperties}} addToCart={addToCart}/>
 
         <div className="similar-products-container">
           <Row className="justify-content-center mt-5 mb-2 p-2">
