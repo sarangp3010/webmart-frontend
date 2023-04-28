@@ -12,7 +12,7 @@ const getAllOrder = (
 ): Promise<any> => {
   return API.get("/orders/",
   {
-    params: { search: data?.search }
+    params: { search: data?.search || undefined }
   });
 };
 

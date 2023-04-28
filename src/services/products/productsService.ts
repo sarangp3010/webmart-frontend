@@ -9,7 +9,6 @@ const getProducts = (
     params: {
       search: search || undefined,
       categoryId: categoryId && (categoryId === "All" ? undefined : Number(categoryId)),
-      categoryIds: categoryIds,
     },
   });
 };
