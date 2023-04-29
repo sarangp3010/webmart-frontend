@@ -1,7 +1,7 @@
 {
   "name": "webmart-frontend",
   "version": "0.3.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@redux-devtools/extension": "^3.2.5",
@@ -53,8 +53,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --fix --ext .ts,.tsx ./src",
-    "prepare": "husky install"
+    "lint": "eslint --fix --ext .ts,.tsx ./src"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
@@ -82,9 +81,6 @@
   "devDependencies": {
     "@types/babel__core": "^7.20.0",
     "@types/babel__generator": "^7.6.4",
-    "eslint": "^8.34.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.1.0",
     "sass": "^1.58.0"
   }
 }

@@ -29,6 +29,13 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+# Docker
+**Note: to generate and run docker image run the following commands.**
+
+### `docker build -t webmart-app .`
+### `docker run -d -p 3000:3000 --name webmart-app webmart-app:latest`
+
+#
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
