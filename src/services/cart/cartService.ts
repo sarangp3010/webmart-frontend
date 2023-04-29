@@ -22,6 +22,7 @@ const getCarts = (
 const addCarts = (
   data: any
 ): Promise<any> => {
+  console.log(data, "data");
   return API.post("/cart", data);
 };
 

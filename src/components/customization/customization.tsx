@@ -24,6 +24,11 @@ const Customization = (props: any) => {
     });
   };
 
+  const addCartHandler = async (req:any) => {
+    props?.setCartComment(req?.comments)
+    props?.addToCartWithComment();
+  };
+
   return (
     <div className="justify-content-center mt-5 mb-2 p-2">
       <h4 className="fw-bold">Yes!!! This product can be Customize</h4>
@@ -67,9 +72,10 @@ const Customization = (props: any) => {
               <tbody>
                 {prevRequests.map((req:any, i: number): any => {
                   let buttonStatus;
+                  
                   if (req?.status === "Approved") {
                     buttonStatus = (
-                      <Button onClick={props.addToCart} className="btn-dark">
+                      <Button onClick={(e) => {addCartHandler(req)}} className="btn-dark">
                         Add to Cart
                       </Button>
                     );
