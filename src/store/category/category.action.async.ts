@@ -91,7 +91,7 @@ export const deleteCategoryActionThunk = (categoryId: string): any => {
       .deleteCategory(categoryId)
       .then((res) => {
         if (res?.status === 201 || res?.status === 204) {
-          successToast("Product deleted successfully");
+          successToast("Category deleted successfully");
           dispatch(deleteCategorySuccess({ categoryId }));
         } else {
           errorToast("Something went wrong");
