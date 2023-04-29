@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { Dropdown } from "react-bootstrap";
 import SweetAlert from "react-bootstrap-sweetalert";
 
 import {
@@ -19,10 +17,6 @@ const OrderList = () => {
   const loading = useSelector((state: TRootState) => state?.user?.loading);
   const { users } = useSelector((state: TRootState) => state?.user?.usersList);
   const [sweetAlert, setSweetAlert] = useState(false);
-
-  const showAlert = () => {
-    setSweetAlert(true);
-  };
 
   const hideAlert = () => {
     setSweetAlert(false);
@@ -93,8 +87,6 @@ const OrderList = () => {
                             <th className="text-center">Email</th>
                             <th className="text-center">Mobile Number</th>
                             <th className="text-center">Status</th>
-                            {/* <th className="text-center">Credits</th> */}
-                            {/* <th className="table-field-actions">Actions</th> */}
                           </tr>
                         </thead>
                         <tbody>
@@ -122,29 +114,6 @@ const OrderList = () => {
                                         ? "Verified"
                                         : "Un-Verified"}
                                     </td>
-
-                                    {/* <td className="text-center">
-                                      {user?.totalCredits || 0}
-                                    </td> */}
-                                    {/* <td className="">
-                                      <Dropdown className="btn-group">
-                                        <Dropdown.Toggle
-                                          id="dropdown-basic"
-                                          className="btn btn-sm btn-icon-only"
-                                        ></Dropdown.Toggle>
-
-                                        <Dropdown.Menu>
-                                          <Dropdown.Item
-                                            onClick={() => {
-                                              setUserId(user?.id as string);
-                                              showAlert();
-                                            }}
-                                          >
-                                            Delete
-                                          </Dropdown.Item>
-                                        </Dropdown.Menu>
-                                      </Dropdown>
-                                    </td> */}
                                   </tr>
                                 </React.Fragment>
                               ))

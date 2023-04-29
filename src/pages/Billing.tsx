@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Stepper } from "react-form-stepper";
 
 class Billing extends Component<any, any> {
   continue = (e: any) => {
@@ -38,30 +37,6 @@ class Billing extends Component<any, any> {
       <div className="form mt-3">
         <h3 className="text-center mb-4">Billing Information</h3>
         <form>
-          {/* <Stepper
-            steps={[
-              { label: "Business Information" },
-              { label: "Billing" },
-              { label: "Review" },
-            ]}
-            activeStep={1}
-            styleConfig={{
-              activeBgColor: "#2b7cff",
-              activeTextColor: "#fff",
-              inactiveBgColor: "#fff",
-              inactiveTextColor: "#2b7cff",
-              completedBgColor: "#fff",
-              completedTextColor: "#2b7cff",
-              size: "3em",
-              circleFontSize: "1rem",
-              labelFontSize: "0.875rem",
-              borderRadius: "50%",
-              fontWeight: "500",
-            }}
-            className={"stepper"}
-            stepClassName={"stepper__step"}
-          /> */}
-
           <div className="form-group">
             <div className="form-group__element">
               <label

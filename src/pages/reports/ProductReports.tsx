@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import * as excel from "exceljs";
 import { saveAs } from "file-saver";
-import moment from "moment";
 
 import Pagination from "../../components/pagination/pagination";
 import Report from "./list";
