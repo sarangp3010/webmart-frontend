@@ -303,11 +303,12 @@ const StatusBar: React.FC<any> = () => {
             </p>
           )}
         </div>
+        {profile?.userType.includes("user") ? 
         <div className="cart">
           <Link to="/cart">
             <img className="rounded-circle" src={logo2} alt="Logo" />
           </Link>
-        </div>
+        </div> : null}
         <div>
           <Link
             className="contactUs background-color:transparentbg-transparent"
