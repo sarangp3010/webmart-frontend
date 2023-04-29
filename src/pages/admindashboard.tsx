@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../stylesheets/pages/_admindashboard.scss";
-import { Nav, Navbar, Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
   useNavigate,
 } from "react-router-dom";
 
@@ -41,8 +37,6 @@ const AdminDashboard = () => {
         console.log(error);
       });
   };
-
-  const pendingRequest = () => {};
 
   useEffect(() => {
     getCount();

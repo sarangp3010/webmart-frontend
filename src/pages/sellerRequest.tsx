@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "../stylesheets/pages/_admindashboard.scss";
 import "../stylesheets/pages/_becomeSeller.scss";
@@ -6,7 +6,7 @@ import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
 
 const SellerRequest = (props: any) => {
-  const { request, profile } = props || {};
+  const { request } = props || {};
   const [message, setMessage] = useState("");
   console.log("In Seller Reuqest personal", request);
 
@@ -21,7 +21,6 @@ const SellerRequest = (props: any) => {
     accountName,
     routingNumber,
     accountNumber,
-    submitData,
     id,
   } = request || {};
 
@@ -32,7 +31,6 @@ const SellerRequest = (props: any) => {
   };
 
   const handleClickOnAcceptOrDecline = (decision: string) => {
-    const { id: userId } = profile || {};
     const token = localStorage.getItem("lToken");
 
     axios("http://localhost:3333/users/sellerRequestDecision", {

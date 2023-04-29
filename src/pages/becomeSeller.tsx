@@ -4,13 +4,11 @@ import BusinessInformation from "./businessInformation";
 import Billing from "./Billing";
 import Review from "./review";
 import axios from "axios";
-import TRootState from "../store/root.types";
-import { useSelector, useDispatch, connect } from "react-redux";
+
+import { connect } from "react-redux";
 import { TGetProfilePayload } from "../store/profile/profile.types";
 import { Navigate } from "react-router-dom";
 import { refreshProfileAction } from "../store/profile/profile.action";
-
-const levelsData = ["Beginner", "Intermediate", "Advanced"];
 
 interface Props {
   // In your case
@@ -65,7 +63,6 @@ class becomeSeller extends Component<Props> {
       },
     })
       .then((response) => {
-        console.log("In sellerInfo ", response);
         const {
           companyRegistrationNumber,
           streetAddress,
@@ -121,7 +118,7 @@ class becomeSeller extends Component<Props> {
   };
 
   validateCompanyRegistrationNumber = () => {
-    if (this.state.companyRegistrationNumber.length != 10) {
+    if (this.state.companyRegistrationNumber.length !== 10) {
       this.setState({
         isErrorCompanyRegistrationNumber: true,
         errorMessageCompanyRegistrationNumber:
@@ -182,7 +179,7 @@ class becomeSeller extends Component<Props> {
   };
 
   validateZip = () => {
-    if (this.state.zip.length != 5) {
+    if (this.state.zip.length !== 5) {
       this.setState({
         isErrorZip: true,
         errorMessageZip: "Zip code should be 5 digit",

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { Button, Dropdown } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 import logo from "../../assets/Images/Free_Sample_By_Wix.jpg";
 import logo2 from "../../assets/Images/download.png";
 import logo3 from "../../assets/Images/images.png";
@@ -72,15 +72,21 @@ const StatusBar: React.FC<any> = () => {
             <h1 style={{ minWidth: "188px" }}>{"WebMart"}</h1>
           </Link>
         </div>
-        <div className="search-area">
-          <input type="text" placeholder="Search" />
-          <Link
-            to={"/afterSearch"}
-            className="btn btn-primary"
-            style={{ padding: "5px 5px", borderRadius: "12px" }}
-          >
-            Search
-          </Link>
+        <div className="input-group" style={{ minWidth: "200px", maxWidth: "450px"}}>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search products"
+          />
+          <div className="input-group-append">
+            <button
+              className="btn btn-secondary"
+              type="button"
+              onClick={() => navigate("/afterSearch")}
+            >
+              <i className="fa fa-search"></i>
+            </button>
+          </div>
         </div>
         {!profile?.userType?.includes("admin") ? (
           <div className="coins">

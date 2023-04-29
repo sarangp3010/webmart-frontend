@@ -36,7 +36,8 @@ const ProductsAdd = () => {
     hideAlert();
   };
 
-  const handleClick = () => {
+  const handleClick = (e: any) => {
+    e.preventDefault();
     navigate("/products/new", { state: { tab: 1 } });
   };
 
@@ -69,7 +70,9 @@ const ProductsAdd = () => {
                     <button
                       type="button"
                       className="btn btn-primary"
-                      onClick={() => handleClick()}
+                      onClick={(e) => {
+                        handleClick(e);
+                      }}
                     >
                       Add New Product
                     </button>
@@ -137,7 +140,8 @@ const ProductsAdd = () => {
                                             Edit
                                           </Dropdown.Item>
                                           <Dropdown.Item
-                                            onClick={() => {
+                                            onClick={(e) => {
+                                              e?.preventDefault();
                                               setProductId(p?.id as string);
                                               showAlert();
                                             }}

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Stepper } from "react-form-stepper";
 
 class BusinessInformation extends Component<any, any> {
   continue = (e: any) => {
@@ -55,34 +54,8 @@ class BusinessInformation extends Component<any, any> {
 
     return (
       <div className="form mt-3">
-        <h3 className="text-center mb-4">
-          Business Information
-        </h3>
+        <h3 className="text-center mb-4">Business Information</h3>
         <form>
-          {/* <Stepper
-            steps={[
-              { label: "Business Information" },
-              { label: "Billing" },
-              { label: "Review" },
-            ]}
-            activeStep={0}
-            styleConfig={{
-              activeBgColor: "#2b7cff",
-              activeTextColor: "#fff",
-              inactiveBgColor: "#fff",
-              inactiveTextColor: "#2b7cff",
-              completedBgColor: "#fff",
-              completedTextColor: "#2b7cff",
-              size: "3em",
-              circleFontSize: "1rem",
-              labelFontSize: "0.875rem",
-              borderRadius: "50%",
-              fontWeight: "500",
-            }}
-            className={"stepper"}
-            stepClassName={"stepper__step"}
-          /> */}
-
           <div className="form-group">
             <div className="form-group__element">
               <label
@@ -136,11 +109,11 @@ class BusinessInformation extends Component<any, any> {
                 className="form-group__input d-block mx-auto"
                 placeholder="Street Address"
               />
-              {isErrorStreetAddress && errorMessageStreetAddress ?
+              {isErrorStreetAddress && errorMessageStreetAddress ? (
                 <p className="d-block error">
                   {isErrorStreetAddress && errorMessageStreetAddress}
-                </p> : null
-              }
+                </p>
+              ) : null}
               <input
                 type="text"
                 value={addressLine2}
@@ -158,10 +131,9 @@ class BusinessInformation extends Component<any, any> {
                 className="form-group__input d-block mx-auto"
                 placeholder="City / Town"
               />
-              {
-                isErrorCity && errorMessageCity ?
-                  <p className="error">{isErrorCity && errorMessageCity}</p> : null
-              }
+              {isErrorCity && errorMessageCity ? (
+                <p className="error">{isErrorCity && errorMessageCity}</p>
+              ) : null}
 
               <input
                 type="text"
@@ -172,10 +144,9 @@ class BusinessInformation extends Component<any, any> {
                 className="form-group__input d-block mx-auto"
                 placeholder="State / Region"
               />
-              {
-                isErrorState && errorMessageState ?
-                  <p className="error">{isErrorState && errorMessageState}</p> : null
-              }
+              {isErrorState && errorMessageState ? (
+                <p className="error">{isErrorState && errorMessageState}</p>
+              ) : null}
 
               <input
                 type="text"
@@ -186,12 +157,9 @@ class BusinessInformation extends Component<any, any> {
                 className="form-group__input d-block mx-auto"
                 placeholder="ZIP / Postal code"
               />
-              {
-                isErrorZip && errorMessageZip ?
-                  <p className="error">{isErrorZip && errorMessageZip}</p>
-                  : null
-              }
-
+              {isErrorZip && errorMessageZip ? (
+                <p className="error">{isErrorZip && errorMessageZip}</p>
+              ) : null}
             </div>
           </div>
 

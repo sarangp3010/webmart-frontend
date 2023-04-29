@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import {
   getAllModifyRequests,
   updateModificaitonRequest,
 } from "../../services/modificationRequests/modificationRequestsService";
-import { useSelector } from "react-redux";
-import TRootState from "../../store/root.types";
 
 const ModificaitionRequests = (props: any) => {
   const [prevRequests, setPrevRequests] = useState([]);

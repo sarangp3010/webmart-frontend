@@ -3,6 +3,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getProductByIdActionThunk } from "../../store/products/products.action.async";
+import { getProductByIdFailed } from "../../store/products/products.action";
 import TRootState from "../../store/root.types";
 
 import BasicDetails from "./basicDetails";
@@ -70,6 +71,11 @@ const ProductsAdd:React.FC<Prop> = () => {
           }
         )
       );
+    } else {
+      dispatch(
+        getProductByIdFailed()
+      );
+      navigate("/products/new", {state: { tab: 1}})
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
