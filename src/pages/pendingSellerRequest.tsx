@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../stylesheets/pages/_admindashboard.scss";
-import { Nav, Navbar, Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import SellerRequest from "./sellerRequest";
 
 const PendingSellerRequest = () => {
@@ -13,11 +13,10 @@ const PendingSellerRequest = () => {
     axios
       .get("http://localhost:3333/users/pendingSellerRequest")
       .then((response) => {
-        console.log("In API ", response.data.pendingRequest);
         setData(response.data.pendingRequest || []);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 

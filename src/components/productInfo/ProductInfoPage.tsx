@@ -6,7 +6,6 @@ import {
   Form,
   Container,
   Image,
-  Table,
 } from "react-bootstrap";
 import { addCarts } from "../../services/cart/cartService";
 import { getProductById } from "../../services/products/productsService";
