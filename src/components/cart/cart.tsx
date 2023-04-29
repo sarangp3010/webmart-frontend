@@ -8,6 +8,7 @@ const Cart = (props: any) => {
 
     const fetchData = async () => {
         const data = await getCarts();
+        console.log(data, "---what is data");
         props?.setData(data.data.carts);
     };
 
@@ -43,14 +44,14 @@ const Cart = (props: any) => {
                         <tr>
                             <th scope="col" className="border-0" style={{ minWidth: "500px" }}>
                                 <div className="text-uppercase"><img src={props?.data?.product?.thumbnailImage} alt="Not Present" width="100" className="rounded shadow-sm d-inline" />
-                                    <h5 className="mb-0 ms-4 d-inline">{props?.data?.product?.name}</h5>
+                                    <h5 className="mb-0 ms-4 d-inline">{props?.data?.product?.name}  {" "} {props?.data?.comment==null?"":`(${props?.data?.comment})`}</h5>
                                 </div>
                             </th>
                             <th scope="col" className="border-0">
                                 <div className="" style={{ marginBottom: "50px" }}>{props?.data?.product?.price}</div>
                             </th>
                             <th scope="col" className="border-0">
-                                <div className="" style={{ marginBottom: "50px" }}><input type='number' value={props.data.quantity} onChange={e => debounce(modifyhandler(Number(e.target.value), props?.data?.id), 1500)} style={{ maxWidth: "40px" }}></input></div>
+                                <div className="" style={{ marginBottom: "50px" }}><input type='number' value={props.data.quantity} min={1} onChange={e => debounce(modifyhandler(Number(e.target.value), props?.data?.id), 1500)} style={{ maxWidth: "40px" }}></input></div>
                             </th>
                             <th scope="col" className="border-0">
                                 <div className="" style={{ marginBottom: "50px" }}><button onClick={e => removeCart(props?.data?.id)} className="text-dark"><i className="fa fa-trash"></i></button></div>

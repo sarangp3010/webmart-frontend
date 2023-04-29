@@ -34,14 +34,26 @@ const ProductInfoPage = () => {
   const [productProperties, setProductProperties] = useState([] as any);
   const [productImage, setProductImage] = useState("");
   const [productPrice, setProductPrice] = useState("");
-  const [productQuantity, setProductQuantity] = useState("");
- 
+  const [productQuantity, setProductQuantity] = useState(0);
+  const [cartComment, setCartComment] = useState("");
+
+  const addToCartWithComment = () => {
+    const handler = async (data: any) => {
+      await addCarts(data);
+    };
+
+    console.log(cartComment, "--coments");
+
+    handler({ productId: productId, quantity: productQuantity==0?1:productQuantity, comment: cartComment});
+    successToast("Product added in cart!!!");
+  };
+
   const addToCart = () => {
     const handler = async (data: any) => {
       await addCarts(data);
     };
 
-    handler({ productId: productId, quantity: productQuantity==""?1:productQuantity});
+    handler({ productId: productId, quantity: productQuantity==0?1:productQuantity});
     successToast("Product added in cart!!!");
   };
 
@@ -89,8 +101,9 @@ const ProductInfoPage = () => {
                     className="form-control form-control-sm"
                     type="number"
                     min = {0}
+                    value={productQuantity}
                     onChange={(event) => {
-                      setProductQuantity(event.target.value);
+                      setProductQuantity(Number(event.target.value));
                     }}
                   />
                 </Col>
@@ -99,7 +112,7 @@ const ProductInfoPage = () => {
                 <Col>
                   <Button
                     className="btn-dark mb-1"
-                    onClick={(e) => {
+                    onClick={async (e) => {
                       addToCart();
                     }}
                   >
@@ -122,7 +135,7 @@ const ProductInfoPage = () => {
           </Col>
         </Row>
         
-        <Customization data={{productId,  productProperties}} addToCart={addToCart}/>
+        <Customization data={{productId,  productProperties}} addToCartWithComment={addToCartWithComment} setCartComment={setCartComment}/>
 
         <div className="similar-products-container">
           <Row className="justify-content-center mt-5 mb-2 p-2">
