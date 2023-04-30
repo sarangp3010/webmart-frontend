@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+
 import "../stylesheets/pages/_admindashboard.scss";
 import { Container, Button } from "react-bootstrap";
 import SellerRequest from "./sellerRequest";
+
+import { API } from "../middleware/middleware";
 
 const PendingSellerRequest = () => {
   const [data, setData] = useState([]);
@@ -10,8 +12,8 @@ const PendingSellerRequest = () => {
   const [request, setRequest] = useState({});
 
   const getPendingRequest = () => {
-    axios
-      .get("http://localhost:3333/users/pendingSellerRequest")
+    API
+      .get("/users/pendingSellerRequest")
       .then((response) => {
         setData(response.data.pendingRequest || []);
       })

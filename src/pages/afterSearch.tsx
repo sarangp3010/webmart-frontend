@@ -53,7 +53,7 @@ const AfterSeach: React.FC<any> = () => {
             {(filteredData || []).length ? (
               <>
                 {(filteredData || []).map((product : any, i : any) => (
-                  <Col key={i} md={6} lg={4} className="">
+                  <Col key={i} className="">
                     <Product data={product} />
                   </Col>
                 ))}
