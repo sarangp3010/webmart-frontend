@@ -5,6 +5,7 @@ import { Container } from "react-bootstrap";
 import {
   useNavigate,
 } from "react-router-dom";
+import { API } from "../middleware/middleware";
 
 const AdminDashboard = () => {
   //const [data, setData] = useState({
@@ -20,10 +21,9 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
 
   const getCount = () => {
-    axios
-      .get("http://localhost:3333/dashboard/count")
+    API
+      .get("/dashboard/count")
       .then((response) => {
-        console.log("In API ", response.data);
         setCategories(response.data.categoryCount);
         setBrands(response.data.brandsCount);
         setUsers(response.data.userCount);

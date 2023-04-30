@@ -3,12 +3,13 @@ import "../stylesheets/pages/_becomeSeller.scss";
 import BusinessInformation from "./businessInformation";
 import Billing from "./Billing";
 import Review from "./review";
-import axios from "axios";
+import axios, { Axios } from "axios";
 
 import { connect } from "react-redux";
 import { TGetProfilePayload } from "../store/profile/profile.types";
 import { Navigate } from "react-router-dom";
 import { refreshProfileAction } from "../store/profile/profile.action";
+import { API } from "../middleware/middleware";
 
 interface Props {
   // In your case
@@ -55,7 +56,7 @@ class becomeSeller extends Component<Props> {
   componentDidMount(): void {
     const token = localStorage.getItem("lToken");
 
-    axios("http://localhost:3333/users/sellerInfo", {
+    API("users/sellerInfo", {
       method: "GET",
       headers: {
         Authorization: `bearer ${token}`,
@@ -279,8 +280,8 @@ class becomeSeller extends Component<Props> {
     console.log("Token", token);
 
     if (id) {
-      axios("http://localhost:3333/users/become-seller", {
-        method: "PUT",
+      API("users/become-seller", {
+      method: "PUT",
         data: {
           companyRegistrationNumber,
           streetAddress,
@@ -310,7 +311,7 @@ class becomeSeller extends Component<Props> {
           console.log(error);
         });
     } else {
-      axios("http://localhost:3333/users/become-seller", {
+      API("/users/become-seller", {
         method: "POST",
         data: {
           companyRegistrationNumber,

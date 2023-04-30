@@ -4,6 +4,7 @@ import "../stylesheets/pages/_admindashboard.scss";
 import "../stylesheets/pages/_becomeSeller.scss";
 import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
+import { API } from "../middleware/middleware";
 
 const SellerRequest = (props: any) => {
   const { request } = props || {};
@@ -33,7 +34,7 @@ const SellerRequest = (props: any) => {
   const handleClickOnAcceptOrDecline = (decision: string) => {
     const token = localStorage.getItem("lToken");
 
-    axios("http://localhost:3333/users/sellerRequestDecision", {
+    API("/users/sellerRequestDecision", {
       method: "POST",
       data: {
         userId: request.user.id,
