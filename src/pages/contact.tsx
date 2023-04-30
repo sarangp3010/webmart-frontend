@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import backgroundImage from "../assets/Images/contact-background.jpg";
+import backgroundImage from "../Assets/Images/contact-background.jpg";
 
 const ContactPage = () => {
   return (
